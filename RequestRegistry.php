@@ -1,31 +1,55 @@
 <?php
 /**
+ * The Request Registry Class file
  *
+ * @author Jesse Lesperance
+ * @copyright 2009 - JPL Web Innovations
+ * @filesource
+ * @package MVC
+ * @version 1.0
  */
-require_once ('Registry.php');
 /**
+ * Include the Registry Abstract Class
  *
- * @author Jesse
+ * @link Registry.php
+ */
+include 'Registry.php';
+/**
+ * The Request Registry Class for storing and retrieving the request object
  *
+ * @author Jesse Lesperance
+ * @subpackage Registry
  */
 class RequestRegistry extends Registry {
 	/**
+	 * An array that holds the registry object
 	 *
+	 * @access private
+	 * @var array
 	 */
 	private $_values = array();
 	/**
+	 * The instance of the class
 	 *
-	 * @var unknown_type
+	 * @var object
+	 * @access private
+	 * @staticvar
 	 */
 	private static $_instance;
 	/**
+	 * The constructor
 	 *
+	 * @access private
 	 */
 	private function __construct() {
 
 	}
 	/**
+	 * Static function to get an instance of the class
 	 *
+	 * @access public
+	 * @static
+	 * @return object
 	 */
 	public static function getInstance(){
 		if(!isset(self::$_instance))
