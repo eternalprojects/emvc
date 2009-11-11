@@ -1,6 +1,7 @@
 <?php
 
-set_include_path(get_include_path() . PATH_SEPARATOR . '/lib/');
+set_include_path(get_include_path() . PATH_SEPARATOR . 'lib/');
+
 require_once 'Jpl/AutoLoader.php';
 spl_autoload_register(array('Jpl_AutoLoader','autoLoad'));
 
@@ -13,7 +14,7 @@ require_once './controller/home_controller.php';
 
 $baseUrl = 'http://localhost';
 
-$router = new Router();
+$router = new Jpl_Router();
 
 $router->registerRoute(new Route('about/index', 'about', 'index'));
 $router->registerRoute(new Route('about', 'about', 'index'));
