@@ -1,7 +1,7 @@
 <?php
 // The Router class stores Routes and handles all MVC related
 //   routing logic
-class Router {
+class Jpl_Router {
     private $routes = array();
     
     function __construct() {        

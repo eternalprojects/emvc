@@ -1,6 +1,6 @@
 <?php
 
-class AutoLoader {
+class Jpl_AutoLoader {
 	
 	private function __construct() {
 	
