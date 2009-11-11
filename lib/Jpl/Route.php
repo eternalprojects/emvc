@@ -1,7 +1,7 @@
 <?php
 // Route serves as a container for specifying a url route
 //   that points to a controller and view
-class Route {
+class Jpl_Route {
     private $url = '';
     private $controllerName = '';
     private $actionName = '';    

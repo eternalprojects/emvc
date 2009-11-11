@@ -16,18 +16,18 @@ $baseUrl = 'http://localhost';
 
 $router = new Jpl_Router();
 
-$router->registerRoute(new Route('about/index', 'about', 'index'));
-$router->registerRoute(new Route('about', 'about', 'index'));
+$router->registerRoute(new Jpl_Route('about/index', 'about', 'index'));
+$router->registerRoute(new Jpl_Route('about', 'about', 'index'));
 
-$router->registerRoute(new Route('article/index', 'article', 'index'));
-$router->registerRoute(new Route('article/view', 'article', 'view'));
-$router->registerRoute(new Route('article/addsubmit', 'article', 'addsubmit'));
-$router->registerRoute(new Route('article/add', 'article', 'add'));
-$router->registerRoute(new Route('article', 'article', 'index'));
+$router->registerRoute(new Jpl_Route('article/index', 'article', 'index'));
+$router->registerRoute(new Jpl_Route('article/view', 'article', 'view'));
+$router->registerRoute(new Jpl_Route('article/addsubmit', 'article', 'addsubmit'));
+$router->registerRoute(new Jpl_Route('article/add', 'article', 'add'));
+$router->registerRoute(new Jpl_Route('article', 'article', 'index'));
 
-$router->registerRoute(new Route('home/index', 'home', 'index'));
-$router->registerRoute(new Route('home', 'home', 'index'));
-$router->registerRoute(new Route('', 'home', 'index'));
+$router->registerRoute(new Jpl_Route('home/index', 'home', 'index'));
+$router->registerRoute(new Jpl_Route('home', 'home', 'index'));
+$router->registerRoute(new Jpl_Route('', 'home', 'index'));
 
 $router->callControllerAction();
 ?>
