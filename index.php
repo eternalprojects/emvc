@@ -5,8 +5,6 @@ set_include_path(get_include_path() . PATH_SEPARATOR . 'lib/');
 require_once 'Jpl/AutoLoader.php';
 spl_autoload_register(array('Jpl_AutoLoader','autoLoad'));
 
-
-require_once './lib/simplemvcwf/route.php';
 require_once './model/dbconfig.php';
 require_once './controller/about_controller.php';
 require_once './controller/article_controller.php';
