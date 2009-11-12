@@ -7,9 +7,19 @@ class Jpl_AutoLoader {
 	}
 	
 	public static function AutoLoad($class){
-		$path = str_ireplace("_", "/", $class);
+		$parts = explode('_', $class);
+		switch ($parts[0]){
+			case 'Model':
+				array_shift($parts);
+				$path = APPLICATION_PATH . '/model/' . implode('/', $parts);
+				break;
+			default:
+				$path = implode('/', $parts);
+				break;
+		}
 		if (@include_once $path .'.php')
 			return;
+		
 	}
 }
 

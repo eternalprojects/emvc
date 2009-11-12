@@ -1,8 +1,7 @@
 <?php
-require_once './lib/simplemvcwf/view_data.php';
-require_once './lib/simplemvcwf/controller_base.php';
 
-class AboutController Extends ControllerBase {
+
+class AboutController Extends Jpl_Controller_Front {
     function index() {
         // Specify the navigation column's path so we can include it based
         //   on the action being rendered

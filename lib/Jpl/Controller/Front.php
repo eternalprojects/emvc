@@ -11,8 +11,12 @@ abstract class Jpl_Controller_Front {
         $this->view = new Jpl_View();
     }
     
-    public function __destruct(){
+    public function run(){
     	
+    }
+    
+    public function __destruct(){
+    	$this->view->render();
     }
     
     
