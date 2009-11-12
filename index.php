@@ -9,6 +9,8 @@ spl_autoload_register(array('Jpl_AutoLoader','autoLoad'));
 
 $baseUrl = 'http://localhost';
 
-phpinfo();
+$frontController = new Jpl_Controller_Front();
+
+$frontController->run();
 
 ?>

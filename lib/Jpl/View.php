@@ -7,7 +7,9 @@ class Jpl_View  {
     function __construct() {        
     }
 
-    
+    public function render(){
+    	phpinfo();
+    }
 
 }
 ?>
