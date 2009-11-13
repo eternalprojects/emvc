@@ -2,7 +2,7 @@
 
 require_once ('lib/Jpl/Registry/Abstract.php');
 
-class Jpl_Registry_AppRegistry extends Jpl_Registry_Abstract {
+class Jpl_Registry_Application extends Jpl_Registry_Abstract {
 	private static $_instance;
 	private $_data = array();
 	
