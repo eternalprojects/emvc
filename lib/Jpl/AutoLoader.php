@@ -30,13 +30,20 @@
  *
  */
 /**
+ * A class to automate loding of class files
  * 
- * @author lesperancej
+ * This class contains a method used by the spl_register_autoloader function to 
+ * automatically load class files.  It checks the first part of the class name 
+ * to determine whether to load from the library or load from the model directory
+ *   
+ * @package MVC-Core
+ * @subpackage AutoLoader
+ * @author jesse Lesperance <jesse@jplesperance.com>
  *
  */
 class Jpl_AutoLoader {
 	/**
-	 * 
+	 * default constructor - methods should onle be use statically
 	 */
 	private function __construct() {
 	
