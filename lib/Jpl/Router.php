@@ -1,61 +1,96 @@
 <?php
-// The Router class stores Routes and handles all MVC related
-//   routing logic
+/**
+ * Contains the AutoLoader class
+ * 
+ * License:
+ * 
+ * Copyright (c) 2009, JPL Web Solutions, 
+ *                     Jesse Lesperance <jesse@jplesperance.com>
+ * 
+ * This file is part of JPL-MVC.
+ * 
+ * JPL-MVC is free software: you can redistribute it and/or modify 
+ * it under the terms of the GNU General Public License as published 
+ * by the Free Software Foundation, either version 3 of the License, or 
+ * (at your option) any later version.  JPL-MVC is distributed in the hope 
+ * that it will be useful, but WITHOUT ANY WARRANTY; without even the 
+ * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * 
+ * See the GNU General Public License for more details. You should have received 
+ * a copy of the GNU General Public License along with JPL-MVC.  
+ * 
+ * If not, see <http://www.gnu.org/licenses/>.
+ * 
+ * @package MVC-Core
+ * @subpackage Router
+ * @author Jesse Lesperance <jesse@jplesperance.com>
+ * @copyright 2009 JPL Web Solutions
+ * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @version SVN: $Id$
+ *
+ */
+/**
+ * A class for registering and calling defined routes
+ *  
+ * @package MVC-Core
+ * @subpackage Router
+ * @author jesse Lesperance <jesse@jplesperance.com>
+ *
+ */
 class Jpl_Router {
-    private $routes = array();
-    
-    function __construct() {        
+	/**
+	 * an array of all the registered routes
+	 * 
+	 * @var array
+	 * @access private
+	 */
+    private $_routes = array();
+    /**
+     * defualt constructor
+     * 
+     * @access public
+     */
+    public function __construct() {        
     }
-   
-    function registerRoute($route) {
-        $this->routes[] = $route;        
+   	/**
+   	 * registers the predefined route
+   	 * 
+   	 * This function accepts an instance of the Jpl_Route object that was created 
+   	 * when defining a custom route
+   	 * 
+   	 * @access public
+   	 * @param Jpl_Route $route
+   	 * @see Jpl_Route::__construct()
+   	 */
+    public function registerRoute(Jpl_Route $route) {
+        $this->_routes[] = $route;        
     }
-    
-    // Gets the Route for the current request
-    function getCurrentRoute() {
-        $santitizedUrl = '';        
-        if (!empty($_GET['route'])) {
-            $santitizedUrl = trim($_GET['route']);
-        }
-        
-        return $this->getMatchingRoute($santitizedUrl);
-    }    
-    
-    // Gets the registered route that matches the specified
-    //   sanitized url
-    function getMatchingRoute($santitizedUrl) {
-        
-        foreach ($this->routes as &$route) {            
+    /**
+     * gets the corresponding defined route
+     * 
+     * @param string $santitizedUrl
+     * @return Jpl_Route
+     * @access private
+     */
+    private function _getMatchingRoute($santitizedUrl) {
+        foreach ($this->_routes as &$route) {            
             if ($route->isMatch($santitizedUrl)) {
                 return $route;            
             }
         }
-        
-        return null;
     }
-    
-    // Calls the controller's action that the matching route points to
-    function callControllerAction() {
-        $santitizedUrl = '';        
-        if (!empty($_GET['route'])) {
-            $santitizedUrl = trim($_GET['route']);
-        }
-
-        $route = $this->getMatchingRoute($santitizedUrl);
-        if ($route != null) {
-            $actionValues = explode('/', ltrim(str_replace($route->getUrl(), '', $santitizedUrl), '/'));
-            $controllerName = $route->getControllerName();
-            $controllerName = $controllerName . 'Controller'; 
-            $controller = new $controllerName;
-            $action = $route->getActionName();
-            $controller->$action($actionValues);
-        } else {
-            // If we've entered this else section, we've effectively been unable to match
-            //   the specified url to a registered route. Normally we would throw a 404
-            //   error and return a user friendly message stating so, however, I'm leaving
-            //   that as an exersize for the reader
-        }
-        
+    /**
+     * calls the action and controller matching the route
+     * 
+     * @access public
+     */
+    public function callControllerAction() {
+        $route = (isset($_GET['route']))?trim($_GET['route']):'index/index';
+        $matchedRoute = $this->_getMatchingRoute($route);
+        $controllerName = $matchedRoute->getControllerName() . 'Controller';
+        $controller = new $controllerName();
+        $actionName = $matchedRoute->getActionName() . 'Action';
+        $controller->$actionName();
     }
 }
 ?>

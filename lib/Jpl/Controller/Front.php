@@ -7,14 +7,17 @@
 //   each controller class to process page logic as easily as
 //   possible
 class Jpl_Controller_Front {
-    protected $viewData;    
+    protected $_view;    
+    protected $_router;
     
     function __construct() {
-        $this->view = new Jpl_View();
+        $this->_view = new Jpl_View();
+        $this->_router = new Jpl_Router();
+        $this->_run();
     }
     
-    public function run(){
-    	
+    private function _run(){
+    	$this->_router->callControllerAction();
     }
     
     public function __destruct(){

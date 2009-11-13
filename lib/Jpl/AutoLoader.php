@@ -49,8 +49,24 @@ class Jpl_AutoLoader {
 	
 	}
 	/**
+	 * The method for autoloading classes
 	 * 
-	 * @param unknown_type $class
+	 * This function takes the class name specified an makes it an array.  It 
+	 * checks to see if the class name begins with 'Model' which determines the 
+	 * path it loads from.
+	 * 
+	 * The format it expects the class name to be in is: Some_Class_name which
+	 * would include the file: Some/Class/Name.php
+	 * 
+	 * This method is for use by the spl_register_autoloader function.  Example:
+	 * <code>
+	 * spl_register_autoloader(array('AutoLoader','AutoLoad'));
+	 * </code>
+	 * 
+	 * @param string $class the name of the class
+	 * @return boolean true if the file was able to be included
+	 * @access Public
+	 * @static
 	 */
 	public static function AutoLoad($class){
 		$parts = explode('_', $class);
@@ -68,5 +84,3 @@ class Jpl_AutoLoader {
 		
 	}
 }
-
-?>

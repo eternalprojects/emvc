@@ -1,39 +1,131 @@
 <?php
-// Route serves as a container for specifying a url route
-//   that points to a controller and view
+/**
+ * Contains the Route class
+ * 
+ * License:
+ * 
+ * Copyright (c) 2009, JPL Web Solutions, 
+ *                     Jesse Lesperance <jesse@jplesperance.com>
+ * 
+ * This file is part of JPL-MVC.
+ * 
+ * JPL-MVC is free software: you can redistribute it and/or modify 
+ * it under the terms of the GNU General Public License as published 
+ * by the Free Software Foundation, either version 3 of the License, or 
+ * (at your option) any later version.  JPL-MVC is distributed in the hope 
+ * that it will be useful, but WITHOUT ANY WARRANTY; without even the 
+ * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+ * 
+ * See the GNU General Public License for more details. You should have received 
+ * a copy of the GNU General Public License along with JPL-MVC.  
+ * 
+ * If not, see <http://www.gnu.org/licenses/>.
+ * 
+ * @package MVC-Core
+ * @subpackage Router
+ * @author Jesse Lesperance <jesse@jplesperance.com>
+ * @copyright 2009 JPL Web Solutions
+ * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @version SVN: $Id$
+ *
+ */
+/**
+ * A class to define custom URL routes
+ * 
+ * This class contains methods for defining custom URL routes and mapping them 
+ * to the appropriate controller and actions
+ *   
+ * @package MVC-Core
+ * @subpackage Router
+ * @author jesse Lesperance <jesse@jplesperance.com>
+ *
+ */
 class Jpl_Route {
-    private $url = '';
-    private $controllerName = '';
-    private $actionName = '';    
-    
-    function __construct($url, $controllerName, $actionName) {
-        $this->url = $url;
-        $this->controllerName = $controllerName;
-        $this->actionName = $actionName;
+	/**
+	 * the url to be mapped
+	 * 
+	 * @var string
+	 * @access private
+	 */
+    private $_url;
+    /**
+     * the controller that the url maps to
+     * 
+     * @var string
+     * @access private
+     */
+    private $_controllerName;
+    /**
+     * the action the url maps to
+     * 
+     * @var string
+     * @access private
+     */
+    private $_actionName;    
+    /**
+     * The parameters to pass to the action
+     * 
+     * @var array
+     * @access private
+     */
+    private $_params;
+    /**
+     * the constructor method builds the mapping
+     * 
+     * takes the supplied 2 part url: /some/thing and allows you to specify the 
+     * contrller anem and action that the url will map to
+     * 
+     * @param string $url the url to be mapped
+     * @param string $controllerName the controller name for the mapping
+     * @param string $actionName the action name for the mapping
+     * @access public
+     */
+    public function __construct($url, $controllerName, $actionName) {
+        $this->_url = $url;
+        $this->_controllerName = ucwords($controllerName);
+        $this->_actionName = $actionName;
     }
-    
-    function getUrl() {
-        return $this->url;
+    /**
+     * retrieve the mapped url
+     * 
+     * @access public
+     * @return string the mapped url
+     */
+    public function getUrl() {
+        return $this->_url;
     }
-    
-    function getControllerName() {
-        return $this->controllerName;
+    /**
+     * get the mapped controller name
+     * 
+     * @access public
+     * @return string the mapped controller name
+     */
+    public function getControllerName() {
+        return $this->_controllerName;
     }
-   
-    function getActionName() {
-        return $this->actionName;
+	/**
+	 * retrieve the mapped action name
+	 * 
+	 * @access public 
+	 * @return string the mapped action name
+	 */   
+    public function getActionName() {
+        return $this->_actionName;
     }
-    
-    // Determines whether the specified url matches the route
-    // Note: this function can return true for any url that starts
-    //   with the route's url property. It is therefore important that
-    //   routes be ordered from most specific to least specific in
-    //   the index.php page.
-    function isMatch($url) {
-        if ($this->url == substr($url, 0, strlen($this->url)))        
-            return true;
-        else
-            return false;
+    /**
+     * check to see if the requested url matches a defined route
+     * 
+     * This checks to see if the specified url matches a defined route.  Currently 
+     * this will return as a match if beginning of the url provided matches a 
+     * defined route.
+     * 
+     * @access public
+     * @todo make this match a defined route exactly
+     * @param string $url the url to be matched
+     * @return boolean
+     */
+    public function isMatch($url) {
+        return ($this->url == substr($url, 0, strlen($this->url)))?true:false;        
     }
 }
 ?>
