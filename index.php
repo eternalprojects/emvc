@@ -5,12 +5,12 @@ defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FIL
 set_include_path(get_include_path() . PATH_SEPARATOR . APPLICATION_PATH . '/lib/');
 
 require_once 'Jpl/AutoLoader.php';
-spl_autoload_register(array('Jpl_AutoLoader','autoLoad'));
+spl_autoload_register(array('Jpl_AutoLoader','AutoLoad'));
 
 $baseUrl = 'http://localhost';
 
-$frontController = new Jpl_Controller_Front();
+new Jpl_Controller_Front();
 
-$frontController->run();
+
 
 ?>

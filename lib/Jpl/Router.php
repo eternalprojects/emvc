@@ -76,6 +76,8 @@ class Jpl_Router {
         foreach ($this->_routes as &$route) {            
             if ($route->isMatch($santitizedUrl)) {
                 return $route;            
+            }else{
+                return false;
             }
         }
     }
@@ -86,11 +88,19 @@ class Jpl_Router {
      */
     public function callControllerAction() {
         $route = (isset($_GET['route']))?trim($_GET['route']):'index/index';
-        $matchedRoute = $this->_getMatchingRoute($route);
-        $controllerName = $matchedRoute->getControllerName() . 'Controller';
-        $controller = new $controllerName();
-        $actionName = $matchedRoute->getActionName() . 'Action';
-        $controller->$actionName();
+        if($matchedRoute = $this->_getMatchingRoute($route)){
+            $controllerName = $matchedRoute->getControllerName() . 'Controller';
+            $controller = new $controllerName();
+            $actionName = $matchedRoute->getActionName() . 'Action';
+            $controller->$actionName();
+        }else{
+            $routeArray = explode('/',$route);
+            $controllerName = ucfirst($routeArray[0]) . 'Controller';
+            $controller = new $controllerName();
+            $actionName = (isset($routeArray[1]))?$routeArray[1]:'index';
+            $actionName = $actionName . 'Action';
+            $controller->$actionName();
+        }
     }
 }
 ?>
