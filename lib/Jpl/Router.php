@@ -96,10 +96,12 @@ class Jpl_Router {
         }else{
             $routeArray = explode('/',$route);
             $controllerName = ucfirst($routeArray[0]) . 'Controller';
-            $controller = new $controllerName();
+            if(!$controller = new $controllerName())
+            	throw new Exception("Controller: $controllerName could not be found!");
             $actionName = (isset($routeArray[1]))?$routeArray[1]:'index';
             $actionName = $actionName . 'Action';
             $controller->$actionName();
+            return array($controllerName, $actionName);
         }
     }
 }
