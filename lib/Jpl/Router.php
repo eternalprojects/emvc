@@ -89,18 +89,22 @@ class Jpl_Router {
     public function callControllerAction() {
         $route = (isset($_GET['route']))?trim($_GET['route']):'index/index';
         if($matchedRoute = $this->_getMatchingRoute($route)){
-            $controllerName = $matchedRoute->getControllerName() . 'Controller';
+            $controllerPart = $matchedRoute->getControllerName();
+            $controllerName = $controllerPart . 'Controller';
             $controller = new $controllerName();
-            $actionName = $matchedRoute->getActionName() . 'Action';
+            $actionPart = $matchedRoute->getActionName();
+            $actionName = $actionPart . 'Action';
             $controller->$actionName();
+            return array($controllerPart, $actionPart);
         }else{
             $routeArray = explode('/',$route);
-            $controllerName = ucfirst($routeArray[0]) . 'Controller';
+            $controllerPart = ucfirst($routeArray[0]);
+            $controllerName = $controllerPart . 'Controller';
             $controller = new $controllerName();
-            $actionName = (isset($routeArray[1]))?$routeArray[1]:'index';
+            $actionPart = (isset($routeArray[1]))?$routeArray[1]:'index';
             $actionName = $actionName . 'Action';
             $controller->$actionName();
-            return array($controllerName, $actionName);
+            return array($controllerPart, $actionPart);
         }
     }
 }

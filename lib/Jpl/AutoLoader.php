@@ -82,7 +82,10 @@ class Jpl_AutoLoader {
 				$path = APPLICATION_PATH . '/controller/' . implode('/', $parts);
 				break;
 		}
-		if (@include_once $path .'.php'){
+		if(!file_exists($path . '.php')){
+			header("location: /404.php");
+		}else{
+			@include_once $path .'.php';
 			return;
 		}
 		
