@@ -18,11 +18,7 @@ class Jpl_Controller_Front {
     }
     
     private function _run(){
-    	try{
-    		$this->_route = $this->_router->callControllerAction();
-    	}catch(Exception $e){
-    		die($e->getMessage());
-    	}
+    	$this->_route = $this->_router->callControllerAction();
     }
     
     public function __destruct(){
