@@ -83,7 +83,7 @@ class Jpl_AutoLoader {
 				break;
 		}
 		if(!file_exists($path . '.php')){
-			header("location: /404.php");
+			include(APPLICATION_PATH . '/view/errors/404.php');
 		}else{
 			@include_once $path .'.php';
 			return;
