@@ -21,7 +21,7 @@ class Jpl_Controller_Front {
     }
     
     public function __destruct(){
-    	$this->view->render();
+    	$this->_view->render();
     }
     
     
