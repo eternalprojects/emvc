@@ -83,7 +83,7 @@ class Jpl_AutoLoader {
 				break;
 		}
 		if (@include_once $path .'.php'){
-			echo "Included $class file";
+			echo "Included $class file\n";
 			return;
 		}
 		
