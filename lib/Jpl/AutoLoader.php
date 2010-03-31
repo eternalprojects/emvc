@@ -79,11 +79,10 @@ class Jpl_AutoLoader {
 				$path = implode('/', $parts);
 				break;
 			default:
-				$path = APPLICATION_PATH . '/controller/' .implode('/', $parts);
+				$path = APPLICATION_PATH . '/controller/' . implode('/', $parts);
 				break;
 		}
 		if (@include_once $path .'.php'){
-			echo "Included $class file\n";
 			return;
 		}
 		
