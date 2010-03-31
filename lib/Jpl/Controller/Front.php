@@ -23,7 +23,6 @@ class Jpl_Controller_Front {
     
     public function __destruct(){
     	$this->_view->render($this->_route);
-    	exit;
     }
     
     
