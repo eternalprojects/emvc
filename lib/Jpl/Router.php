@@ -102,7 +102,7 @@ class Jpl_Router {
             $controllerName = $controllerPart . 'Controller';
             $controller = new $controllerName();
             $actionPart = (isset($routeArray[1]))?$routeArray[1]:'index';
-            $actionName = $actionName . 'Action';
+            $actionPart = $actionName . 'Action';
             $controller->$actionName();
             return array($controllerPart, $actionPart);
         }
