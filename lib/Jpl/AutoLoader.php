@@ -84,8 +84,6 @@ class Jpl_AutoLoader {
 		}
 		if (@include_once $path .'.php'){
 			return;
-		}else{
-			include APPLICATION_PATH . '/view/errors/404.php';
 		}
 		
 		

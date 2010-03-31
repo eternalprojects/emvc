@@ -44,7 +44,7 @@ class Jpl_Router {
 	 * @var array
 	 * @access private
 	 */
-    private $_routes = array();
+    private static $_routes = array();
     /**
      * defualt constructor
      * 
@@ -62,8 +62,8 @@ class Jpl_Router {
    	 * @param Jpl_Route $route
    	 * @see Jpl_Route::__construct()
    	 */
-    public function registerRoute(Jpl_Route $route) {
-        $this->_routes[] = $route;        
+    public static function registerRoute(Jpl_Route $route) {
+        self::$_routes[] = $route;        
     }
     /**
      * gets the corresponding defined route
@@ -73,7 +73,7 @@ class Jpl_Router {
      * @access private
      */
     private function _getMatchingRoute($santitizedUrl) {
-        foreach ($this->_routes as &$route) {            
+        foreach (self::$_routes as &$route) {            
             if ($route->isMatch($santitizedUrl)) {
                 return $route;            
             }else{
@@ -86,9 +86,9 @@ class Jpl_Router {
      * 
      * @access public
      */
-    public function callControllerAction() {
+    public static function callControllerAction() {
         $route = (isset($_GET['route']))?trim($_GET['route']):'index/index';
-        if($matchedRoute = $this->_getMatchingRoute($route)){
+        if($matchedRoute = self::getMatchingRoute($route)){
             $controllerPart = $matchedRoute->getControllerName();
             $controllerName = $controllerPart . 'Controller';
             $controller = new $controllerName();
