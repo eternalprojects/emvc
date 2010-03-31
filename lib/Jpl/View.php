@@ -8,7 +8,7 @@ class Jpl_View  {
     }
 
     public function render($view){
-    	include APPLICATION_PATH . '/view/'.strtolower($view[0]).'/'.$view[1].'.phtml';
+    	print_r($view);
     }
 
 }
