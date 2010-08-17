@@ -16,7 +16,7 @@ class Jpl_Controller_Front {
     }
     
     public final function run(){
-	$this->_view = new Jpl_View();
+		$this->_view = new Jpl_View();
     	$this->_route = JPL_Router::callControllerAction();
     }
     
