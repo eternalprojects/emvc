@@ -23,7 +23,7 @@ class Jpl_View  {
 	public function __get($key)
     {
 
-        return null;
+        return $key;
     }
     
 }
