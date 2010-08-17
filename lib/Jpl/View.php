@@ -10,7 +10,7 @@ class Jpl_View  {
     public function render($view){
     	$folder = strtolower($view[0]);
     	$file = $view[1];
-    	include "/view/$folder/$file.phtml";
+    	include APPLICATION_PATH . "/view/$folder/$file.phtml";
     }
 
 }
