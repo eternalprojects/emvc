@@ -13,4 +13,20 @@ class Jpl_View  {
     	include APPLICATION_PATH . "/view/$folder/$file.phtml";
     }
     
+	public function __set(){
+		if ('_' != substr($key, 0, 1)) {
+            $this->$key = $val;
+            return;
+        }
+	}
+	
+	public function __get($key)
+    {
+        if ($this->_strictVars) {
+            trigger_error('Key "' . $key . '" does not exist', E_USER_NOTICE);
+        }
+
+        return null;
+    }
+    
 }
