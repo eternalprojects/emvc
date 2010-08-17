@@ -13,7 +13,7 @@ class Jpl_View  {
     	include APPLICATION_PATH . "/view/$folder/$file.phtml";
     }
     
-	public function __set(){
+	public function __set($key, $val){
 		if ('_' != substr($key, 0, 1)) {
             $this->$key = $val;
             return;
