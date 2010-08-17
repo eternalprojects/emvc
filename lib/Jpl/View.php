@@ -4,7 +4,7 @@
 class Jpl_View  {
     private $vars = array();
 
-    function __construct() {        
+    public function __construct() {        
     }
 
     public function render($view){
@@ -12,4 +12,3 @@ class Jpl_View  {
     }
 
 }
-?>

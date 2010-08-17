@@ -88,7 +88,7 @@ class Jpl_Router {
      */
     public static function callControllerAction() {
         $route = (isset($_GET['route']))?trim($_GET['route']):'index/index';
-        if($matchedRoute = self::getMatchingRoute($route)){
+	if($matchedRoute = self::_getMatchingRoute($route)){
             $controllerPart = $matchedRoute->getControllerName();
             $controllerName = $controllerPart . 'Controller';
             $controller = new $controllerName();
