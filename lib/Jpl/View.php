@@ -12,5 +12,5 @@ class Jpl_View  {
     	$file = $view[1];
     	include APPLICATION_PATH . "/view/$folder/$file.phtml";
     }
-
+    
 }

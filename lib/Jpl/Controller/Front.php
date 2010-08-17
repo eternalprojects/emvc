@@ -8,7 +8,7 @@ require_once APPLICATION_PATH . '/lib/Jpl/View.php';
 //   each controller class to process page logic as easily as
 //   possible
 class Jpl_Controller_Front {
-    protected $_view;    
+    protected $view;    
     protected $_route;
     
     public function __construct() {    
@@ -16,13 +16,13 @@ class Jpl_Controller_Front {
     }
     
     public final function run(){
-		$this->_view = new Jpl_View();
+		$this->view = new Jpl_View();
     	$this->_route = JPL_Router::callControllerAction();
-    	$this->_view->render($this->_route);
+    	$this->view->render($this->_route);
     }
     
     public function __destruct(){
-    	$this->_view = null;
+    	$this->view = null;
     	$this->_route = null;
     }
     
