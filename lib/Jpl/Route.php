@@ -73,7 +73,7 @@ class Jpl_Route {
      * the constructor method builds the mapping
      * 
      * takes the supplied 2 part url: /some/thing and allows you to specify the 
-     * contrller anem and action that the url will map to
+     * contrller name and action that the url will map to
      * 
      * @param string $url the url to be mapped
      * @param string $controllerName the controller name for the mapping
