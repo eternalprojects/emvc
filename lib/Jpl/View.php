@@ -10,12 +10,13 @@ class Jpl_View  {
     public function render($view){
     	$folder = strtolower($view[0]);
     	$file = $view[1];
+		var_dump($this->vars);
     	include APPLICATION_PATH . "/view/$folder/$file.phtml";
     }
     
 	public function __set($key, $val){
 		if ('_' != substr($key, 0, 1)) {
-            $this->$key = $val;
+            $this->vars[$key] = $val;
             return;
         }
 	}
@@ -23,7 +24,7 @@ class Jpl_View  {
 	public function __get($key)
     {
 
-        return $key;
+        return $this->vars[$key];
     }
     
 }

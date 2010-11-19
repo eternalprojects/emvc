@@ -12,17 +12,16 @@ class Jpl_Controller_Front {
     protected $_route;
     
     public function __construct() {    
+	$this->view = new Jpl_View();
         
     }
     
     public final function run(){
-		$this->view = new Jpl_View();
     	$this->_route = JPL_Router::callControllerAction();
     	$this->view->render($this->_route);
     }
     
     public function __destruct(){
-    	$this->view = null;
     	$this->_route = null;
     }
     
