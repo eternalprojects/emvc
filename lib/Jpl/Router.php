@@ -91,21 +91,17 @@ class Jpl_Router {
 		if($matchedRoute = self::_getMatchingRoute($route)){
             $controllerPart = $matchedRoute->getControllerName();
             $controllerName = $controllerPart . 'Controller';
-            $controller = new $controllerName();
             $actionPart = $matchedRoute->getActionName();
-            $actionName = $actionPart . 'Action';
-            $controller->$actionName();
-            return array($controllerPart, $actionPart);
         }else{
             $routeArray = explode('/',$route);
             $controllerPart = ucfirst($routeArray[0]);
             $controllerName = $controllerPart . 'Controller';
-            $controller = new $controllerName();
             $actionPart = (isset($routeArray[1]))?$routeArray[1]:'index';
-            $actionName = $actionPart . 'Action';
-            $controller->$actionName();
-            return array($controllerPart, $actionPart);
         }
+		$controller = new $controllerName(array($controllerPart, $actionPart));
+        $actionName = $actionPart . 'Action';
+        $controller->$actionName();
+
     }
 }
 ?>
