@@ -4,8 +4,8 @@
  * 
  * License:
  * 
- * Copyright (c) 2009, JPL Web Solutions, 
- *                     Jesse Lesperance <jesse@jplesperance.com>
+ * Copyright (c) 2010, JPL Web Solutions, 
+ * Jesse Lesperance <jesse@jlesperance.com>
  * 
  * This file is part of JPL-MVC.
  * 
@@ -23,8 +23,8 @@
  * 
  * @package MVC-Core
  * @subpackage Loader
- * @author Jesse Lesperance <jesse@jplesperance.com>
- * @copyright 2009 JPL Web Solutions
+ * @author Jesse Lesperance <jesse@jlesperance.com>
+ * @copyright 2010 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
  * @version SVN: $Id$
  *
@@ -35,58 +35,59 @@
  * This class contains a method used by the spl_register_autoloader function to 
  * automatically load class files.  It checks the first part of the class name 
  * to determine whether to load from the library or load from the model directory
- *   
+ * 
  * @package MVC-Core
  * @subpackage AutoLoader
- * @author jesse Lesperance <jesse@jplesperance.com>
+ * @author jesse Lesperance <jesse@jlesperance.com>
  *
  */
-class Jpl_AutoLoader {
-	/**
-	 * default constructor - methods should onle be use statically
-	 */
-	private function __construct() {
-	
-	}
-	/**
-	 * The method for autoloading classes
-	 * 
-	 * This function takes the class name specified an makes it an array.  It 
-	 * checks to see if the class name begins with 'Model' which determines the 
-	 * path it loads from.
-	 * 
-	 * The format it expects the class name to be in is: Some_Class_name which
-	 * would include the file: Some/Class/Name.php
-	 * 
-	 * This method is for use by the spl_register_autoloader function.  Example:
-	 * <code>
-	 * spl_register_autoloader(array('AutoLoader','AutoLoad'));
-	 * </code>
-	 * 
-	 * @param string $class the name of the class
-	 * @return boolean true if the file was able to be included
-	 * @access Public
-	 * @static
-	 */
-	public static function AutoLoad($class){
-		$parts = explode('_', $class);
-		switch ($parts[0]){
-			case 'Model':
-				array_shift($parts);
-				$path = APPLICATION_PATH . '/model/' . implode('/', $parts);
-				break;
-			case 'Jpl':
-				$path = implode('/', $parts);
-				break;
-			default:
-				$path = APPLICATION_PATH . '/controller/' . implode('/', $parts);
-				break;
-		}
-		if (@include_once $path .'.php'){
-			return;
-		}
-		
-		
-		
-	}
+class Jpl_AutoLoader
+{
+    /**
+     * default constructor - methods should onle be use statically
+     */
+    private function __construct ()
+    {}
+    /**
+     * The method for autoloading classes
+     * 
+     * This function takes the class name specified an makes it an array.  It 
+     * checks to see if the class name begins with 'Model' which determines the 
+     * path it loads from.
+     * 
+     * The format it expects the class name to be in is: Some_Class_name which
+     * would include the file: Some/Class/Name.php
+     * 
+     * This method is for use by the spl_register_autoloader function.  Example:
+     * <code>
+     * spl_register_autoloader(array('AutoLoader','AutoLoad'));
+     * </code>
+     * 
+     * @param string $class the name of the class
+     * @return boolean true if the file was able to be included
+     * @access Public
+     * @static
+     */
+    public static function AutoLoad ($class)
+    {
+        $parts = explode('_', $class);
+        switch ($parts[0]) {
+            case 'Model':
+                array_shift($parts);
+                $path = APPLICATION_PATH . '/model/' . implode('/', $parts);
+                break;
+            case 'Jpl':
+                $path = implode('/', $parts);
+                break;
+            case 'Form':
+                $path = implode('/', $parts);
+                break;
+            default:
+                $path = APPLICATION_PATH . '/controller/' . implode('/', $parts);
+                break;
+        }
+        if (@include_once $path . '.php') {
+            return;
+        }
+    }
 }
