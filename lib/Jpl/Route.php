@@ -5,7 +5,7 @@
  * License:
  * 
  * Copyright (c) 2009, JPL Web Solutions, 
- *                     Jesse Lesperance <jesse@jplesperance.com>
+ * Jesse Lesperance <jesse@jlesperance.com>
  * 
  * This file is part of JPL-MVC.
  * 
@@ -23,7 +23,7 @@
  * 
  * @package MVC-Core
  * @subpackage Router
- * @author Jesse Lesperance <jesse@jplesperance.com>
+ * @author Jesse Lesperance <jesse@jlesperance.com>
  * @copyright 2009 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
  * @version SVN: $Id$
@@ -34,19 +34,20 @@
  * 
  * This class contains methods for defining custom URL routes and mapping them 
  * to the appropriate controller and actions
- *   
+ * 
  * @package MVC-Core
  * @subpackage Router
- * @author jesse Lesperance <jesse@jplesperance.com>
+ * @author jesse Lesperance <jesse@jlesperance.com>
  *
  */
-class Jpl_Route {
-	/**
-	 * the url to be mapped
-	 * 
-	 * @var string
-	 * @access private
-	 */
+class Jpl_Route
+{
+    /**
+     * the url to be mapped
+     * 
+     * @var string
+     * @access private
+     */
     private $_url;
     /**
      * the controller that the url maps to
@@ -61,7 +62,7 @@ class Jpl_Route {
      * @var string
      * @access private
      */
-    private $_actionName;    
+    private $_actionName;
     /**
      * The parameters to pass to the action
      * 
@@ -80,7 +81,8 @@ class Jpl_Route {
      * @param string $actionName the action name for the mapping
      * @access public
      */
-    public function __construct($url, $controllerName, $actionName) {
+    public function __construct ($url, $controllerName, $actionName)
+    {
         $this->_url = $url;
         $this->_controllerName = ucwords($controllerName);
         $this->_actionName = $actionName;
@@ -91,7 +93,8 @@ class Jpl_Route {
      * @access public
      * @return string the mapped url
      */
-    public function getUrl() {
+    public function getUrl ()
+    {
         return $this->_url;
     }
     /**
@@ -100,16 +103,18 @@ class Jpl_Route {
      * @access public
      * @return string the mapped controller name
      */
-    public function getControllerName() {
+    public function getControllerName ()
+    {
         return $this->_controllerName;
     }
-	/**
-	 * retrieve the mapped action name
-	 * 
-	 * @access public 
-	 * @return string the mapped action name
-	 */   
-    public function getActionName() {
+    /**
+     * retrieve the mapped action name
+     * 
+     * @access public 
+     * @return string the mapped action name
+     */
+    public function getActionName ()
+    {
         return $this->_actionName;
     }
     /**
@@ -124,8 +129,9 @@ class Jpl_Route {
      * @param string $url the url to be matched
      * @return boolean
      */
-    public function isMatch($url) {
-        return ($this->url == substr($url, 0, strlen($this->url)))?true:false;        
+    public function isMatch ($url)
+    {
+        return ($this->url == substr($url, 0, strlen($this->url))) ? true : false;
     }
 }
 ?>

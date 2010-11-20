@@ -94,7 +94,7 @@ class Jpl_Registry_Application implements Jpl_Registry_Interface
      * 
      * @param string $name
      * @access protected
-     * @return mixed
+     * @return mixed|null
      */
     protected function __get ($name)
     {
@@ -115,7 +115,7 @@ class Jpl_Registry_Application implements Jpl_Registry_Interface
      * retrieves data from the registry
      * 
      * @param string $name
-     * @return mixed
+     * @return mixed|null
      * @static
      */
     public static function get ($name)
