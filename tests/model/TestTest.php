@@ -4,6 +4,6 @@ class TestTest extends PHPUnit_Framework_TestCase{
     public function testTested(){
         $test = new Test();
 	$res = $test->newMethod(); 
-        $this->assertEquals('tested',$res);
+        $this->assertEquals('Tested',$res);
     }
 }
