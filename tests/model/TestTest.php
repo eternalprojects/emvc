@@ -1,5 +1,5 @@
 <?php
-require_once (dir_name(__FILE__) . '/../../model/Test.php');
+require_once (dirname(__FILE__) . '/../../model/Test.php');
 class TestTest extends PHPUnit_Framework_TestCase{
     public function testTested(){
         $test = new Test();
