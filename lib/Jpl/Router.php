@@ -29,6 +29,7 @@
  * @version SVN: $Id$
  *
  */
+require_once(APPLICATION_PATH . '/controllers/IndexController.php');
 /**
  * A class for registering and calling defined routes
  * 
