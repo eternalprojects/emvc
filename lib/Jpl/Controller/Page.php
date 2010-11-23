@@ -29,6 +29,7 @@
  * @version SVN: $Id$
  *
  */
+require_once APPLICATION_PATH . '/lib/Jpl/View.php';
 /**
  * The Page Controller Abstract class
  * 
