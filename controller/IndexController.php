@@ -4,11 +4,11 @@ class IndexController extends Jpl_Controller_Page
 {
     public function indexAction ()
     {
-        $this->view->title = "test";
+        $this->view->title = "Index View";
     }
     public function assertAction ()
     {
-        $this->view->title = "Tested";
+        $this->view->title = "Assert View";
     }
 }
 ?>
