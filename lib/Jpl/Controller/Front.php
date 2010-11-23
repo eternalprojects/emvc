@@ -29,6 +29,7 @@
  * @version SVN: $Id$
  *
  */
+require_once APPLICATION_PATH . '/lib/Jpl/Router.php';
 /**
  * The Front Controller for dispatching requests
  * 
