@@ -6,7 +6,8 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
 {
     public function testCallControllerNoURL(){
         $view = Jpl_Router::callControllerAction();
-        $this->assertStringStartsWith('Index View', $view);
+        print_r($view);
+        $this->assertStringStartsWith('Index View', (string)$view);
     }
 }
 ?>
