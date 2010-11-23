@@ -105,7 +105,11 @@ class Jpl_Router
         }
         $controller = new $controllerName(array($controllerPart, $actionPart));
         $actionName = $actionPart . 'Action';
-        $controller->$actionName();
+        if(method_exists($controller, $actionName)){
+            $controller->$actionName();
+        }else{
+            throw new Jpl_Exception_InvalidAction($actionName . "Does not exist in " . $controllerName);
+        }
     }
 }
 ?>
