@@ -5,7 +5,11 @@ require_once(APPLICATION_PATH . '/lib/Jpl/AutoLoader.php');
 
 class AutoLoaderTest extends PHPUnit_Framework_TestCase {
 	public function testFailedAutoLoad(){
-		$this->assertFalse(Jpl_AutoLoader::AutoLoad('Model_Test'));
+		$this->assertFalse(Jpl_AutoLoader::AutoLoad('Model_Tested'));
+	}
+	
+	public function testSuccessfulAutoLoad(){
+		$this->assertTrue(Jpl_AutoLoader::AutoLoad('Model_Test'));
 	}
 }
 
