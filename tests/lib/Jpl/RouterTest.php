@@ -29,5 +29,23 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
         ob_end_clean();
         $this->assertStringStartsWith('Assert View', $view);
     }
+    
+    public function testCallControllerWithInvalidAction(){
+        $_GET['route'] = 'index/test';
+        ob_start();
+        Jpl_Router::callControllerAction();
+        $view = ob_get_contents();
+        ob_end_clean();
+        $this->assertStringStartsWith('Assert View', $view);
+    }
+    
+    public function testCallControllerWithInvalidController(){
+        $_GET['route'] = 'test/assert';
+        ob_start();
+        Jpl_Router::callControllerAction();
+        $view = ob_get_contents();
+        ob_end_clean();
+        $this->assertStringStartsWith('Assert View', $view);
+    }
 }
 ?>
