@@ -1,3 +1,3 @@
 <?php
 
-define('APPLICATION_PATH', dirname(__FILE__) . '/_files');
+define('APPLICATION_PATH', dirname(__FILE__) . '/..');
