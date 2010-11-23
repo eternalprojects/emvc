@@ -14,7 +14,7 @@ class Jpl_RouteTest extends PHPUnit_Framework_TestCase
     }
     
     public function testGetControllerName(){
-        $this->assertEquals('test', $this->route->getControllerName());
+        $this->assertEquals('Test', $this->route->getControllerName());
     }
     
     public function testGetActionName(){
