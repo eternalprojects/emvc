@@ -131,7 +131,7 @@ class Jpl_Route
      */
     public function isMatch ($url)
     {
-        return ($this->_url == substr($url, 0, strlen($this->url))) ? true : false;
+        return ($this->_url == substr($url, 0, strlen($this->_url))) ? true : false;
     }
 }
 ?>
