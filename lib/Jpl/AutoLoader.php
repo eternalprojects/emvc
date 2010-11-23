@@ -77,17 +77,19 @@ class Jpl_AutoLoader
                 $path = APPLICATION_PATH . '/model/' . implode('/', $parts);
                 break;
             case 'Jpl':
-                $path = implode('/', $parts);
+                $path = APPLICATION_PATH . '/lib/' . implode('/', $parts);
                 break;
             case 'Form':
-                $path = implode('/', $parts);
+                $path = APPLICATION_PATH . '/forms/' . implode('/', $parts);
                 break;
             default:
                 $path = APPLICATION_PATH . '/controller/' . implode('/', $parts);
                 break;
         }
         if (@include_once $path . '.php') {
-            return;
+            return TRUE;
+        }else{
+        	return FALSE;
         }
     }
 }
