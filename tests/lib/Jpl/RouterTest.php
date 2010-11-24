@@ -55,7 +55,7 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
     public function testRegisterRoute(){
         $route = new Jpl_Route('/test/assert', 'test', 'test');
         Jpl_Router::registerRoute($route);
-        $_GET['route'] = 'test/assert';
+        $_GET['route'] = '/test/assert';
         try{
             Jpl_Router::callControllerAction();
         }catch(Jpl_Exception_InvalidController $e){
