@@ -30,6 +30,8 @@
  *
  */
 require_once APPLICATION_PATH . '/lib/Jpl/Router.php';
+require_once APPLICATION_PATH . '/controller/ErrorController.php';
+require_once APPLICATION_PATH . '/Jpl/Exception/InvalidAction.php';
 /**
  * The Front Controller for dispatching requests
  * 

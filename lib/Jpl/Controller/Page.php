@@ -30,7 +30,6 @@
  *
  */
 require_once APPLICATION_PATH . '/lib/Jpl/View.php';
-require_once APPLICATION_PATH . '/controllers/ErrorController.php';
 /**
  * The Page Controller Abstract class
  * 
