@@ -11,5 +11,8 @@ class Jpl_AutoLoaderTest extends PHPUnit_Framework_TestCase
     {
         $this->assertTrue(Jpl_AutoLoader::AutoLoad('Model_Test'));
     }
+    public function testJplAutoLoad(){
+        $this->assertTrue(Jpl_AutoLoader::AutoLoad('Jpl_Route'));
+    }
 }
 ?>
