@@ -37,18 +37,18 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
         try{
             Jpl_Router::callControllerAction();
         }catch(Jpl_Exception_InvalidAction $e){
-            $this->assertEquals("test action does not exist in IndexController", $e->getMessage());
+            $this->assertEquals("testActionDoes does not exist in IndexController", $e->getMessage());
         }
         
     }
     
     public function testCallControllerWithInvalidController(){
         $_GET['route'] = 'test/assert';
-        ob_start();
-        Jpl_Router::callControllerAction();
-        $view = ob_get_contents();
-        ob_end_clean();
-        $this->assertStringStartsWith('Assert View', $view);
+        try{
+            Jpl_Router::callControllerAction();
+        }catch(Jpl_Exception_InvalidController $e){
+            $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
+        }
     }
 }
 ?>
