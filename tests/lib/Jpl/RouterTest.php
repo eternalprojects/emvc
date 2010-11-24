@@ -1,7 +1,6 @@
 <?php
 require_once 'TestHelper.php';
 require_once APPLICATION_PATH . '/lib/Jpl/Router.php';
-require_once APPLICATION_PATH . '/lib/Jpl/Route.php';
 require_once(APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php');
 require_once(APPLICATION_PATH . '/lib/Jpl/Exception/InvalidController.php');
 
