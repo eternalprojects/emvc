@@ -61,5 +61,15 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
             $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
         }
     }
+    public function testRegisterRoute(){
+        $route = new Jpl_Route('/test/test', 'test', 'test');
+        Jpl_Router::registerRoute($route);
+        $_GET['route'] = '/test/assert';
+        try{
+            Jpl_Router::callControllerAction();
+        }catch(Jpl_Exception_InvalidController $e){
+            $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
+        }
+    }
 }
 ?>

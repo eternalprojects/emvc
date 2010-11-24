@@ -49,13 +49,6 @@ class Jpl_Router
      */
     private static $_routes = array();
     /**
-     * defualt constructor
-     * 
-     * @access public
-     */
-    public function __construct ()
-    {}
-    /**
      * registers the predefined route
      * 
      * This function accepts an instance of the Jpl_Route object that was created 
