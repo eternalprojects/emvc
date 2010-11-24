@@ -57,7 +57,12 @@ class Jpl_Controller_Front
      */
     public final function run ()
     {
-        JPL_Router::callControllerAction();
+        try{
+            JPL_Router::callControllerAction();
+        }catch(Jpl_Exception_InvalidAction $e){
+            $error = new ErrorController();
+            $error->error($e);
+        }
     }
 }
 ?>

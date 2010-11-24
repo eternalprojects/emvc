@@ -30,6 +30,7 @@
  *
  */
 require_once(APPLICATION_PATH . '/controller/IndexController.php');
+require_once('Jpl/Exception/InvalidAction');
 /**
  * A class for registering and calling defined routes
  * 
