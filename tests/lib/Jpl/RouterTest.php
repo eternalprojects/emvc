@@ -1,6 +1,8 @@
 <?php
 require_once 'TestHelper.php';
 require_once APPLICATION_PATH . '/lib/Jpl/Router.php';
+require_once(APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php');
+require_once(APPLICATION_PATH . '/lib/Jpl/Exception/InvalidController.php');
 
 class Jpl_RouterTest extends PHPUnit_Framework_TestCase
 {
@@ -32,11 +34,12 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
     
     public function testCallControllerWithInvalidAction(){
         $_GET['route'] = 'index/test';
-        ob_start();
-        Jpl_Router::callControllerAction();
-        $view = ob_get_contents();
-        ob_end_clean();
-        $this->assertStringStartsWith('Assert View', $view);
+        try{
+            Jpl_Router::callControllerAction();
+        }catch(Jpl_Exception_InvalidAction $e){
+            $this->assertEquals("test action does not exist in IndexController", $e);
+        }
+        
     }
     
     public function testCallControllerWithInvalidController(){
