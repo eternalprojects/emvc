@@ -37,7 +37,7 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
         try{
             Jpl_Router::callControllerAction();
         }catch(Jpl_Exception_InvalidAction $e){
-            $this->assertEquals("test action does not exist in IndexController", $e);
+            $this->assertEquals("test action does not exist in IndexController", $e->getMessage());
         }
         
     }
