@@ -69,8 +69,8 @@ class Jpl_View
     {
         if ('_' != substr($key, 0, 1)) {
             $this->vars[$key] = $val;
-            return;
         }
+        return;
     }
     /**
      * 
