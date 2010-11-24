@@ -1,6 +1,7 @@
 <?php
 require_once 'TestHelper.php';
 require_once APPLICATION_PATH . '/lib/Jpl/Router.php';
+require_once APPLICATION_PATH . '/lib/Jpl/Route.php';
 require_once(APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php');
 require_once(APPLICATION_PATH . '/lib/Jpl/Exception/InvalidController.php');
 
@@ -43,6 +44,17 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
     }
     
     public function testCallControllerWithInvalidController(){
+        $_GET['route'] = 'test/assert';
+        try{
+            Jpl_Router::callControllerAction();
+        }catch(Jpl_Exception_InvalidController $e){
+            $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
+        }
+    }
+    
+    public function testRegisterRoute(){
+        $route = new Jpl_Route('/test/test', 'test', 'test');
+        Jpl_Router::registerRoute($route);
         $_GET['route'] = 'test/assert';
         try{
             Jpl_Router::callControllerAction();
