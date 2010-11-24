@@ -104,7 +104,11 @@ class Jpl_Router
             $controllerName = $controllerPart . 'Controller';
             $actionPart = (isset($routeArray[1])) ? $routeArray[1] : 'index';
         }
-        $controller = new $controllerName(array($controllerPart, $actionPart));
+        if(class_exists($controllerName)){
+            $controller = new $controllerName(array($controllerPart, $actionPart));
+        }else{
+            throw new Jpl_Exception_InvalidController($controllerName . "Does not exist.");
+        }
         $actionName = $actionPart . 'Action';
         if(method_exists($controller, $actionName)){
             $controller->$actionName();

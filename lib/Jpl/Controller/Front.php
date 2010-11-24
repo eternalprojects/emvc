@@ -32,6 +32,7 @@
 require_once APPLICATION_PATH . '/lib/Jpl/Router.php';
 require_once APPLICATION_PATH . '/controller/ErrorController.php';
 require_once APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php';
+require_once APPLICATION_PATH . '/lib/Jpl/Exception/InvalidController.php';
 /**
  * The Front Controller for dispatching requests
  * 
@@ -62,6 +63,9 @@ class Jpl_Controller_Front
         try{
             JPL_Router::callControllerAction();
         }catch(Jpl_Exception_InvalidAction $e){
+            $error = new ErrorController();
+            $error->error($e);
+        }catch(Jpl_Exception_InvalidController $e){
             $error = new ErrorController();
             $error->error($e);
         }
