@@ -16,8 +16,8 @@
  * that it will be useful, but WITHOUT ANY WARRANTY; without even the 
  * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
  * 
- * See the GNU General Public License for more details. You should have received 
- * a copy of the GNU General Public License along with JPL-MVC.  
+ * See the GNU General Public License for more details. You should have 
+ * received a copy of the GNU General Public License along with JPL-MVC.  
  * 
  * If not, see <http://www.gnu.org/licenses/>.
  * 
@@ -29,8 +29,8 @@
  * @version SVN: $Id$
  *
  */
-require_once(APPLICATION_PATH . '/controller/IndexController.php');
-require_once(APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php');
+require_once (APPLICATION_PATH . '/controller/IndexController.php');
+require_once (APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php');
 /**
  * A class for registering and calling defined routes
  * 
@@ -51,8 +51,8 @@ class Jpl_Router
     /**
      * registers the predefined route
      * 
-     * This function accepts an instance of the Jpl_Route object that was created 
-     * when defining a custom route
+     * This function accepts an instance of the Jpl_Route object that was 
+     * created when defining a custom route
      * 
      * @access public
      * @param Jpl_Route $route
@@ -97,16 +97,20 @@ class Jpl_Router
             $controllerName = $controllerPart . 'Controller';
             $actionPart = (isset($routeArray[1])) ? $routeArray[1] : 'index';
         }
-        if(class_exists($controllerName)){
-            $controller = new $controllerName(array($controllerPart, $actionPart));
-        }else{
-            throw new Jpl_Exception_InvalidController($controllerName . "Does not exist.");
+        if (class_exists($controllerName)) {
+            $controller = new $controllerName(
+                array($controllerPart, $actionPart)
+            );
+        } else {
+            throw new Jpl_Exception_InvalidController($controllerName . 
+            	"Does not exist.");
         }
         $actionName = $actionPart . 'Action';
-        if(method_exists($controller, $actionName)){
+        if (method_exists($controller, $actionName)) {
             $controller->$actionName();
-        }else{
-            throw new Jpl_Exception_InvalidAction($actionName . "Does not exist in " . $controllerName);
+        } else {
+            throw new Jpl_Exception_InvalidAction($actionName . 
+            	"Does not exist in " . $controllerName);
         }
     }
 }
