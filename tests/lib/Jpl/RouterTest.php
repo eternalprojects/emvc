@@ -62,7 +62,7 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
         }
     }
     public function testRegisterRouteFail(){
-        $route = new Jpl_Route('/test/test', 'test', 'test');
+        $route = new Jpl_Route('test/assert', 'test', 'test');
         Jpl_Router::registerRoute($route);
         $_GET['route'] = '/test/assert';
         try{

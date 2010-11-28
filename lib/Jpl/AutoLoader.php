@@ -44,11 +44,6 @@
 class Jpl_AutoLoader
 {
     /**
-     * default constructor - methods should onle be use statically
-     */
-    private function __construct ()
-    {}
-    /**
      * The method for autoloading classes
      * 
      * This function takes the class name specified an makes it an array.  It 
