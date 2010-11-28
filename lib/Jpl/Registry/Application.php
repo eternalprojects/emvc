@@ -17,8 +17,8 @@
  * that it will be useful, but WITHOUT ANY WARRANTY; without even the 
  * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
  * 
- * See the GNU General Public License for more details. You should have received 
- * a copy of the GNU General Public License along with JPL-MVC.  
+ * See the GNU General Public License for more details. You should have 
+ * received a copy of the GNU General Public License along with JPL-MVC.  
  * 
  * If not, see <http://www.gnu.org/licenses/>.
  * 
@@ -33,7 +33,7 @@
 /**
  * A class acting as a registry
  * 
- * Thios class implements the Registry pattern.  It is used to store application 
+ * This class implements the Registry pattern.  It is used to store application 
  * based data and settings so that the information is accessable from all parts 
  * of the application
  * 
@@ -65,7 +65,9 @@ class Jpl_Registry_Application implements Jpl_Registry_Interface
      * @access private
      */
     private function __construct ()
-    {}
+    {
+        
+    }
     /**
      * a method that returns an instance of the class
      * 
@@ -99,7 +101,8 @@ class Jpl_Registry_Application implements Jpl_Registry_Interface
      */
     protected function __get ($name)
     {
-        return (isset(self::getInstance()->_data[$name])) ? self::getInstance()->_data[$name] : null;
+        return (isset(self::getInstance()->_data[$name])) ? 
+            self::getInstance()->_data[$name] : null;
     }
     /**
      * adds data to the registry
@@ -121,7 +124,7 @@ class Jpl_Registry_Application implements Jpl_Registry_Interface
      */
     public static function get ($name)
     {
-        return (isset(self::getInstance()->_data[$name])) ? self::getInstance()->_data[$name] : null;
+        return (isset(self::getInstance()->_data[$name])) ? 
+            self::getInstance()->_data[$name] : null;
     }
 }
-?>
