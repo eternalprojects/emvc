@@ -1,5 +1,5 @@
 <?php
-require_once('TestHelper.php');
+require_once (dirname(__FILE__) . '/../../../TestHelper.php');
 require_once(APPLICATION_PATH . '/lib/Jpl/Route.php');
 class Jpl_RouteTest extends PHPUnit_Framework_TestCase
 {
