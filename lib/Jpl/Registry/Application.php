@@ -2,6 +2,7 @@
 /**
  * Contains the application registry class
  * 
+ * 
  * License:
  * 
  * Copyright (c) 2010, JPL Web Solutions, 
