@@ -1,7 +1,7 @@
 <?php
 /**
  * Contains the AutoLoader class
- * 
+ *  
  * License:
  * 
  * Copyright (c) 2010, JPL Web Solutions, 
@@ -16,8 +16,8 @@
  * that it will be useful, but WITHOUT ANY WARRANTY; without even the 
  * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
  * 
- * See the GNU General Public License for more details. You should have received 
- * a copy of the GNU General Public License along with JPL-MVC.  
+ * See the GNU General Public License for more details. You should have 
+ * received a copy of the GNU General Public License along with JPL-MVC.  
  * 
  * If not, see <http://www.gnu.org/licenses/>.
  * 
@@ -83,7 +83,7 @@ class Jpl_AutoLoader
         }
         if (@include_once $path . '.php') {
             return TRUE;
-        }else{
+        } else {
         	return FALSE;
         }
     }
