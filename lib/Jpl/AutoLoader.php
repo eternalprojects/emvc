@@ -34,7 +34,8 @@
  * 
  * This class contains a method used by the spl_register_autoloader function to 
  * automatically load class files.  It checks the first part of the class name 
- * to determine whether to load from the library or load from the model directory
+ * to determine whether to load from the library or load from the model 
+ * directory
  * 
  * @package MVC-Core
  * @subpackage AutoLoader
@@ -78,7 +79,8 @@ class Jpl_AutoLoader
                 $path = APPLICATION_PATH . '/forms/' . implode('/', $parts);
                 break;
             default:
-                $path = APPLICATION_PATH . '/controller/' . implode('/', $parts);
+                $path = APPLICATION_PATH . '/controller/' . 
+                    implode('/', $parts);
                 break;
         }
         if (@include_once $path . '.php') {
