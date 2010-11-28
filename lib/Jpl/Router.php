@@ -3,12 +3,12 @@
  * Contains the AutoLoader class
  * 
  * License:
- * 
+ *  
  * Copyright (c) 2009, JPL Web Solutions, 
  * Jesse Lesperance <jesse@jlesperance.com>
- * 
+ *  
  * This file is part of JPL-MVC.
- * 
+ *  
  * JPL-MVC is free software: you can redistribute it and/or modify 
  * it under the terms of the GNU General Public License as published 
  * by the Free Software Foundation, either version 3 of the License, or 
@@ -86,7 +86,8 @@ class Jpl_Router
      */
     public static function callControllerAction ()
     {
-        $route = (isset($_GET['route'])) ? trim($_GET['route']) : 'index/index';
+        $route = (isset($_GET['route'])) ? 
+            trim($_GET['route']) : 'index/index';
         if ($matchedRoute = self::_getMatchingRoute($route)) {
             $controllerPart = $matchedRoute->getControllerName();
             $controllerName = $controllerPart . 'Controller';
@@ -114,4 +115,3 @@ class Jpl_Router
         }
     }
 }
-?>
