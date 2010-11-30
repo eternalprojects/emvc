@@ -13,7 +13,7 @@ class Jpl_ViewTest extends PHPUnit_Framework_TestCase
     
     public function testRenderAction(){
         $data = array('index','index');
-        $this->view->render($view);
+        $this->view->render($data);
     }
 }
 
