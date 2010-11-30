@@ -14,7 +14,11 @@ class Jpl_ViewTest extends PHPUnit_Framework_TestCase
     public function testRenderAction(){
         $this->view->title = "Test Index Action";
         $data = array('index','index');
+        ob_start();
         $this->view->render($data);
+        $view = ob_get_contents();
+        ob_end_clean();
+        $this->assertStringStartsWith('Test Index View', $view);
     }
 }
 
