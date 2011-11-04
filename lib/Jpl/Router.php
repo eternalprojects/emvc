@@ -96,7 +96,7 @@ class Jpl_Router
             $routeArray = explode('/', $route);
             $controllerPart = ucfirst($routeArray[0]);
             $controllerName = $controllerPart . 'Controller';
-            $actionPart = (isset($routeArray[1]) && $routeArray != '') ? $routeArray[1] : 'index';
+            $actionPart = (isset($routeArray[1]) && $routeArray[1] != '') ? $routeArray[1] : 'index';
         }
         if (class_exists($controllerName)) {
             $controller = new $controllerName(
