@@ -58,6 +58,8 @@ class Jpl_View
     {
         $folder = strtolower($view[0]);
         $file = $view[1];
+	if(!file_exists(APPLICATION_PATH . "/view/{$folder}/{$file}.phtml"))
+		throw new Exception("The view does not exist for the requested action");
         include APPLICATION_PATH . "/view/$folder/$file.phtml";
     }
     /**

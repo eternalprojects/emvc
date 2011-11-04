@@ -83,6 +83,10 @@ abstract class Jpl_Controller_Page
      */
     public function __destruct ()
     {
-        $this->view->render($this->_route);
+	try{
+        	$this->view->render($this->_route);
+	}catch(Exception $e){
+		Throw new Exception($e->getMessage());		
+	}
     }
 }

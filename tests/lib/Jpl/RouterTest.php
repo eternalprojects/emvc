@@ -36,8 +36,8 @@ class Jpl_RouterTest extends PHPUnit_Framework_TestCase
         $_GET['route'] = 'index/test';
         try{
             Jpl_Router::callControllerAction();
-        }catch(Jpl_Exception_InvalidAction $e){
-            $this->assertEquals("testActionDoes not exist in IndexController", $e->getMessage());
+        }catch(Exception $e){
+            $this->assertEquals("The view does not exist for the requested action", $e->getMessage());
         }
         
     }
