@@ -6,7 +6,7 @@ defined('APPLICATION_PATH') || define(
 	'APPLICATION_PATH', realpath(dirname(__FILE__))
 );
 set_include_path(
-    get_include_path() . PATH_SEPARATOR . APPLICATION_PATH . '/lib/' . PATH_SEPARATOR .
+    get_include_path() . PATH_SEPARATOR . APPLICATION_PATH . '/Library/' . PATH_SEPARATOR .
     APPLICATION_PATH
 );
 require_once 'Jpl/AutoLoader.php';

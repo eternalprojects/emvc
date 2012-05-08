@@ -5,7 +5,7 @@ class Jpl_View_Helper_Url
     {
         
     }
-    // Creates a hyperlink url based on a controller and action
+    // Creates a hyperlink url based on a Controller and action
     static function createLinkUrl ($controller, $action)
     {
         echo Jpl_Registry_Application::get('baseUrl') . '/' . $controller . '/' . $action;

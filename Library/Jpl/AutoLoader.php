@@ -21,28 +21,29 @@
  * 
  * If not, see <http://www.gnu.org/licenses/>.
  * 
- * @package MVC-Core
- * @subpackage Loader
- * @author Jesse Lesperance <jesse@jlesperance.com>
- * @copyright 2010 JPL Web Solutions
+ * @package Library\JPL
+ * @subpackage Autoloader
+ * @author Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @version SVN: $Id$
+ * @since v0.5
+ * @link http://www.eternalmvc.info
  *
  */
+namespace Jpl;
 /**
  * A class to automate loding of class files
  * 
  * This class contains a method used by the spl_register_autoloader function to 
  * automatically load class files.  It checks the first part of the class name 
- * to determine whether to load from the library or load from the model 
+ * to determine whether to load from the library or load from the Model
  * directory
- * 
- * @package MVC-Core
- * @subpackage AutoLoader
+ *
  * @author jesse Lesperance <jesse@jlesperance.com>
+ * @copyright
  *
  */
-class Jpl_AutoLoader
+class AutoLoader
 {
     /**
      * The method for autoloading classes
@@ -66,24 +67,8 @@ class Jpl_AutoLoader
      */
     public static function AutoLoad ($class)
     {
-        $parts = explode('_', $class);
-        switch ($parts[0]) {
-            case 'Model':
-                array_shift($parts);
-                $path = APPLICATION_PATH . '/model/' . implode('/', $parts);
-                break;
-            case 'Jpl':
-                $path = APPLICATION_PATH . '/lib/' . implode('/', $parts);
-                break;
-            case 'Form':
-                $path = APPLICATION_PATH . '/forms/' . implode('/', $parts);
-                break;
-            default:
-                $path = APPLICATION_PATH . '/controller/' . 
-                    implode('/', $parts);
-                break;
-        }
-        if (@include_once $path . '.php') {
+
+        if (@include_once str_replace('\\', '/', $class) . '.php') {
             return TRUE;
         } else {
         	return FALSE;

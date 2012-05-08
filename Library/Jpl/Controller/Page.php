@@ -29,13 +29,13 @@
  * @version SVN: $Id$
  *
  */
-require_once APPLICATION_PATH . '/lib/Jpl/View.php';
+require_once APPLICATION_PATH . '/Library/Jpl/View.php';
 /**
  * The Page Controller Abstract class
  * 
  * The Page Controller class is abstract and all user defined applications must 
- * extend it.  The page controller handles initiating the View object and 
- * rendering the view after processing the controller and action
+ * extend it.  The page Controller handles initiating the View object and
+ * rendering the view after processing the Controller and action
  * 
  * @package MVC-Core
  * @subpackage Controller
@@ -53,7 +53,7 @@ abstract class Jpl_Controller_Page
      */
     protected $view;
     /**
-     * contains the controller and action names
+     * contains the Controller and action names
      * 
      * @var $_route array
      * @access private

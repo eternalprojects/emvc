@@ -29,8 +29,8 @@
  * @version SVN: $Id$
  *
  */
-require_once (APPLICATION_PATH . '/controller/IndexController.php');
-require_once (APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php');
+require_once (APPLICATION_PATH . '/Controller/IndexController.php');
+require_once (APPLICATION_PATH . '/Library/Jpl/Exception/InvalidAction.php');
 /**
  * A class for registering and calling defined routes
  * 
@@ -80,7 +80,7 @@ class Jpl_Router
         }
     }
     /**
-     * calls the action and controller matching the route
+     * calls the action and Controller matching the route
      * 
      * @access public
      */
