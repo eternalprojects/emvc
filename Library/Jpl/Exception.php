@@ -21,20 +21,38 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package Jpl
+ * @package    Jpl
  * @subpackage Exception
- * @author Jesse Lesperance <jesse@jplesperance.me>
- * @copyright 2010-2012 JPL Web Solutions
- * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since v0.5
+ * @author     Jesse Lesperance <jesse@jplesperance.me>
+ * @copyright  2010-2012 JPL Web Solutions
+ * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since      v0.2
  *
  */
 /**
- * @
+ * @package Jpl
  */
 namespace Jpl;
-
+/**
+ * The Exception class specific to the MVC framewprk
+ *
+ * This class is used to throw exceptions that happen in the EternalMVC framework. This class has
+ * some additional functionality for handling and logging exceptions thrown.
+ *
+ * @package   Jpl\Exception
+ * @see       \Exception::__construct
+ * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2012 JPL Web Solutions
+ * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since     v0.2
+ * @link      http://www.eternalmvc.info
+ */
 class Exception extends \Exception
 {
+    public function __construct($message = "", $code = 0)
+    {
+        parent::__construct($message, $code);
+    }
 }
+
 ?>

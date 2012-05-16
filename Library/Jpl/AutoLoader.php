@@ -1,77 +1,90 @@
 <?php
 /**
  * Contains the AutoLoader class
- *  
- * License:
- * 
- * Copyright (c) 2010, JPL Web Solutions, 
- * Jesse Lesperance <jesse@jlesperance.com>
- * 
- * This file is part of JPL-MVC.
- * 
- * JPL-MVC is free software: you can redistribute it and/or modify 
- * it under the terms of the GNU General Public License as published 
- * by the Free Software Foundation, either version 3 of the License, or 
- * (at your option) any later version.  JPL-MVC is distributed in the hope 
- * that it will be useful, but WITHOUT ANY WARRANTY; without even the 
- * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
- * 
- * See the GNU General Public License for more details. You should have 
- * received a copy of the GNU General Public License along with JPL-MVC.  
- * 
- * If not, see <http://www.gnu.org/licenses/>.
- * 
- * @package Library\JPL
- * @subpackage Autoloader
- * @author Jesse P Lesperance <jesse@jplesperance.me>
- * @copyright 2010-2012 JPL Web Solutions
- * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since v0.5
- * @link http://www.eternalmvc.info
  *
+ * License:
+ *
+ * Copyright (c) 2010, JPL Web Solutions,
+ * Jesse P Lesperance <jesse@jplesperance.me>
+ *
+ * This file is part of JPL-MVC.
+ *
+ * JPL-MVC is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published
+ * by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.  JPL-MVC is distributed in the hope
+ * that it will be useful, but WITHOUT ANY WARRANTY; without even the
+ * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ *
+ * See the GNU General Public License for more details. You should have
+ * received a copy of the GNU General Public License along with JPL-MVC.
+ *
+ * If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2012 JPL Web Solutions
+ * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since     v0.2
+ * @link      http://www.eternalmvc.info
+ *
+ */
+/**
+ * @package Jpl
  */
 namespace Jpl;
 /**
- * A class to automate loding of class files
- * 
- * This class contains a method used by the spl_register_autoloader function to 
- * automatically load class files.  It checks the first part of the class name 
+ * A class to automate loading of class files
+ *
+ * This class contains a method used by SPL Register Autoloader function to
+ * automatically load class files.  It checks the first part of the class name
  * to determine whether to load from the library or load from the Model
  * directory
  *
- * @author jesse Lesperance <jesse@jlesperance.com>
- * @copyright
+ * @package   Jpl\AutoLoader
+ * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2012 JPL Web Solutions
+ * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since     v0.2
+ * @link      http://www.eternalmvc.info
  *
  */
 class AutoLoader
 {
     /**
      * The method for autoloading classes
-     * 
-     * This function takes the class name specified an makes it an array.  It 
-     * checks to see if the class name begins with 'Model' which determines the 
+     *
+     * This function takes the class name specified an makes it an array.  It
+     * checks to see if the class name begins with 'Model' which determines the
      * path it loads from.
-     * 
+     *
      * The format it expects the class name to be in is: Some_Class_name which
      * would include the file: Some/Class/Name.php
-     * 
+     *
      * This method is for use by the spl_register_autoloader function.  Example:
      * <code>
-     * spl_register_autoloader(array('AutoLoader','AutoLoad'));
+     * spl_register_autoloader(array('JPL\AutoLoader','AutoLoad'));
      * </code>
-     * 
+     *
      * @param string $class the name of the class
+     *
      * @return boolean true if the file was able to be included
      * @access Public
      * @static
      */
-    public static function AutoLoad ($class)
+    public static function AutoLoad($class)
     {
-
-        if (@include_once str_replace('\\', '/', $class) . '.php') {
-            return TRUE;
-        } else {
-        	return FALSE;
+        $class         = str_replace('\\', '/', $class);
+        $possibilities = array(
+            APPLICATION_PATH . 'Library/' . DIRECTORY_SEPARATOR . $class . '.php',
+            $class . '.php'
+        );
+        foreach ($possibilities as $file) {
+            if (file_exists($file)) {
+                require_once($file);
+                return true;
+            }
         }
+        return false;
+
     }
 }

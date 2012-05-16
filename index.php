@@ -1,4 +1,5 @@
 <?php
+namespace Base;
 error_reporting(E_ALL);
 ini_set('display_errors', true);
 // Define path to application directory
@@ -10,8 +11,9 @@ set_include_path(
     APPLICATION_PATH
 );
 require_once 'Jpl/AutoLoader.php';
-spl_autoload_register(array('Jpl_AutoLoader', 'AutoLoad'));
+use \Jpl\AutoLoader;
+spl_autoload_register(array('AutoLoader', 'AutoLoad'));
 $baseUrl = "http://jessedev/mvc/trunk/";
 include 'Jpl/Controller/Front.php';
-$front = new Jpl_Controller_Front();
+$front = new \Jpl_Controller_Front();
 $front->run();

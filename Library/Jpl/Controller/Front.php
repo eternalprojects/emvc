@@ -29,10 +29,11 @@
  * @version SVN: $Id$
  *
  */
-require_once APPLICATION_PATH . '/Library/Jpl/Router.php';
-require_once APPLICATION_PATH . '/Controller/ErrorController.php';
-require_once APPLICATION_PATH . '/Library/Jpl/Exception/InvalidAction.php';
-require_once APPLICATION_PATH . '/Library/Jpl/Exception/InvalidController.php';
+namespace Jpl\Controller;
+use Jpl\Router;
+use Jpl\Exception\InvalidController;
+use Jpl\Exception\InvalidAction;
+
 /**
  * The Front Controller for dispatching requests
  * 
@@ -43,7 +44,7 @@ require_once APPLICATION_PATH . '/Library/Jpl/Exception/InvalidController.php';
  * @author jesse Lesperance <jesse@jlesperance.com>
  *
  */
-class Jpl_Controller_Front
+class Front
 {
     /**
      * Default constructor
@@ -61,12 +62,12 @@ class Jpl_Controller_Front
     public final function run ()
     {
         try{
-            JPL_Router::callControllerAction();
-        }catch(Jpl_Exception_InvalidAction $e){
-            $error = new ErrorController();
+            Router::callControllerAction();
+        }catch(InvalidAction $e){
+            $error = new \Controller\Error();
             $error->error($e);
-        }catch(Jpl_Exception_InvalidController $e){
-            $error = new ErrorController();
+        }catch(InvalidController $e){
+            $error = new \Controller\Error();
             $error->error($e);
         }
     }
