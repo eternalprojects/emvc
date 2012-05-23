@@ -22,11 +22,11 @@
  * If not, see <http://www.gnu.org/licenses/>.
  *
  * @package    Jpl
- * @subpackage Exception
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
+ * @link      http://www.eternalmvc.info
  * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since      v0.2
+ * @since      v1.0
  *
  */
 /**
@@ -44,11 +44,17 @@ namespace Jpl;
  * @author    Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since     v0.2
- * @link      http://www.eternalmvc.info
+ * @since     v1.0
+ * 
  */
 class Exception extends \Exception
 {
+	/**
+	 * class constructor which calls parent constructor
+	 * 
+	 * @param string $message
+	 * @param int $code
+	 */
     public function __construct($message = "", $code = 0)
     {
         parent::__construct($message, $code);

@@ -1,6 +1,6 @@
 <?php
 require_once (dirname(__FILE__) . '/../../TestHelper.php');
-require_once (APPLICATION_PATH . '/lib/Jpl/View.php');
+require_once (APPLICATION_PATH . '/Library/Jpl/View.php');
 /**
  * test case.
  */

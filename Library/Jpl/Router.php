@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains the Router class
  *
@@ -22,116 +23,123 @@
  * If not, see <http://www.gnu.org/licenses/>.
  *
  * @package    Jpl
- * @subpackage Exception
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
+ * @link      http://www.eternalmvc.info
  * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since      v0.2
+ * @since      v1.0
  *
  */
 /**
+ *
  * @package Jpl
  */
 namespace Jpl;
+
 use \Jpl\Route;
+use \Jpl\Exception;
 
 /**
  * The Router class
  *
  * The Router class analyzes the URI and determines the appropriate controller
- * and action to call.  It knows how to route default routes but can also handle
+ * and action to call. It knows how to route default routes but can also handle
  * routing custom defined routes.
  *
- * @package   Jpl\Router
- * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @package Jpl\Router
+ * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
- * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since     v0.2
- * @link      http://www.eternalmvc.info
+ * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
+ *          Public License
+ * @since v1.0
+ *       
  */
-class Router
-{
-    /**
-     * an array of all the registered routes
-     *
-     * @var array a list of registered routes
-     * @static
-     * @access private
-     */
-    private static $_routes = array();
-
-    /**
-     * registers the predefined route
-     *
-     * This function accepts an instance of the Jpl_Route object that was
-     * created when defining a custom route
-     *
-     * @access public
-     *
-     * @param \Jpl\Route $route
-     *
-     * @static
-     * @see    \Jpl\Route
-     */
-    public static function registerRoute(Route $route)
-    {
-        self::$_routes[] = $route;
-    }
-
-    /**
-     * gets the corresponding defined route
-     *
-     * @param string $santitizedUrl
-     *
-     * @return \Jpl\Route
-     * @access private
-     */
-    private function _getMatchingRoute($santitizedUrl)
-    {
-        foreach (self::$_routes as $route) {
-            if ($route->isMatch($santitizedUrl)) {
-                return $route;
-            }
-        }
-        return false;
-
-    }
-
-    /**
-     * calls the action and Controller matching the route
-     *
-     * @access public
-     * @static
-     * @throw  JPL_Exception_InvalidController
-     */
-    public static function callControllerAction()
-    {
-        $route = (isset($_GET['route'])) ?
-            trim($_GET['route']) : 'index/index';
-        if ($matchedRoute = self::_getMatchingRoute($route)) {
-            $controllerPart = $matchedRoute->getControllerName();
-            $controllerName = $controllerPart . 'Controller';
-            $actionPart     = $matchedRoute->getActionName();
-        } else {
-            $routeArray     = explode('/', $route);
-            $controllerPart = ucfirst($routeArray[0]);
-            $controllerName = $controllerPart . 'Controller';
-            $actionPart     = (isset($routeArray[1]) && $routeArray[1] != '') ? $routeArray[1] : 'index';
-        }
-        if (class_exists($controllerName)) {
-            $controller = new $controllerName(
-                array($controllerPart, $actionPart)
-            );
-        } else {
-            throw new Jpl_Exception_InvalidController($controllerName .
-                "Does not exist.");
-        }
-        $actionName = $actionPart . 'Action';
-        if (method_exists($controllerName, $actionName)) {
-            $controller->$actionName();
-        } else {
-            throw new Jpl_Exception_InvalidAction($actionName .
-                "Does not exist in " . $controllerName);
-        }
-    }
+class Router {
+	/**
+	 * an array of all the registered routes
+	 *
+	 * @var array a list of registered routes
+	 * @static
+	 *
+	 * @access private
+	 */
+	private static $_routes = array ();
+	
+	/**
+	 * registers the predefined route
+	 *
+	 * This function accepts an instance of the Jpl_Route object that was
+	 * created when defining a custom route
+	 *
+	 * @access public
+	 *        
+	 * @param \Jpl\Route $route        	
+	 *
+	 * @static
+	 *
+	 * @see \Jpl\Route
+	 */
+	public static function registerRoute(Route $route) {
+		self::$_routes [] = $route;
+	}
+	
+	/**
+	 * gets the corresponding defined route
+	 *
+	 * @param string $santitizedUrl        	
+	 *
+	 * @return \Jpl\Route
+	 * @access private
+	 */
+	private function _getMatchingRoute($santitizedUrl) {
+		foreach ( self::$_routes as $route ) {
+			if ($route->isMatch ( $santitizedUrl )) {
+				return $route;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * calls the action and Controller matching the route
+	 *
+	 * @access public
+	 * @static
+	 *
+	 * @throws Jpl\Exception\InvalidController
+	 * @throws Jpl\Exception\InvalidAction
+	 * @return void
+	 */
+	public static function callControllerAction() {
+		$route = (isset ( $_GET ['route'] )) ? trim ( $_GET ['route'] ) : 'index/index';
+		/**
+		 * Try to match a defined route, if unable, try and match an organic route
+		 */
+		if ($matchedRoute = self::_getMatchingRoute ( $route )) {
+			$controllerPart = $matchedRoute->getControllerName ();
+			$controllerName = $controllerPart . 'Controller';
+			$actionPart = $matchedRoute->getActionName ();
+		} else {
+			$routeArray = explode ( '/', $route );
+			$controllerPart = ucfirst ( $routeArray [0] );
+			$controllerName = $controllerPart . 'Controller';
+			$actionPart = (isset ( $routeArray [1] ) && $routeArray [1] != '') ? $routeArray [1] : 'index';
+		}
+		//Check to see if the controller class exists, if not throw an exception
+		if (class_exists ( $controllerName )) {
+			$controller = new $controllerName ( array (
+					$controllerPart,
+					$actionPart 
+			) );
+		} else {
+			throw new Exception\InvalidController ( $controllerName . "Does not exist." );
+		}
+		$actionName = $actionPart . 'Action';
+		
+		if (method_exists ( $controllerName, $actionName )) {
+			$controller->$actionName ();
+		} else {
+			throw new Exception\InvalidAction ( $actionName . "Does not exist in " . $controllerName );
+		}
+	}
 }

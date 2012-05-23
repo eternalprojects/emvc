@@ -1,6 +1,6 @@
 <?php
 require_once (dirname(__FILE__) . '/../../TestHelper.php');
-require_once(APPLICATION_PATH . '/lib/Jpl/Route.php');
+require_once(APPLICATION_PATH . '/Library/Jpl/Route.php');
 class Jpl_RouteTest extends PHPUnit_Framework_TestCase
 {
     protected $route;
