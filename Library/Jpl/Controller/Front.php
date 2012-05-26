@@ -78,10 +78,10 @@ class Front
         try {
             Router::callControllerAction();
         } catch (InvalidAction $e) {
-            $error = new \Controller\Error();
+            $error = new \Controller\Error(array('Error','error'));
             $error->errorAction($e);
         } catch (InvalidController $e) {
-            $error = new \Controller\Error();
+            $error = new \Controller\Error(array('Error','error'));
             $error->errorAction($e);
         }
     }

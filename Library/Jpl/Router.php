@@ -61,12 +61,6 @@ class Router
      *
      * @var array a list of registered routes
      * @static
-     *
-     *
-     *
-     *
-     *
-     *
      * @access private
      */
     private static $_routes = array();
@@ -78,16 +72,8 @@ class Router
      * created when defining a custom route
      *
      * @access public
-     *        
      * @param \Jpl\Route $route            
-     *
      * @static
-     *
-     *
-     *
-     *
-     *
-     *
      * @see \Jpl\Route
      */
     public static function registerRoute (Route $route)
@@ -100,10 +86,11 @@ class Router
      *
      * @param string $santitizedUrl            
      *
-     * @return \Jpl\Route
+     * @return \Jpl\Route|false
      * @access private
+     * @static
      */
-    private function _getMatchingRoute ($santitizedUrl)
+    private static function _getMatchingRoute ($santitizedUrl)
     {
         foreach (self::$_routes as $route) {
             if ($route->isMatch($santitizedUrl)) {
@@ -118,12 +105,6 @@ class Router
      *
      * @access public
      * @static
-     *
-     *
-     *
-     *
-     *
-     *
      * @throws Jpl\Exception\InvalidController
      * @throws Jpl\Exception\InvalidAction
      * @return void
