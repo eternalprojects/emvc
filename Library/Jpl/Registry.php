@@ -68,4 +68,3 @@ Interface Registry
      */
     function __set ($name, $value);
 }
-?>
