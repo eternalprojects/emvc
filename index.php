@@ -16,7 +16,6 @@ spl_autoload_register(array(
         'AutoLoad'
 ));
 $baseUrl = "http://jessedev/mvc/trunk/";
-include 'Jpl/Controller/Front.php';
 use Jpl\Controller\Front;
 $front = new Front();
 $front->run();
