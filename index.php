@@ -11,9 +11,8 @@ set_include_path(
                  PATH_SEPARATOR . APPLICATION_PATH);
 
 require_once 'Jpl/AutoLoader.php';
-use \Jpl\AutoLoader;
 spl_autoload_register(array(
-        'AutoLoader',
+        '\Jpl\AutoLoader',
         'AutoLoad'
 ));
 $baseUrl = "http://jessedev/mvc/trunk/";
