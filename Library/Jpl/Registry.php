@@ -58,7 +58,7 @@ Interface Registry
      *
      * @param string $name            
      */
-    protected function __get ($name);
+    function __get ($name);
 
     /**
      * The magic __set function
@@ -66,6 +66,6 @@ Interface Registry
      * @param string $name            
      * @param mixed $value            
      */
-    protected function __set ($name, $value);
+    function __set ($name, $value);
 }
 ?>
