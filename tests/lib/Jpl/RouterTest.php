@@ -1,9 +1,9 @@
 <?php
 namespace Test\Jpl;
 require_once (dirname(__FILE__) . '/../../TestHelper.php');
-require_once APPLICATION_PATH . '/lib/Jpl/Router.php';
-require_once (APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php');
-require_once (APPLICATION_PATH . '/lib/Jpl/Exception/InvalidController.php');
+require_once APPLICATION_PATH . '/Library/Jpl/Router.php';
+require_once (APPLICATION_PATH . '/Library/Jpl/Exception/InvalidAction.php');
+require_once (APPLICATION_PATH . '/Library/Jpl/Exception/InvalidController.php');
 
 use \Jpl\Router;
 
