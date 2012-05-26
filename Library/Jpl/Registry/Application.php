@@ -108,9 +108,9 @@ class Application implements Registry
      *
      * @param string $name            
      * @param mixed $value            
-     * @access protected
+     * @access public
      */
-    protected function __set ($name, $value)
+    public function set ($name, $value)
     {
         self::getInstance()->_data[$name] = $value;
     }
@@ -119,12 +119,12 @@ class Application implements Registry
      * retrieves data from the registry
      *
      * @param string $name            
-     * @access protected
-     * @return mixed null
+     * @access public
+     * @return mixed|false
      */
-    protected function __get ($name)
+    public function get ($name)
     {
-        return (isset(self::getInstance()->_data[$name])) ? self::getInstance()->_data[$name] : null;
+        return (isset(self::getInstance()->_data[$name])) ? self::getInstance()->_data[$name] : false;
     }
 
     /**
