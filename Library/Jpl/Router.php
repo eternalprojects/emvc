@@ -129,7 +129,7 @@ class Router
         }
         // Check to see if the controller class exists, if not throw an
         // exception
-        if (class_exists($controllerName)) {
+        if (class_exists('\Controller\\' . $controllerName)) {
             $controller = new $controllerName(
                     array(
                             $controllerName,
