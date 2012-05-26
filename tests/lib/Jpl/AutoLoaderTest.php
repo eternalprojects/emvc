@@ -34,7 +34,7 @@
  * @package Jpl
  */
 namespace Test\Jpl;
-use Jpl\AutoLoader as AL;
+use \Jpl\AutoLoader as AL;
 
 /**
  * A class to automate loading of class files
@@ -69,7 +69,7 @@ class AutoLoaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testFailedAutoLoad ()
     {
-        $this->assertFalse(AL::AutoLoad('\Model\Tested'));
+        $this->assertFalse(AL::AutoLoad('Model\Tested'));
     }
 
     /**
@@ -83,7 +83,7 @@ class AutoLoaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testModelSuccess ()
     {
-        $this->assertTrue(AL::AutoLoad('\Model\Test'));
+        $this->assertTrue(AL::AutoLoad('Model\Test'));
     }
 
     /**
@@ -98,7 +98,7 @@ class AutoLoaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testJplLibSuccess ()
     {
-        $this->assertTrue(AL::AutoLoad('\Jpl\Route'));
+        $this->assertTrue(AL::AutoLoad('Jpl\Route'));
     }
 
     /**
@@ -113,7 +113,7 @@ class AutoLoaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testControllerSuccess ()
     {
-        $this->assertTrue(AL::AutoLoad('\Controller\Jesse'));
-        $this->assertTrue(AL::AutoLoad('\Controller\Error'));
+        $this->assertTrue(AL::AutoLoad('Controller\Jesse'));
+        $this->assertTrue(AL::AutoLoad('Controller\Error'));
     }
 }
