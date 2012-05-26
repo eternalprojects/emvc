@@ -124,7 +124,7 @@ class Router
             $actionPart = $matchedRoute->getActionName();
         } else {
             $routeArray = explode('/', $route);
-            $controllerName = ucwords(strtolower($routeArray[0]));
+            $controllerName = 'Controller\\' . ucwords(strtolower($routeArray[0]));
             $actionPart = (isset($routeArray[1]) && $routeArray[1] != '') ? $routeArray[1] : 'index';
         }
         // Check to see if the controller class exists, if not throw an
