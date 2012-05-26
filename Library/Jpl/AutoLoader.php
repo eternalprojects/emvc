@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains the AutoLoader class
  *
@@ -24,7 +25,7 @@
  * @author    Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since     v0.2
+ * @since     v1.0
  * @link      http://www.eternalmvc.info
  *
  */
@@ -47,7 +48,7 @@ namespace Jpl;
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
  *          Public License
- * @since v0.2
+ * @since v1.0
  * @link http://www.eternalmvc.info
  *      
  */
@@ -75,14 +76,15 @@ class AutoLoader
      * @return boolean true if the file was able to be included
      * @access Public
      * @static
-     *
-     *
-     *
      */
     public static function AutoLoad ($class)
     {
         $class = str_replace('\\', '/', $class);
-        $possibilities = array(APPLICATION_PATH . 'Library/' . DIRECTORY_SEPARATOR . $class . '.php', $class . '.php');
+        $possibilities = array(
+                APPLICATION_PATH . 'Library/' . DIRECTORY_SEPARATOR . $class .
+                         '.php',
+                        $class . '.php'
+        );
         foreach ($possibilities as $file) {
             if (file_exists($file)) {
                 require_once ($file);
@@ -90,6 +92,5 @@ class AutoLoader
             }
         }
         return false;
-    
     }
 }

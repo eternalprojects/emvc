@@ -35,7 +35,6 @@
  * @package Jpl\Controller
  */
 namespace Jpl\Controller;
-
 use Jpl\Router;
 use Jpl\Exception\InvalidController;
 use Jpl\Exception\InvalidAction;
@@ -69,6 +68,8 @@ class Front
      *
      * @access public
      * @final
+     *
+     *
      *
      *
      */

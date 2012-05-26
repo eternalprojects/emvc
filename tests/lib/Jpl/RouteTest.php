@@ -1,5 +1,4 @@
 <?php
-
 namespace Test\Jpl;
 require_once (dirname(__FILE__) . '/../../TestHelper.php');
 require_once (APPLICATION_PATH . '/Library/Jpl/Route.php');
@@ -44,6 +43,5 @@ class RouteTest extends \PHPUnit_Framework_TestCase
     {
         $this->route = null;
     }
-
 }
 ?>

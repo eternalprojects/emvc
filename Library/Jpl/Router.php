@@ -35,7 +35,6 @@
  * @package Jpl
  */
 namespace Jpl;
-
 use \Jpl\Route;
 use \Jpl\Exception;
 
@@ -66,6 +65,8 @@ class Router
      *
      *
      *
+     *
+     *
      * @access private
      */
     private static $_routes = array();
@@ -81,6 +82,8 @@ class Router
      * @param \Jpl\Route $route            
      *
      * @static
+     *
+     *
      *
      *
      *
@@ -119,6 +122,8 @@ class Router
      *
      *
      *
+     *
+     *
      * @throws Jpl\Exception\InvalidController
      * @throws Jpl\Exception\InvalidAction
      * @return void
@@ -132,7 +137,8 @@ class Router
          */
         $matchedRoute = self::_getMatchingRoute($route);
         if ($matchedRoute != false) {
-            $controllerName = ucwords(strtolower($matchedRoute->getControllerName()));
+            $controllerName = ucwords(
+                    strtolower($matchedRoute->getControllerName()));
             
             $actionPart = $matchedRoute->getActionName();
         } else {
@@ -143,16 +149,22 @@ class Router
         // Check to see if the controller class exists, if not throw an
         // exception
         if (class_exists($controllerName)) {
-            $controller = new $controllerName(array($controllerName, $actionPart));
+            $controller = new $controllerName(
+                    array(
+                            $controllerName,
+                            $actionPart
+                    ));
         } else {
-            throw new Exception\InvalidController($controllerName . "Does not exist.");
+            throw new Exception\InvalidController(
+                    $controllerName . "Does not exist.");
         }
         $actionName = strtolower($actionPart) . 'Action';
         
         if (method_exists($controllerName, $actionName)) {
             $controller->$actionName();
         } else {
-            throw new Exception\InvalidAction($actionName . "Does not exist in " . $controllerName);
+            throw new Exception\InvalidAction(
+                    $actionName . "Does not exist in " . $controllerName);
         }
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains the AutoLoader class
  *
@@ -34,6 +35,7 @@
  * @package Jpl
  */
 namespace Jpl;
+
 /**
  * The Exception class specific to the MVC framewprk
  *

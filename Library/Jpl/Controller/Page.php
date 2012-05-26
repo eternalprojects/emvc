@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Contains the Page Controller class
  *
@@ -50,6 +51,8 @@ use Jpl\View;
  *          Public License
  * @since v1.0
  * @abstract
+ *
+ *
  *
  */
 abstract class Page

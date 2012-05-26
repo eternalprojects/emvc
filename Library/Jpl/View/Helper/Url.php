@@ -1,4 +1,5 @@
 <?php
+
 /**
  * URL View helper class
  *
@@ -59,12 +60,12 @@ class Url
      *
      * @deprecated
      *
+     *
+     *
      * @param Jpl\Router $router            
      */
     function __construct (Router $router)
-    {
-
-    }
+    {}
 
     /**
      * Creates a hyperlink url based on a Controller and action
@@ -74,7 +75,8 @@ class Url
      */
     static function createLinkUrl ($controller, $action)
     {
-        echo Registry\Application::get('baseUrl') . '/' . $controller . '/' . $action;
+        echo Registry\Application::get('baseUrl') . '/' . $controller . '/' .
+                 $action;
     }
 
     /**

@@ -1,5 +1,4 @@
 <?php
-
 namespace Test\Jpl;
 require_once (dirname(__FILE__) . '/../../TestHelper.php');
 require_once APPLICATION_PATH . '/lib/Jpl/Router.php';
@@ -46,9 +45,10 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         try {
             Router::callControllerAction();
         } catch (\Exception $e) {
-            $this->assertEquals("The view does not exist for the requested action", $e->getMessage());
+            $this->assertEquals(
+                    "The view does not exist for the requested action", 
+                    $e->getMessage());
         }
-    
     }
 
     public function testCallControllerWithInvalidController ()
@@ -57,7 +57,8 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         try {
             Router::callControllerAction();
         } catch (\Jpl\Exception\InvalidController $e) {
-            $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
+            $this->assertEquals("TestControllerDoes not exist.", 
+                    $e->getMessage());
         }
     }
 
@@ -69,7 +70,8 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         try {
             Router::callControllerAction();
         } catch (\Jpl\Exception\InvalidController $e) {
-            $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
+            $this->assertEquals("TestControllerDoes not exist.", 
+                    $e->getMessage());
         }
     }
 
@@ -81,7 +83,8 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         try {
             Router::callControllerAction();
         } catch (\Jpl\Exception\InvalidController $e) {
-            $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
+            $this->assertEquals("TestControllerDoes not exist.", 
+                    $e->getMessage());
         }
     }
 }

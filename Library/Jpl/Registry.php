@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file contains the interface for the Registry classes
  *
@@ -34,6 +35,7 @@
  * @package Jpl\Registry
  */
 namespace Jpl\Registry;
+
 /**
  * The interface for all Registry classes to inherit
  *

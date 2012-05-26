@@ -62,6 +62,8 @@ class Application implements Registry
      * @staticvar
      *
      *
+     *
+     *
      * @access private
      */
     private static $_instance;
@@ -80,14 +82,14 @@ class Application implements Registry
      * @access private
      */
     private function __construct ()
-    {
-
-    }
+    {}
 
     /**
      * a method that returns an instance of the class
      *
      * @static
+     *
+     *
      *
      *
      *
@@ -134,6 +136,8 @@ class Application implements Registry
      *
      *
      *
+     *
+     *
      */
     public static function set ($name, $value)
     {
@@ -146,6 +150,8 @@ class Application implements Registry
      * @param string $name            
      * @return mixed null
      * @static
+     *
+     *
      *
      *
      *
