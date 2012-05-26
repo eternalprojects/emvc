@@ -31,26 +31,41 @@
  */
 /**
  *
- * @package Jpl
+ * @package Jpl\Exception
  */
 namespace Jpl\Exception;
 use \Jpl\Exception as Exception;
+
 /**
  * The Exception class specific to the MVC framewprk
  *
- * This class is used to throw exceptions that happen in the EternalMVC framework. This class has
+ * This class is used to throw exceptions that happen in the EternalMVC
+ * framework. This class has
  * some additional functionality for handling and logging exceptions thrown.
  *
- * @package   Jpl\Exception
- * @see       \Exception::__construct
- * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @package Jpl\Exception\InvalidController
+ * @see \Exception
+ * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
- * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since     v1.0
- *
+ * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
+ *          Public License
+ * @since v1.0
+ *       
  */
 class InvalidController extends Exception
 {
+
+    /**
+     * The default class constructor
+     *
+     * @param string $message            
+     * @param int $code            
+     * @since v1.1
+     */
+    public function __construct ($message = "", $code = 0)
+    {
+        parent::__construct($message, $code);
+    }
 }
 
 ?>

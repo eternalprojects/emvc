@@ -34,7 +34,6 @@
  * @package Jpl\Registry
  */
 namespace Jpl\Registry;
-
 /**
  * The interface for all Registry classes to inherit
  *

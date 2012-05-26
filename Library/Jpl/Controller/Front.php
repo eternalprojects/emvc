@@ -53,31 +53,36 @@ use Jpl\Exception\InvalidAction;
  * @since v1.0
  *       
  */
-class Front {
-	/**
-	 * Default constructor
-	 *
-	 * @access public
-	 */
-	public function __construct() {
-	}
-	/**
-	 * Dispatches the request to the Router class
-	 *
-	 * @access public
-	 * @final
-	 *
-	 */
-	public final function run() {
-		try {
-			Router::callControllerAction ();
-		} catch ( InvalidAction $e ) {
-			$error = new \Controller\Error ();
-			$error->errorAction ( $e );
-		} catch ( InvalidController $e ) {
-			$error = new \Controller\Error ();
-			$error->errorAction ( $e );
-		}
-	}
+class Front
+{
+
+    /**
+     * Default constructor
+     *
+     * @access public
+     */
+    public function __construct ()
+    {}
+
+    /**
+     * Dispatches the request to the Router class
+     *
+     * @access public
+     * @final
+     *
+     *
+     */
+    public final function run ()
+    {
+        try {
+            Router::callControllerAction();
+        } catch (InvalidAction $e) {
+            $error = new \Controller\Error();
+            $error->errorAction($e);
+        } catch (InvalidController $e) {
+            $error = new \Controller\Error();
+            $error->errorAction($e);
+        }
+    }
 }
 ?>

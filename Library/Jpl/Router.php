@@ -54,92 +54,105 @@ use \Jpl\Exception;
  * @since v1.0
  *       
  */
-class Router {
-	/**
-	 * an array of all the registered routes
-	 *
-	 * @var array a list of registered routes
-	 * @static
-	 *
-	 * @access private
-	 */
-	private static $_routes = array ();
-	
-	/**
-	 * registers the predefined route
-	 *
-	 * This function accepts an instance of the Jpl_Route object that was
-	 * created when defining a custom route
-	 *
-	 * @access public
-	 *        
-	 * @param \Jpl\Route $route        	
-	 *
-	 * @static
-	 *
-	 * @see \Jpl\Route
-	 */
-	public static function registerRoute(Route $route) {
-		self::$_routes [] = $route;
-	}
-	
-	/**
-	 * gets the corresponding defined route
-	 *
-	 * @param string $santitizedUrl        	
-	 *
-	 * @return \Jpl\Route
-	 * @access private
-	 */
-	private function _getMatchingRoute($santitizedUrl) {
-		foreach ( self::$_routes as $route ) {
-			if ($route->isMatch ( $santitizedUrl )) {
-				return $route;
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * calls the action and Controller matching the route
-	 *
-	 * @access public
-	 * @static
-	 *
-	 * @throws Jpl\Exception\InvalidController
-	 * @throws Jpl\Exception\InvalidAction
-	 * @return void
-	 */
-	public static function callControllerAction() {
-		$route = (isset ( $_GET ['route'] )) ? trim ( $_GET ['route'] ) : 'index/index';
-		/**
-		 * Try to match a defined route, if unable, try and match an organic route
-		 */
-		if ($matchedRoute = self::_getMatchingRoute ( $route )) {
-			$controllerPart = $matchedRoute->getControllerName ();
-			$controllerName = $controllerPart . 'Controller';
-			$actionPart = $matchedRoute->getActionName ();
-		} else {
-			$routeArray = explode ( '/', $route );
-			$controllerPart = ucfirst ( $routeArray [0] );
-			$controllerName = $controllerPart . 'Controller';
-			$actionPart = (isset ( $routeArray [1] ) && $routeArray [1] != '') ? $routeArray [1] : 'index';
-		}
-		//Check to see if the controller class exists, if not throw an exception
-		if (class_exists ( $controllerName )) {
-			$controller = new $controllerName ( array (
-					$controllerPart,
-					$actionPart 
-			) );
-		} else {
-			throw new Exception\InvalidController ( $controllerName . "Does not exist." );
-		}
-		$actionName = $actionPart . 'Action';
-		
-		if (method_exists ( $controllerName, $actionName )) {
-			$controller->$actionName ();
-		} else {
-			throw new Exception\InvalidAction ( $actionName . "Does not exist in " . $controllerName );
-		}
-	}
+class Router
+{
+
+    /**
+     * an array of all the registered routes
+     *
+     * @var array a list of registered routes
+     * @static
+     *
+     *
+     *
+     *
+     * @access private
+     */
+    private static $_routes = array();
+
+    /**
+     * registers the predefined route
+     *
+     * This function accepts an instance of the Jpl_Route object that was
+     * created when defining a custom route
+     *
+     * @access public
+     *        
+     * @param \Jpl\Route $route            
+     *
+     * @static
+     *
+     *
+     *
+     *
+     * @see \Jpl\Route
+     */
+    public static function registerRoute (Route $route)
+    {
+        self::$_routes[] = $route;
+    }
+
+    /**
+     * gets the corresponding defined route
+     *
+     * @param string $santitizedUrl            
+     *
+     * @return \Jpl\Route
+     * @access private
+     */
+    private function _getMatchingRoute ($santitizedUrl)
+    {
+        foreach (self::$_routes as $route) {
+            if ($route->isMatch($santitizedUrl)) {
+                return $route;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * calls the action and Controller matching the route
+     *
+     * @access public
+     * @static
+     *
+     *
+     *
+     *
+     * @throws Jpl\Exception\InvalidController
+     * @throws Jpl\Exception\InvalidAction
+     * @return void
+     */
+    public static function callControllerAction ()
+    {
+        $route = (isset($_GET['route'])) ? trim($_GET['route']) : 'index/index';
+        /**
+         * Try to match a defined route, if unable, try and match an organic
+         * route
+         */
+        $matchedRoute = self::_getMatchingRoute($route);
+        if ($matchedRoute != false) {
+            $controllerName = ucwords(strtolower($matchedRoute->getControllerName()));
+            
+            $actionPart = $matchedRoute->getActionName();
+        } else {
+            $routeArray = explode('/', $route);
+            $controllerName = ucwords(strtolower($routeArray[0]));
+            $actionPart = (isset($routeArray[1]) && $routeArray[1] != '') ? $routeArray[1] : 'index';
+        }
+        // Check to see if the controller class exists, if not throw an
+        // exception
+        if (class_exists($controllerName)) {
+            $controller = new $controllerName(array($controllerName, $actionPart));
+        } else {
+            throw new Exception\InvalidController($controllerName . "Does not exist.");
+        }
+        $actionName = strtolower($actionPart) . 'Action';
+        
+        if (method_exists($controllerName, $actionName)) {
+            $controller->$actionName();
+        } else {
+            throw new Exception\InvalidAction($actionName . "Does not exist in " . $controllerName);
+        }
+    }
 }

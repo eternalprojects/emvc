@@ -29,62 +29,67 @@
  *
  */
 /**
+ *
  * @package Jpl
  */
 namespace Jpl;
+
 /**
  * A class to automate loading of class files
  *
  * This class contains a method used by SPL Register Autoloader function to
- * automatically load class files.  It checks the first part of the class name
+ * automatically load class files. It checks the first part of the class name
  * to determine whether to load from the library or load from the Model
  * directory
  *
- * @package   Jpl\AutoLoader
- * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @package Jpl\AutoLoader
+ * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
- * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since     v0.2
- * @link      http://www.eternalmvc.info
- *
+ * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
+ *          Public License
+ * @since v0.2
+ * @link http://www.eternalmvc.info
+ *      
  */
 class AutoLoader
 {
+
     /**
      * The method for autoloading classes
      *
-     * This function takes the class name specified an makes it an array.  It
+     * This function takes the class name specified an makes it an array. It
      * checks to see if the class name begins with 'Model' which determines the
      * path it loads from.
      *
      * The format it expects the class name to be in is: Some_Class_name which
      * would include the file: Some/Class/Name.php
      *
-     * This method is for use by the spl_register_autoloader function.  Example:
+     * This method is for use by the spl_register_autoloader function. Example:
      * <code>
      * spl_register_autoloader(array('JPL\AutoLoader','AutoLoad'));
      * </code>
      *
-     * @param string $class the name of the class
-     *
+     * @param string $class
+     *            the name of the class
+     *            
      * @return boolean true if the file was able to be included
      * @access Public
      * @static
+     *
+     *
+     *
      */
-    public static function AutoLoad($class)
+    public static function AutoLoad ($class)
     {
-        $class         = str_replace('\\', '/', $class);
-        $possibilities = array(
-            APPLICATION_PATH . 'Library/' . DIRECTORY_SEPARATOR . $class . '.php',
-            $class . '.php'
-        );
+        $class = str_replace('\\', '/', $class);
+        $possibilities = array(APPLICATION_PATH . 'Library/' . DIRECTORY_SEPARATOR . $class . '.php', $class . '.php');
         foreach ($possibilities as $file) {
             if (file_exists($file)) {
-                require_once($file);
+                require_once ($file);
                 return true;
             }
         }
         return false;
-
+    
     }
 }

@@ -1,73 +1,86 @@
 <?php
+
+namespace Test\Jpl;
 require_once (dirname(__FILE__) . '/../../TestHelper.php');
 require_once APPLICATION_PATH . '/lib/Jpl/Router.php';
-require_once(APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php');
-require_once(APPLICATION_PATH . '/lib/Jpl/Exception/InvalidController.php');
+require_once (APPLICATION_PATH . '/lib/Jpl/Exception/InvalidAction.php');
+require_once (APPLICATION_PATH . '/lib/Jpl/Exception/InvalidController.php');
 
-class Jpl_RouterTest extends PHPUnit_Framework_TestCase
+use \Jpl\Router;
+
+class RouterTest extends \PHPUnit_Framework_TestCase
 {
-    public function testCallControllerNoURL(){
+
+    public function testCallControllerNoURL ()
+    {
         ob_start();
-        Jpl_Router::callControllerAction();
+        Router::callControllerAction();
         $view = ob_get_contents();
         ob_end_clean();
         $this->assertStringStartsWith('Index View', $view);
     }
-    
-    public function testCallControllerWithIndex(){
+
+    public function testCallControllerWithIndex ()
+    {
         $_GET['route'] = 'index/index';
         ob_start();
-        Jpl_Router::callControllerAction();
+        Router::callControllerAction();
         $view = ob_get_contents();
         ob_end_clean();
         $this->assertStringStartsWith('Index View', $view);
     }
-    
-    public function testCallControllerWithAssert(){
+
+    public function testCallControllerWithAssert ()
+    {
         $_GET['route'] = 'index/assert';
         ob_start();
-        Jpl_Router::callControllerAction();
+        Router::callControllerAction();
         $view = ob_get_contents();
         ob_end_clean();
         $this->assertStringStartsWith('Assert View', $view);
     }
-    
-    public function testCallControllerWithInvalidAction(){
+
+    public function testCallControllerWithInvalidAction ()
+    {
         $_GET['route'] = 'index/test';
-        try{
-            Jpl_Router::callControllerAction();
-        }catch(Exception $e){
+        try {
+            Router::callControllerAction();
+        } catch (\Exception $e) {
             $this->assertEquals("The view does not exist for the requested action", $e->getMessage());
         }
-        
-    }
     
-    public function testCallControllerWithInvalidController(){
+    }
+
+    public function testCallControllerWithInvalidController ()
+    {
         $_GET['route'] = 'test/assert';
-        try{
-            Jpl_Router::callControllerAction();
-        }catch(Jpl_Exception_InvalidController $e){
+        try {
+            Router::callControllerAction();
+        } catch (\Jpl\Exception\InvalidController $e) {
             $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
         }
     }
-    
-    public function testRegisterRoute(){
-        $route = new Jpl_Route('/test/assert', 'test', 'test');
-        Jpl_Router::registerRoute($route);
+
+    public function testRegisterRoute ()
+    {
+        $route = new \Jpl\Route('/test/assert', 'test', 'test');
+        Router::registerRoute($route);
         $_GET['route'] = '/test/assert';
-        try{
-            Jpl_Router::callControllerAction();
-        }catch(Jpl_Exception_InvalidController $e){
+        try {
+            Router::callControllerAction();
+        } catch (\Jpl\Exception\InvalidController $e) {
             $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
         }
     }
-    public function testRegisterRouteFail(){
-        $route = new Jpl_Route('test/assert', 'test', 'test');
-        Jpl_Router::registerRoute($route);
+
+    public function testRegisterRouteFail ()
+    {
+        $route = new \Jpl\Route('test/assert', 'test', 'test');
+        Router::registerRoute($route);
         $_GET['route'] = '/test/assert';
-        try{
-            Jpl_Router::callControllerAction();
-        }catch(Jpl_Exception_InvalidController $e){
+        try {
+            Router::callControllerAction();
+        } catch (\Jpl\Exception\InvalidController $e) {
             $this->assertEquals("TestControllerDoes not exist.", $e->getMessage());
         }
     }

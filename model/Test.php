@@ -1,7 +1,11 @@
-<?php 
+<?php
+namespace Model;
 
-class Test{
-    public function newMethod(){
+class Test
+{
+
+    public function newMethod ()
+    {
         return "Tested";
     }
 }

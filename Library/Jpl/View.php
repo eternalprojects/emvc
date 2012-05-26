@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Contains the View class
  *
@@ -47,52 +46,61 @@ namespace Jpl;
  * @since v1.0
  *       
  */
-class View {
-	/**
-	 * a list of view members
-	 *
-	 * @var array
-	 */
-	private $vars = array ();
-	/**
-	 * The default constructor
-	 */
-	public function __construct() {
-	}
-	/**
-	 * Render the view for the given controller and action
-	 *
-	 * @todo Allow custom view locations
-	 * @todo Allow Partials
-	 * @param array $view        	
-	 * @throws \Exception
-	 */
-	public function render(array $view) {
-		$folder = strtolower ( $view [0] );
-		$file = $view [1];
-		if (! file_exists ( APPLICATION_PATH . "/view/{$folder}/{$file}.phtml" )){
-			throw new \Exception ( "The view does not exist for the requested action" );
-		}
-		include APPLICATION_PATH . "/view/$folder/$file.phtml";
-	}
-	/**
-	 * The magic set function
-	 * 
-	 * @param string $key        	
-	 * @param mixed $val        	
-	 */
-	public function __set($key, $val) {
-		if ('_' != substr ( $key, 0, 1 )) {
-			$this->vars [$key] = $val;
-		}
-	}
-	/**
-	 * The magic get function
-	 * 
-	 * @param string $key        	
-	 * @return mixed
-	 */
-	public function __get($key) {
-		return $this->vars [$key];
-	}
+class View
+{
+
+    /**
+     * a list of view members
+     *
+     * @var array
+     */
+    private $vars = array();
+
+    /**
+     * The default constructor
+     */
+    public function __construct ()
+    {}
+
+    /**
+     * Render the view for the given controller and action
+     *
+     * @todo Allow custom view locations
+     * @todo Allow Partials
+     * @param array $view            
+     * @throws \Exception
+     */
+    public function render (array $view)
+    {
+        $folder = strtolower($view[0]);
+        $file = $view[1];
+        if (! file_exists(APPLICATION_PATH . "/view/{$folder}/{$file}.phtml")) {
+            throw new \Exception("The view does not exist for the requested action");
+        }
+        include APPLICATION_PATH . "/view/$folder/$file.phtml";
+    }
+
+    /**
+     * The magic set function
+     *
+     * @param string $key            
+     * @param mixed $val            
+     */
+    public function __set ($key, $val)
+    {
+        if ('_' != substr($key, 0, 1)) {
+            $this->vars[$key] = $val;
+        }
+    }
+
+    /**
+     * The magic get function
+     *
+     * @param string $key            
+     * @return mixed
+     */
+    public function __get ($key)
+    {
+        return $this->vars[$key];
+    }
 }
