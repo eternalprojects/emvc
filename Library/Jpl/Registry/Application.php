@@ -88,15 +88,10 @@ class Application implements Registry
      * a method that returns an instance of the class
      *
      * @static
-     *
-     *
-     *
-     *
-     *
      * @access public
      * @return Jpl_Registry_Application
      */
-    public static function getInstance ()
+    protected static function getInstance ()
     {
         if (! isset(self::$_instance))
             self::$_instance = new self();
@@ -110,7 +105,7 @@ class Application implements Registry
      * @param mixed $value            
      * @access public
      */
-    public function set ($name, $value)
+    public static function set ($name, $value)
     {
         self::getInstance()->_data[$name] = $value;
     }
@@ -122,42 +117,10 @@ class Application implements Registry
      * @access public
      * @return mixed|false
      */
-    public function get ($name)
+    public static function get ($name)
     {
         return (isset(self::getInstance()->_data[$name])) ? self::getInstance()->_data[$name] : false;
     }
 
-    /**
-     * adds data to the registry
-     *
-     * @param string $name            
-     * @param mixed $value            
-     * @static
-     *
-     *
-     *
-     *
-     *
-     */
-    public static function set ($name, $value)
-    {
-        self::getInstance()->_data[$name] = $value;
-    }
 
-    /**
-     * retrieves data from the registry
-     *
-     * @param string $name            
-     * @return mixed null
-     * @static
-     *
-     *
-     *
-     *
-     *
-     */
-    public static function get ($name)
-    {
-        return (isset(self::getInstance()->_data[$name])) ? self::getInstance()->_data[$name] : null;
-    }
 }
