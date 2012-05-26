@@ -114,6 +114,6 @@ class AutoLoaderTest extends \PHPUnit_Framework_TestCase
     public function testControllerSuccess ()
     {
         $this->assertTrue(AL::AutoLoad('\Controller\Jesse'));
-        $this->assertTrue(AL::AutoLoad('\Controller\Error'))
+        $this->assertTrue(AL::AutoLoad('\Controller\Error'));
     }
 }
