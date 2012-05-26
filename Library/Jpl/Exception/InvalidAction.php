@@ -35,7 +35,7 @@
  * @package Jpl\Exception
  */
 namespace Jpl\Exception;
-use Jpl\Exception as Exception;
+
 
 /**
  * The invalid action exception class
@@ -50,7 +50,7 @@ use Jpl\Exception as Exception;
  *          Public License
  * @since v1.0
  */
-class InvalidAction extends Exception
+class InvalidAction extends \Jpl\Exception
 {
 
     /**
