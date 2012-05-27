@@ -127,7 +127,7 @@ class Router
             $controllerPart = ucwords(strtolower($routeArray[0]));
             $actionPart = (isset($routeArray[1]) && $routeArray[1] != '') ? $routeArray[1] : 'index';
         }
-        $controllerName = '\Controller\\' . $controllerName;
+        $controllerName = '\Controller\\' . $controllerPart;
         // Check to see if the controller class exists, if not throw an
         // exception
         if (\Jpl\AutoLoader::AutoLoad($controllerName)) {
@@ -146,7 +146,7 @@ class Router
             $controller->$actionName();
         } else {
             throw new Exception\InvalidAction(
-                    $actionName . "Does not exist in " . $controllerName);
+                    $actionName . ": Does not exist in " . $controllerName);
         }
     }
 }
