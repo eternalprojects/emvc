@@ -77,7 +77,7 @@ class View
         $file = $view[1];
         if (! file_exists(APPLICATION_PATH . "/view/{$folder}/{$file}.phtml")) {
             throw new \Exception(
-                    "The view does not exist for the requested action");
+                    "The view does not exist for the requested action: /view/{$folder}/{$file}.phtml");
         }
         include APPLICATION_PATH . "/view/$folder/$file.phtml";
     }

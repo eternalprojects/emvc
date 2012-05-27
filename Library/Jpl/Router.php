@@ -121,7 +121,7 @@ class Router
             $controllerName = '\Controller\\' . ucwords(
                     strtolower($matchedRoute->getControllerName()));
             
-            $actionPart = $matchedRoute->getActionName();
+            $actionPart = strtolower($matchedRoute->getActionName());
         } else {
             $routeArray = explode('/', $route);
             $controllerName = '\Controller\\' . ucwords(strtolower($routeArray[0]));
