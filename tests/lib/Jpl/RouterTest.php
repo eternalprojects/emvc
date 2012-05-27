@@ -45,7 +45,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         $_GET['route'] = 'index/test';
         try {
             Router::callControllerAction();
-        } catch (\Exception $e) {
+        } catch (\Jpl\Exception\InvalidAction $e) {
             $this->assertEquals(
                     "testAction: Does not exist in \Controller\Index", 
                     $e->getMessage());
