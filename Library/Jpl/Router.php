@@ -118,21 +118,22 @@ class Router
          */
         $matchedRoute = self::_getMatchingRoute($route);
         if ($matchedRoute != false) {
-            $controllerName = '\Controller\\' . ucwords(
+            $controllerPart = ucwords(
                     strtolower($matchedRoute->getControllerName()));
             
             $actionPart = strtolower($matchedRoute->getActionName());
         } else {
             $routeArray = explode('/', $route);
-            $controllerName = '\Controller\\' . ucwords(strtolower($routeArray[0]));
+            $controllerPart = ucwords(strtolower($routeArray[0]));
             $actionPart = (isset($routeArray[1]) && $routeArray[1] != '') ? $routeArray[1] : 'index';
         }
+        $controllerName = '\Controller\\' . $controllerName;
         // Check to see if the controller class exists, if not throw an
         // exception
         if (\Jpl\AutoLoader::AutoLoad($controllerName)) {
             $controller = new $controllerName(
                     array(
-                            $controllerName,
+                            $controllerPart,
                             $actionPart
                     ));
         } else {

@@ -47,7 +47,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
             Router::callControllerAction();
         } catch (\Exception $e) {
             $this->assertEquals(
-                    "The view does not exist for the requested action", 
+                    "testAction: Does not exist in \Controller\Index", 
                     $e->getMessage());
         }
     }
@@ -58,7 +58,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         try {
             Router::callControllerAction();
         } catch (\Jpl\Exception\InvalidController $e) {
-            $this->assertEquals("TestControllerDoes not exist.", 
+            $this->assertEquals("TestController: Does not exist.", 
                     $e->getMessage());
         }
     }
@@ -71,7 +71,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         try {
             Router::callControllerAction();
         } catch (\Jpl\Exception\InvalidController $e) {
-            $this->assertEquals("TestControllerDoes not exist.", 
+            $this->assertEquals("TestController: Does not exist.", 
                     $e->getMessage());
         }
     }
