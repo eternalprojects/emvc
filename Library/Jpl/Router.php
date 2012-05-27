@@ -118,13 +118,13 @@ class Router
          */
         $matchedRoute = self::_getMatchingRoute($route);
         if ($matchedRoute != false) {
-            $controllerName = ucwords(
+            $controllerName = '\Controller\\' . ucwords(
                     strtolower($matchedRoute->getControllerName()));
             
             $actionPart = $matchedRoute->getActionName();
         } else {
             $routeArray = explode('/', $route);
-            $controllerName = 'Controller\\' . ucwords(strtolower($routeArray[0]));
+            $controllerName = '\Controller\\' . ucwords(strtolower($routeArray[0]));
             $actionPart = (isset($routeArray[1]) && $routeArray[1] != '') ? $routeArray[1] : 'index';
         }
         // Check to see if the controller class exists, if not throw an

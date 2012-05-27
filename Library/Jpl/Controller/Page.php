@@ -35,8 +35,8 @@
  * @package Jpl\Controller
  */
 namespace Jpl\Controller;
-use Jpl\View;
-
+use \Jpl\View;
+require_once  APPLICATION_PATH . '/Controller/Error.php';
 /**
  * The Page Controller Abstract class
  *
