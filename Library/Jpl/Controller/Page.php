@@ -105,7 +105,7 @@ abstract class Page
         try {
             $this->view->render($this->_route);
         } catch (\Exception $e) {
-            $error = new \Controller\Error();
+            $error = new \Controller\Error(array('error','error'));
             $error->errorAction($e->getMessage());
         }
     }
