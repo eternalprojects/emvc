@@ -83,7 +83,7 @@ class AutoLoader
         $possibilities = array(
                 APPLICATION_PATH . 'Library/' . DIRECTORY_SEPARATOR . $class .
                          '.php',
-                        $class . '.php'
+                        APPLICATION_PATH . DIRECTORY_SEPARATOR . $class . '.php'
         );
         foreach ($possibilities as $file) {
             if (file_exists($file)) {
