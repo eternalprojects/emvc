@@ -58,7 +58,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         try {
             Router::callControllerAction();
         } catch (\Jpl\Exception\InvalidController $e) {
-            $this->assertEquals("\Controler\Test: Does not exist.", 
+            $this->assertEquals("\Controller\Test: Does not exist.", 
                     $e->getMessage());
         }
     }
@@ -71,7 +71,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         try {
             Router::callControllerAction();
         } catch (\Jpl\Exception\InvalidController $e) {
-            $this->assertEquals("\Controler\Test: Does not exist.", 
+            $this->assertEquals("\Controller\Test: Does not exist.", 
                     $e->getMessage());
         }
     }
@@ -84,7 +84,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         try {
             Router::callControllerAction();
         } catch (\Jpl\Exception\InvalidController $e) {
-            $this->assertEquals("\Controler\Test: Does not exist.", 
+            $this->assertEquals("\Controller\Test: Does not exist.", 
                     $e->getMessage());
         }
     }
