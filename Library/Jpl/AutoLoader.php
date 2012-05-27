@@ -81,7 +81,7 @@ class AutoLoader
     {
         $class = str_replace('\\', '/', $class);
         $possibilities = array(
-                APPLICATION_PATH . 'Library/' . DIRECTORY_SEPARATOR . $class .
+                APPLICATION_PATH . '/Library/' . DIRECTORY_SEPARATOR . $class .
                          '.php',
                         APPLICATION_PATH . DIRECTORY_SEPARATOR . $class . '.php'
         );

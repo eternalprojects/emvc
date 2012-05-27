@@ -1,6 +1,6 @@
 <?php
 
-define('APPLICATION_PATH', dirname(__FILE__) . '/..');
+define('APPLICATION_PATH', dirname(__FILE__) . '/../');
 set_include_path(
 get_include_path() . PATH_SEPARATOR . APPLICATION_PATH . '/Library/' .
 PATH_SEPARATOR . APPLICATION_PATH);
