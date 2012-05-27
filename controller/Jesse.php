@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
-
-class Jesse extends \Jpl\Controller\Page
+use \Jpl\Controller\Page;
+class Jesse extends Page
 {
 
     public function indexAction ()
