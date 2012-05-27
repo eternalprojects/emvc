@@ -138,7 +138,7 @@ class Router
                     ));
         } else {
             throw new Exception\InvalidController(
-                    $controllerName . "Does not exist.");
+                    $controllerName . ": Does not exist.");
         }
         $actionName = strtolower($actionPart) . 'Action';
         
