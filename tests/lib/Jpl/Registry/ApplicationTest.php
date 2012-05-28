@@ -7,7 +7,7 @@ require_once 'PHPUnit\Framework\TestCase.php';
 /**
  * Application test case.
  */
-class ApplicationTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends PHPUnit_Framework_TestCase
 {
 
     /**
