@@ -36,7 +36,8 @@
  */
 namespace Jpl\Controller;
 use \Jpl\View;
-require_once  APPLICATION_PATH . '/Controller/Error.php';
+require_once APPLICATION_PATH . '/Controller/Error.php';
+
 /**
  * The Page Controller Abstract class
  *
@@ -51,8 +52,6 @@ require_once  APPLICATION_PATH . '/Controller/Error.php';
  *          Public License
  * @since v1.0
  * @abstract
- *
- *
  *
  */
 abstract class Page
@@ -71,9 +70,9 @@ abstract class Page
      * contains the Controller and action names
      *
      * @var $_route array
-     * @access private
+     * @access protected
      */
-    private $_route;
+    protected $_route;
 
     /**
      * The default constructor
@@ -105,7 +104,10 @@ abstract class Page
         try {
             $this->view->render($this->_route);
         } catch (\Exception $e) {
-            $error = new \Controller\Error(array('error','error'));
+            $error = new \Controller\Error(array(
+                    'error',
+                    'error'
+            ));
             $error->errorAction($e->getMessage());
         }
     }

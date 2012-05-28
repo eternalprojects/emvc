@@ -36,7 +36,6 @@
  */
 namespace Jpl\Exception;
 
-
 /**
  * The invalid action exception class
  *

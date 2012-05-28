@@ -68,16 +68,23 @@ class Front
      *
      * @access public
      * @final
+     *
      */
     public final function run ()
     {
         try {
             Router::callControllerAction();
         } catch (InvalidAction $e) {
-            $error = new \Controller\Error(array('Error','error'));
+            $error = new \Controller\Error(array(
+                    'Error',
+                    'error'
+            ));
             $error->errorAction($e);
         } catch (InvalidController $e) {
-            $error = new \Controller\Error(array('Error','error'));
+            $error = new \Controller\Error(array(
+                    'Error',
+                    'error'
+            ));
             $error->errorAction($e);
         }
     }

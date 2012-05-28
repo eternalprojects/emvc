@@ -64,6 +64,7 @@ class Application implements Registry
      *
      *
      *
+     *
      * @access private
      */
     private static $_instance;
@@ -88,6 +89,7 @@ class Application implements Registry
      * a method that returns an instance of the class
      *
      * @static
+     *
      * @access public
      * @return Jpl_Registry_Application
      */
@@ -115,12 +117,10 @@ class Application implements Registry
      *
      * @param string $name            
      * @access public
-     * @return mixed|false
+     * @return mixed false
      */
     public static function get ($name)
     {
         return (isset(self::getInstance()->_data[$name])) ? self::getInstance()->_data[$name] : false;
     }
-
-
 }
