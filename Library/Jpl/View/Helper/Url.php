@@ -58,14 +58,9 @@ class Url
     /**
      * The default constructor
      *
-     * @deprecated
-     *
-     *
-     *
-     *
-     * @param Jpl\Router $router            
+     * @deprecated          
      */
-    function __construct (Router $router)
+    function __construct ()
     {}
 
     /**

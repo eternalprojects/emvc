@@ -60,11 +60,6 @@ class Application implements Registry
      *
      * @var Jpl\Registry\Application
      * @staticvar
-     *
-     *
-     *
-     *
-     *
      * @access private
      */
     private static $_instance;
