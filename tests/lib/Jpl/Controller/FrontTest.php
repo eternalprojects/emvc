@@ -54,7 +54,7 @@ class FrontTest extends \PHPUnit_Framework_TestCase
         ob_start();
         $this->Front->run();
         $view = ob_get_flush();
-        $this->assertStringStartsWith('Index View');
+        $this->assertStringStartsWith('Index View', $view);
         ob_end_clean();
     }
     
