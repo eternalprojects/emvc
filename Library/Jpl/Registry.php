@@ -32,9 +32,9 @@
  */
 /**
  *
- * @package Jpl\Registry
+ * @package Jpl
  */
-namespace Jpl\Registry;
+namespace Jpl;
 
 /**
  * The interface for all Registry classes to inherit
