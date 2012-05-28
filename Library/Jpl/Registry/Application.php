@@ -35,7 +35,7 @@
  * @package Jpl\Registry
  */
 namespace Jpl\Registry;
-use \Jpl\Registry\Registry;
+use \Jpl\Registry;
 
 /**
  * A class acting as a registry
