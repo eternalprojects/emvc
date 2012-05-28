@@ -1,13 +1,13 @@
 <?php
 namespace Test\Jpl\Registry;
-require_once 'Library/Jpl/Registry/Application.php';
+require_once 'Library\Jpl\Registry\Application.php';
 use \Jpl\Registry\Application;
 require_once 'PHPUnit\Framework\TestCase.php';
 
 /**
  * Application test case.
  */
-class ApplicationTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends PHPUnit_Framework_TestCase
 {
 
     /**
