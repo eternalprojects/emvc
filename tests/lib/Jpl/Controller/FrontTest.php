@@ -1,12 +1,12 @@
 <?php
 namespace Test\Controller;
-require_once 'Library\Jpl\Controller\Front.php';
+require_once 'Jpl\Controller\Front.php';
 use \Jpl\Controller\Front;
 
 /**
  * Front test case.
  */
-class FrontTest extends PHPUnit_Framework_TestCase
+class FrontTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
