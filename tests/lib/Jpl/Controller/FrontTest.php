@@ -1,5 +1,5 @@
 <?php
-namespace Test\Controller;
+namespace Test\Jpl\Controller;
 require_once 'Library/Jpl/Controller/Front.php';
 use \Jpl\Controller\Front;
 
@@ -55,24 +55,27 @@ class FrontTest extends \PHPUnit_Framework_TestCase
         $this->Front->run();
         $view = ob_get_flush();
         $this->assertStringStartsWith('Index View', $view);
-      
     }
-    
-    public function testInvalidControllerRun(){
+
+    public function testInvalidControllerRun ()
+    {
         $_GET['route'] = 'test/index';
-        try{
+        try {
             $this->Front->run();
-        }catch(\Jpl\Exception\InvalidController $e){
-            $this->assertEquals('\Controller\Test: Does not exist.', $e->getMessage());
+        } catch (\Jpl\Exception\InvalidController $e) {
+            $this->assertEquals('\Controller\Test: Does not exist.', 
+                    $e->getMessage());
         }
     }
-    
-    public function testInvalidActionRun(){
+
+    public function testInvalidActionRun ()
+    {
         $_GET['route'] = 'index/test';
-        try{
+        try {
             $this->Front->run();
-        }catch(\Jpl\Exception\InvalidAction $e){
-            $this->assertEquals('testAction: Does not exist in \Controler\Index');
+        } catch (\Jpl\Exception\InvalidAction $e) {
+            $this->assertEquals(
+                    'testAction: Does not exist in \Controler\Index');
         }
     }
 }

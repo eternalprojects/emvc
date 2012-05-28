@@ -76,6 +76,7 @@ class AutoLoader
      * @return boolean true if the file was able to be included
      * @access Public
      * @static
+     *
      */
     public static function AutoLoad ($class)
     {

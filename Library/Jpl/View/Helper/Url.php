@@ -62,6 +62,7 @@ class Url
      *
      *
      *
+     *
      * @param Jpl\Router $router            
      */
     function __construct (Router $router)

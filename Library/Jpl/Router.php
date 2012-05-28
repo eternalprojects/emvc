@@ -61,6 +61,7 @@ class Router
      *
      * @var array a list of registered routes
      * @static
+     *
      * @access private
      */
     private static $_routes = array();
@@ -74,6 +75,7 @@ class Router
      * @access public
      * @param \Jpl\Route $route            
      * @static
+     *
      * @see \Jpl\Route
      */
     public static function registerRoute (Route $route)
@@ -86,9 +88,10 @@ class Router
      *
      * @param string $santitizedUrl            
      *
-     * @return \Jpl\Route|false
+     * @return \Jpl\Route false
      * @access private
      * @static
+     *
      */
     private static function _getMatchingRoute ($santitizedUrl)
     {
@@ -105,6 +108,7 @@ class Router
      *
      * @access public
      * @static
+     *
      * @throws Jpl\Exception\InvalidController
      * @throws Jpl\Exception\InvalidAction
      * @return void
