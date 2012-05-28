@@ -98,7 +98,7 @@ class AutoLoaderTest extends \PHPUnit_Framework_TestCase
      */
     public function testJplLibSuccess ()
     {
-        $this->assertTrue(AL::AutoLoad('\Jpl\Router'));
+        $this->assertTrue(AL::AutoLoad('Jpl\Router'));
     }
 
     /**

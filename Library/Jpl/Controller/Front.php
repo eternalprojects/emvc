@@ -68,10 +68,6 @@ class Front
      *
      * @access public
      * @final
-     *
-     *
-     *
-     *
      */
     public final function run ()
     {
