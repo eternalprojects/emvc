@@ -3,12 +3,12 @@
 namespace Test\Jpl\View\Helper;
 use \Jpl\View\Helper\Url;
 
-require_once 'PHPUnit\Framework\TestCase.php';
+
 
 /**
  * Url test case.
  */
-class UrlTest extends PHPUnit_Framework_TestCase
+class UrlTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
