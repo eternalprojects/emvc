@@ -1,9 +1,7 @@
 <?php
 namespace Controller;
-require_once 'Jpl/Controller/Page.php';
-use \Jpl\Controller\Page;
 
-class Jesse extends Page
+class Jesse extends \Jpl\Controller\Page
 {
 
     public function indexAction ()

@@ -8,21 +8,21 @@
  * Copyright (c) 2010-2012, JPL Web Solutions,
  * Jesse P Lesperance <jesse@jplesperance.me>
  *
- * This file is part of JPL-MVC.
+ * This file is part of EternalMVC.
  *
- * JPL-MVC is free software: you can redistribute it and/or modify
+ * EternalMVC is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.  JPL-MVC is distributed in the hope
+ * (at your option) any later version.  EternalMVC is distributed in the hope
  * that it will be useful, but WITHOUT ANY WARRANTY; without even the
  * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
  * See the GNU General Public License for more details. You should have
- * received a copy of the GNU General Public License along with JPL-MVC.
+ * received a copy of the GNU General Public License along with EternalMVC.
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl
+ * @package    Jpl\Controller
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
@@ -35,16 +35,15 @@
  * @package Jpl\Controller
  */
 namespace Jpl\Controller;
-use Jpl\Router;
-use Jpl\Exception\InvalidController;
-use Jpl\Exception\InvalidAction;
-
+use \Jpl\Router;
+use \Jpl\Exception\InvalidController;
+use \Jpl\Exception\InvalidAction;
 /**
  * The Front Controller for dispatching requests
  *
  * The class dispatches the request to the router
  *
- * @package Jpl\Router
+ * @package Jpl\Controller
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
@@ -56,21 +55,14 @@ class Front
 {
 
     /**
-     * Default constructor
-     *
-     * @access public
-     */
-    public function __construct ()
-    {}
-
-    /**
      * Dispatches the request to the Router class
      *
      * @access public
+     * @static
      * @final
-     *
+     * @since v1.0
      */
-    public final function run ()
+    public final static function run ()
     {
         try {
             Router::callControllerAction();
