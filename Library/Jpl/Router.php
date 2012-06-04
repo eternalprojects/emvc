@@ -124,7 +124,7 @@ class Router
         $matchedRoute = self::_getMatchingRoute($route);
         if ($matchedRoute != false) {
             $controllerPart = ucwords(
-                    strtolower($matchedRoute->getControllerName()
+                strtolower($matchedRoute->getControllerName()
             ));
             
             $actionPart = strtolower($matchedRoute->getActionName());

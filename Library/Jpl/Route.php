@@ -76,14 +76,6 @@ class Route
     private $_actionName;
 
     /**
-     * The parameters to pass to the action
-     *
-     * @var array
-     * @access private
-     */
-    private $_params;
-
-    /**
      * the constructor method builds the mapping
      *
      * takes the supplied 2 part url: /some/thing and allows you to specify the
