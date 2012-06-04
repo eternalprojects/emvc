@@ -151,5 +151,3 @@ class Route
         return ($this->_url == substr($url, 0, strlen($this->_url))) ? true : false;
     }
 }
-
-?>

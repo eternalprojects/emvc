@@ -83,5 +83,3 @@ class Url
         return Registry\Application::get('baseUrl') . '/static/' . $url;
     }
 }
-
-?>
