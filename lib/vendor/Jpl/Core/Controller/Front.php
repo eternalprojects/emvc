@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Contains the InvalidAction Exception class
+ * Contains the Front Controller class
  *
  * License:
  *
@@ -22,48 +22,62 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Exception
+ * @package    Jpl\Core\Controller
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
- * @link       http://www.eternalmvc.info
+ * @link      http://www.eternalmvc.info
  * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
  * @since      v1.0
  *
  */
 /**
  *
- * @package Jpl\Exception
+ * @package Jpl\Core\Controller
  */
-namespace Jpl\Exception;
-
+namespace Jpl\Core\Controller;
+use \Jpl\Core\Router;
+use \Jpl\Core\Exception\InvalidController;
+use \Jpl\Core\Exception\InvalidAction;
 /**
- * The invalid action exception class
+ * The Front Controller for dispatching requests
  *
- * This Exception class is thrown when the requested controller class file
- * cannot be found
+ * The class dispatches the request to the router
  *
- * @package     Jpl\Exception\InvalidAction
- * @see         \Jpl\Exception
- * @author      Jesse P Lesperance <jesse@jplesperance.me>
+ * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
  *          Public License
  * @since v1.0
+ *       
  */
-class InvalidAction extends \Jpl\Exception
+class Front
 {
 
     /**
-     * The default class constructor
+     * Dispatches the request to the Router class
      *
      * @access public
-     * @param string $message            
-     * @param int $code            
-     * @since v1.1
+     * @static
+     * @final
+     * @since v1.0
      */
-    public function __construct ($message = "", $code = 0)
+    public final static function run ()
     {
-        parent::__construct($message, $code);
+        try {
+            Router::callControllerAction();
+        } catch (InvalidAction $e) {
+            $error = new \Controller\Error(array(
+                    'Error',
+                    'error'
+            ));
+            $error->errorAction($e);
+        } catch (InvalidController $e) {
+            $error = new \Controller\Error(array(
+                    'Error',
+                    'error'
+            ));
+            $error->errorAction($e);
+        }
     }
 }
 ?>

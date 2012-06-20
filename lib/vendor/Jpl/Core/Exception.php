@@ -22,7 +22,7 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Registry
+ * @package    Jpl\Core
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
@@ -32,9 +32,9 @@
  */
 /**
  *
- * @package Jpl
+ * @package Jpl\Core
  */
-namespace Jpl;
+namespace Jpl\Core;
 
 /**
  * The Exception class specific to the MVC framewprk
@@ -43,7 +43,6 @@ namespace Jpl;
  * framework. This class has
  * some additional functionality for handling and logging exceptions thrown.
  *
- * @package Jpl\Exception
  * @see \Exception::__construct
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions

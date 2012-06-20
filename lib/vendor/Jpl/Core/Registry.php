@@ -22,7 +22,7 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl
+ * @package    Jpl\Core
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
@@ -32,9 +32,9 @@
  */
 /**
  *
- * @package Jpl
+ * @package Jpl\Core
  */
-namespace Jpl;
+namespace Jpl\Core;
 
 /**
  * The interface for all Registry classes to inherit

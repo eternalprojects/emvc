@@ -22,7 +22,7 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Registry
+ * @package    Jpl\Core\Registry
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
@@ -32,10 +32,10 @@
  */
 /**
  *
- * @package Jpl\Registry
+ * @package Jpl\Core\Registry
  */
-namespace Jpl\Registry;
-use \Jpl\Registry;
+namespace Jpl\Core\Registry;
+use \Jpl\Core\Registry;
 
 /**
  * A class acting as a registry
@@ -44,7 +44,6 @@ use \Jpl\Registry;
  * based data and settings so that the information is accessable from all parts
  * of the application
  *
- * @package Jpl\Registry\Registry
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @see \Jpl\Registry
  * @copyright 2010-2012 JPL Web Solutions
@@ -59,8 +58,7 @@ class Application implements Registry
     /**
      * a reference to this class
      *
-     * @var Jpl\Registry\Application
-     * @staticvar
+     * @staticvar Jpl\Core\Registry\Application
      * @access private
      */
     private static $_instance;
@@ -87,7 +85,7 @@ class Application implements Registry
      * @static
      *
      * @access public
-     * @return Jpl_Registry_Application
+     * @return Jpl\Core\Registry\Application
      */
     protected static function getInstance ()
     {

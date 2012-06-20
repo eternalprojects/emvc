@@ -22,7 +22,7 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\View
+ * @package    Jpl\Core
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
@@ -32,14 +32,13 @@
  */
 /**
  *
- * @package Jpl
+ * @package Jpl\Core
  */
-namespace Jpl;
+namespace Jpl\Core;
 
 /**
  * The View/Template class
  *
- * @package Jpl\View
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
@@ -67,9 +66,9 @@ class View
     /**
      * Render the view for the given controller and action
      *
-     * @todo Allow custom view locations v1.3
-     * @todo Allow Partials v1.3
-     * @todo Change from thowing \Exception to \Jpl\Exception\InvalidView v1.3
+     * @todo Allow custom view locations v1.2.1
+     * @todo Allow Partials v1.2
+     * @todo Change from thowing \Exception to \Jpl\Core\Exception\InvalidView 
      * @param array $view            
      * @throws \Exception
      */

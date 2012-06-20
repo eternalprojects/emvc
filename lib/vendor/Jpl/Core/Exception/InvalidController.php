@@ -1,7 +1,7 @@
 <?php
 
 /**
- * URL View helper class
+ * Contains the InvalidController Exception class
  *
  * License:
  *
@@ -22,7 +22,7 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\View
+ * @package    Jpl\Core\Exception
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
@@ -32,19 +32,19 @@
  */
 /**
  *
- * @package Jpl\View\Helper
+ * @package Jpl\Core\Exception
  */
-namespace Jpl\View\Helper;
-use Jpl\Registry;
+namespace Jpl\Core\Exception;
+use \Jpl\Core\Exception as Exception;
 
 /**
- * The URL View Helper class
+ * The Exception class specific to the MVC framewprk
  *
- * This view helper is essentially used for generating links for
- * inside the application
+ * This class is used to throw exceptions that happen in the EternalMVC
+ * framework. This class has
+ * some additional functionality for handling and logging exceptions thrown.
  *
- * @package Jpl\Controller\Page
- * @uses \Jpl\Registry\Application
+ * @uses \Jpl\Core\Exception
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
@@ -52,34 +52,20 @@ use Jpl\Registry;
  * @since v1.0
  *       
  */
-class Url
+class InvalidController extends Exception
 {
 
     /**
-     * Creates a hyperlink url based on a Controller and action
+     * The default class constructor
      *
-     * @param string $controller            
-     * @param string $action  
-     * @return string   
-     * @static    
-     * @since 1.0   
+     * @param string $message            
+     * @param int $code            
+     * @since v1.1
      */
-    static function createLinkUrl ($controller, $action)
+    public function __construct ($message = "", $code = 0)
     {
-        return Registry\Application::get('baseUrl') . '/' . $controller . '/' .
-                 $action;
-    }
-
-    /**
-     * Creates a hyperlink url based on a static file url
-     *
-     * @param string $url 
-     * @static 
-     * @return string      
-     * @since 1.0    
-     */
-    static function createStaticUrl ($url)
-    {
-        return Registry\Application::get('baseUrl') . '/static/' . $url;
+        parent::__construct($message, $code);
     }
 }
+
+?>

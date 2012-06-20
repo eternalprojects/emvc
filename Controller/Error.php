@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 
-class Error extends \Jpl\Controller\Page
+class Error extends \Jpl\Core\Controller\Page
 {
 
     public function errorAction ($msg)

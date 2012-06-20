@@ -1,7 +1,7 @@
 <?php
 namespace Controller;
 
-class Index extends \Jpl\Controller\Page
+class Index extends \Jpl\Core\Controller\Page
 {
 
     public function indexAction ()

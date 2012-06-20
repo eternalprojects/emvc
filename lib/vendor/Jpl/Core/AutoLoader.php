@@ -31,9 +31,9 @@
  */
 /**
  *
- * @package Jpl
+ * @package Jpl\Core
  */
-namespace Jpl;
+namespace Jpl\Core;
 
 /**
  * A class to automate loading of class files
@@ -43,7 +43,6 @@ namespace Jpl;
  * to determine whether to load from the library or load from the Model
  * directory
  *
- * @package Jpl\AutoLoader
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
@@ -62,12 +61,12 @@ class AutoLoader
      * checks to see if the class name begins with 'Model' which determines the
      * path it loads from.
      *
-     * The format it expects the class name to be in is: Some_Class_name which
-     * would include the file: Some/Class/Name.php
+     * The format it expects the class name to be namespaces with PHP 5.3 namespace feature.
+     * The folder structure in the lib vendor folder should match the namespace of the class.
      *
      * This method is for use by the spl_register_autoloader function. Example:
      * <code>
-     * spl_register_autoloader(array('JPL\AutoLoader','AutoLoad'));
+     * spl_register_autoloader(array('Jpl\Core\AutoLoader','AutoLoad'));
      * </code>
      *
      * @param string $class
@@ -82,7 +81,7 @@ class AutoLoader
     {
         $class = str_replace('\\', '/', $class);
         $possibilities = array(
-                APPLICATION_PATH . '/Library/' . DIRECTORY_SEPARATOR . $class .
+                APPLICATION_PATH . '/lib/vendor/' . DIRECTORY_SEPARATOR . $class .
                          '.php',
                         APPLICATION_PATH . DIRECTORY_SEPARATOR . $class . '.php'
         );

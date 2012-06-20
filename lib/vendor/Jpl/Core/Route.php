@@ -22,7 +22,7 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Route
+ * @package    Jpl\Core
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
@@ -31,9 +31,9 @@
  */
 /**
  *
- * @package Jpl
+ * @package Jpl\Core
  */
-namespace Jpl;
+namespace Jpl\Core;
 
 /**
  * A class to define custom URL routes
@@ -41,7 +41,6 @@ namespace Jpl;
  * This class contains methods for defining custom URL routes and mapping them
  * to the appropriate Controller and actions
  *
- * @package Jpl\Route
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link http://www.eternalmvc.info

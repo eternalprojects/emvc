@@ -22,7 +22,7 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Router
+ * @package    Jpl\Core
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
@@ -32,11 +32,11 @@
  */
 /**
  *
- * @package Jpl
+ * @package Jpl\Core
  */
-namespace Jpl;
-use \Jpl\Route;
-use \Jpl\Exception;
+namespace Jpl\Core;
+use \JplCore\Route;
+use \Jpl\Core\Exception;
 
 /**
  * The Router class
@@ -45,7 +45,6 @@ use \Jpl\Exception;
  * and action to call. It knows how to route default routes but can also handle
  * routing custom defined routes.
  *
- * @package Jpl\Router
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
@@ -74,10 +73,10 @@ class Router
      * created when defining a custom route
      *
      * @access public
-     * @param \Jpl\Route $route            
+     * @param \Jpl\Core\Route $route            
      * @static
      *
-     * @see \Jpl\Route
+     * @see \Jpl\Core\Route
      */
     public static function registerRoute (Route $route)
     {
@@ -89,7 +88,7 @@ class Router
      *
      * @param string $santitizedUrl            
      *
-     * @return \Jpl\Route false
+     * @return \Jpl\Core\Route|false
      * @access private
      * @static
      *
@@ -110,8 +109,8 @@ class Router
      * @access public
      * @static
      *
-     * @throws Jpl\Exception\InvalidController
-     * @throws Jpl\Exception\InvalidAction
+     * @throws Jpl\Core\Exception\InvalidController
+     * @throws Jpl\Core\Exception\InvalidAction
      * @return void
      */
     public static function callControllerAction ()

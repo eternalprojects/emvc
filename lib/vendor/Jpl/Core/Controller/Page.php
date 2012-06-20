@@ -22,7 +22,7 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Controller
+ * @package    Jpl\Core\Controller
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
@@ -32,10 +32,10 @@
  */
 /**
  *
- * @package Jpl\Controller
+ * @package Jpl\Core\Controller
  */
-namespace Jpl\Controller;
-use \Jpl\View;
+namespace Jpl\Core\Controller;
+use \Jpl\Core\View;
 require_once APPLICATION_PATH . '/Controller/Error.php';
 
 /**
@@ -45,7 +45,6 @@ require_once APPLICATION_PATH . '/Controller/Error.php';
  * extend it. The page Controller handles initiating the View object and
  * rendering the view after processing the Controller and action
  *
- * @package Jpl\Controller\Page
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
@@ -58,10 +57,10 @@ abstract class Page
 {
 
     /**
-     * contains reference of \Jpl\View
+     * contains reference of \Jpl\Core\View
      *
-     * @var $view Jpl\View
-     * @see \Jpl\View;
+     * @var $view Jpl\Core\View
+     * @see \Jpl\Core\View;
      * @access protected
      */
     protected $view;
@@ -108,15 +107,15 @@ abstract class Page
     /**
      * Set the View class to use
      * 
-     * @param \JPL\View $view
+     * @param \JPL\Core\View $view
      */
-    public function setView(\JPL\View $view){
+    public function setView(\JPL\Core\View $view){
         $this->view = $view;
     }
     /**
      * Retrieve the View class
      * 
-     * @return \Jpl\View
+     * @return \Jpl\Core\View
      */
     public function getView(){
         return $this->view;
