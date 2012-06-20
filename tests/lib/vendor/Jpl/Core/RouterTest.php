@@ -1,10 +1,10 @@
 <?php
 namespace Test\Jpl\Core;
-require_once (dirname(__FILE__) . '/../../TestHelper.php');
-require_once APPLICATION_PATH . 'Jpl/Core/Router.php';
-require_once APPLICATION_PATH . 'Jpl/Core/Exception.php';
-require_once (APPLICATION_PATH . 'Jpl/Core/Exception/InvalidAction.php');
-require_once (APPLICATION_PATH . 'Jpl/Core/Exception/InvalidController.php');
+require_once (dirname(__FILE__) . '/../../../../TestHelper.php');
+require_once 'Jpl/Core/Router.php';
+require_once 'Jpl/Core/Exception.php';
+require_once ('Jpl/Core/Exception/InvalidAction.php');
+require_once ('Jpl/Core/Exception/InvalidController.php');
 
 use \Jpl\Core\Router;
 

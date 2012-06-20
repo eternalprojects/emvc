@@ -35,7 +35,7 @@
  * @package Jpl\Core
  */
 namespace Jpl\Core;
-use \JplCore\Route;
+use \Jpl\Core\Route;
 use \Jpl\Core\Exception;
 
 /**
@@ -135,7 +135,7 @@ class Router
         $controllerName = '\Controller\\' . $controllerPart;
         // Check to see if the controller class exists, if not throw an
         // exception
-        if (\Jpl\AutoLoader::AutoLoad($controllerName)) {
+        if (\Jpl\Core\AutoLoader::AutoLoad($controllerName)) {
             $controller = new $controllerName(
                     array(
                             $controllerPart,
