@@ -89,7 +89,38 @@ abstract class Page
         $this->_route = $route;
         $this->view = new View();
     }
-
+    /**
+     * Set the route
+     * 
+     * @param array $route
+     */
+    public function setRoute(array $route){
+        $this->_route = $route;
+    }
+    /**
+     * Get the currently ser route
+     * 
+     * @return array
+     */
+    public function getRoute(){
+        return $this->_route;
+    }
+    /**
+     * Set the View class to use
+     * 
+     * @param \JPL\View $view
+     */
+    public function setView(\JPL\View $view){
+        $this->view = $view;
+    }
+    /**
+     * Retrieve the View class
+     * 
+     * @return \Jpl\View
+     */
+    public function getView(){
+        return $this->view;
+    }
     /**
      * The class dustructor
      *
