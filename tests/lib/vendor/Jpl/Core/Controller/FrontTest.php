@@ -53,30 +53,30 @@ class FrontTest extends \PHPUnit_Framework_TestCase
     {
         ob_start();
         $this->Front->run();
-        $view = ob_get_flush();
+        $view = ob_get_contents();
         $this->assertStringStartsWith('Index View', $view);
+        ob_clean();
     }
 
     public function testInvalidControllerRun ()
     {
         $_GET['route'] = 'test/index';
-        try {
-            $this->Front->run();
-        } catch (\Jpl\Core\Exception\InvalidController $e) {
-            $this->assertEquals('\Controller\Test: Does not exist.', 
-                    $e->getMessage());
-        }
+        ob_start();
+        $this->Front->run();
+        $view = ob_get_contents();
+        $this->assertRegExp('/.*?(404)/is', $view);
+        ob_clean();
+       
     }
 
     public function testInvalidActionRun ()
     {
         $_GET['route'] = 'index/test';
-        try {
-            $this->Front->run();
-        } catch (\Jpl\Core\Exception\InvalidAction $e) {
-            $this->assertEquals(
-                    'testAction: Does not exist in \Controler\Index');
-        }
+        ob_start();
+        $this->Front->run();
+        $view = ob_get_contents();
+        $this->assertRegExp('/.*?(404)/is', $view);
+        ob_clean();
     }
 }
 

@@ -1,6 +1,6 @@
 <?php
 namespace Test\Jpl\Core\Registry;
-require_once 'Jpl/Core\Registry/Application.php';
+require_once 'Jpl/Core/Registry/Application.php';
 use \Jpl\Core\Registry\Application;
 
 

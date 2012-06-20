@@ -16,7 +16,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         ob_start();
         Router::callControllerAction();
         $view = ob_get_contents();
-        ob_end_clean();
+        
         $this->assertStringStartsWith('Index View', $view);
     }
 
@@ -26,7 +26,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         ob_start();
         Router::callControllerAction();
         $view = ob_get_contents();
-        ob_end_clean();
+       
         $this->assertStringStartsWith('Index View', $view);
     }
 
