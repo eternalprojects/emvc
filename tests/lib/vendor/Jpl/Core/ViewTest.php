@@ -1,8 +1,8 @@
 <?php
-namespace Test\Jpl;
+namespace Test\Jpl\Core;
 require_once (dirname(__FILE__) . '/../../TestHelper.php');
-require_once (APPLICATION_PATH . '/Library/Jpl/View.php');
-use Jpl\View;
+require_once (APPLICATION_PATH . '/Library/Jpl/Core/View.php');
+use Jpl\Core\View;
 
 /**
  * test case.

@@ -1,7 +1,7 @@
 <?php
-namespace Test\Jpl\Controller;
-require_once 'Library/Jpl/Controller/Front.php';
-use \Jpl\Controller\Front;
+namespace Test\Jpl\Core\Controller;
+require_once 'Jpl/Core/Controller/Front.php';
+use \Jpl\Core\Controller\Front;
 
 /**
  * Front test case.
@@ -62,7 +62,7 @@ class FrontTest extends \PHPUnit_Framework_TestCase
         $_GET['route'] = 'test/index';
         try {
             $this->Front->run();
-        } catch (\Jpl\Exception\InvalidController $e) {
+        } catch (\Jpl\Core\Exception\InvalidController $e) {
             $this->assertEquals('\Controller\Test: Does not exist.', 
                     $e->getMessage());
         }
@@ -73,7 +73,7 @@ class FrontTest extends \PHPUnit_Framework_TestCase
         $_GET['route'] = 'index/test';
         try {
             $this->Front->run();
-        } catch (\Jpl\Exception\InvalidAction $e) {
+        } catch (\Jpl\Core\Exception\InvalidAction $e) {
             $this->assertEquals(
                     'testAction: Does not exist in \Controler\Index');
         }

@@ -1,7 +1,7 @@
 <?php
 
-namespace Test\Jpl\View\Helper;
-use \Jpl\View\Helper\Url;
+namespace Test\Jpl\Core\View\Helper;
+use \Jpl\Core\View\Helper\Url;
 
 
 
@@ -25,7 +25,7 @@ class UrlTest extends \PHPUnit_Framework_TestCase
         parent::setUp();
         
         $this->Url = new Url();
-        \Jpl\Registry\Application::set('baseUrl', 'http://jpl');
+        \Jpl\Core\Registry\Application::set('baseUrl', 'http://jpl');
     }
 
     /**

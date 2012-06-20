@@ -1,7 +1,7 @@
 <?php
-namespace Test\Jpl\Registry;
-require_once 'Library/Jpl/Registry/Application.php';
-use \Jpl\Registry\Application;
+namespace Test\Jpl\Core\Registry;
+require_once 'Jpl/Core\Registry/Application.php';
+use \Jpl\Core\Registry\Application;
 
 
 /**

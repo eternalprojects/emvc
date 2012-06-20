@@ -1,8 +1,8 @@
 <?php
 namespace Test\Jpl;
 require_once (dirname(__FILE__) . '/../../TestHelper.php');
-require_once (APPLICATION_PATH . '/Library/Jpl/Route.php');
-use Jpl\Route;
+require_once (APPLICATION_PATH . '/Library/Jpl\Core/Route.php');
+use Jpl\Core\Route;
 
 class RouteTest extends \PHPUnit_Framework_TestCase
 {
