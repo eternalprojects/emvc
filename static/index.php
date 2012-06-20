@@ -5,9 +5,9 @@ ini_set('display_errors', true);
 
 // Define path to application directory
 defined('APPLICATION_PATH') ||
-         define('APPLICATION_PATH', realpath(dirname(__FILE__)));
+         define('APPLICATION_PATH', realpath(dirname(__FILE__)) . '../');
 set_include_path(
-        get_include_path() . PATH_SEPARATOR . APPLICATION_PATH . '/Library/' .
+        get_include_path() . PATH_SEPARATOR . APPLICATION_PATH . 'Library/' .
                  PATH_SEPARATOR . APPLICATION_PATH
 );
 
@@ -18,9 +18,5 @@ spl_autoload_register(
         'AutoLoad'
     )
 );
-/**
- * @todo Fix This
- */
-$baseUrl = "http://jessedev/mvc/trunk/";
 
 \Jpl\Controller\Front::run();
