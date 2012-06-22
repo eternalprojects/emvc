@@ -60,11 +60,11 @@ abstract class Page
     /**
      * contains reference of \Jpl\Core\View
      *
-     * @var $view Jpl\Core\View
+     * @var $_view Jpl\Core\View
      * @see \Jpl\Core\View;
      * @access protected
      */
-    protected $view;
+    protected $_view;
 
     /**
      * contains the Controller and action names
@@ -87,7 +87,7 @@ abstract class Page
     public function __construct (array $route)
     {
         $this->_route = $route;
-        $this->view = new View();
+        $this->_view = new View();
     }
 
     /**
@@ -117,7 +117,7 @@ abstract class Page
      */
     public function setView (\JPL\Core\View $view)
     {
-        $this->view = $view;
+        $this->_view = $view;
     }
 
     /**
@@ -127,7 +127,7 @@ abstract class Page
      */
     public function getView ()
     {
-        return $this->view;
+        return $this->_view;
     }
 
     /**
@@ -142,7 +142,7 @@ abstract class Page
     public function __destruct ()
     {
         try {
-            $this->view->render($this->_route);
+            $this->_view->render($this->_route);
         } catch (\Exception $e) {
             $error = new \Controller\Error(
                 array('error', 'error')

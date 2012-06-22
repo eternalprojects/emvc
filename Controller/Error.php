@@ -6,7 +6,7 @@ class Error extends \Jpl\Core\Controller\Page
 
     public function errorAction ($msg)
     {
-        $this->view->title = "404 - Document Not Found";
-        $this->view->message = $msg;
+        $this->_view->title = "404 - Document Not Found";
+        $this->_view->message = $msg;
     }
 }

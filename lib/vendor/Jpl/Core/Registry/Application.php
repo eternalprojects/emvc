@@ -77,7 +77,9 @@ class Application implements Registry
      * @access private
      */
     private function __construct ()
-    {}
+    {
+        
+    }
 
     /**
      * a method that returns an instance of the class

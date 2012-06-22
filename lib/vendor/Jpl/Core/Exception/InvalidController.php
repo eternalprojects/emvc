@@ -68,4 +68,3 @@ class InvalidController extends Exception
     }
 }
 
-?>

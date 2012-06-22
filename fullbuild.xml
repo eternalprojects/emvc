@@ -94,9 +94,9 @@
 			<arg value="--report=checkstyle" />
 			<arg value="--report-file=${basedir}/build/logs/checkstyle.xml" />
 			<arg value="--standard=Zend" />
-			<arg value="--extensions=php,phtml" />
-			<arg value="--ignore=${basedir}/tests,${basedir}/build" />
-			<arg path="${basedir}" />
+			<arg value="--extensions=php" />
+			<arg value="--ignore=${basedir}/tests,${basedir}/build,${basedir}/static"/>
+			<arg path="${basedir}" ></arg>
 		</exec>
 	</target>
 
