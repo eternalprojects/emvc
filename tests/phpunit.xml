@@ -9,6 +9,7 @@
 			<exclude>
 				<directory suffix=".phtml">../build/</directory>
 				<directory>../static</directory>
+				<directory>../tests</directory>
 			</exclude>
 		</whitelist>
 	</filter>
