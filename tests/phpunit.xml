@@ -8,6 +8,7 @@
 			<directory suffix=".php">../</directory>
 			<exclude>
 				<directory suffix=".phtml">../build/</directory>
+				<directory>../static</directory>
 			</exclude>
 		</whitelist>
 	</filter>
