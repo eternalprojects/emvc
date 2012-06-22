@@ -145,8 +145,8 @@ abstract class Page
             $this->view->render($this->_route);
         } catch (\Exception $e) {
             $error = new \Controller\Error(
-                    array('error', 'error')
-                );
+                array('error', 'error')
+            );
             $error->errorAction($e->getMessage());
         }
     }

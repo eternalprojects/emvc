@@ -55,13 +55,15 @@ class View
      * @var array
      * @access private
      */
-    private $vars = array();
+    private $_vars = array();
 
     /**
      * The default constructor
      */
     public function __construct ()
-    {}
+    {
+        
+    }
 
     /**
      * Render the view for the given controller and action
@@ -93,7 +95,7 @@ class View
     public function __set ($key, $val)
     {
         if ('_' != substr($key, 0, 1)) {
-            $this->vars[$key] = $val;
+            $this->_vars[$key] = $val;
         }
     }
 
@@ -105,6 +107,6 @@ class View
      */
     public function __get ($key)
     {
-        return $this->vars[$key];
+        return $this->_vars[$key];
     }
 }

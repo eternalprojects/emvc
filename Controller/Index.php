@@ -14,4 +14,3 @@ class Index extends \Jpl\Core\Controller\Page
         $this->view->title = "Assert View";
     }
 }
-?>
