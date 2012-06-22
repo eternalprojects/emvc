@@ -66,10 +66,10 @@ class Application implements Registry
     /**
      * Contains the stored data of the registry
      *
-     * @var array
+     * @staticvar array
      * @access private
      */
-    private $_data = array();
+    private static $_data = array();
 
     /**
      * The default constructor
@@ -77,6 +77,11 @@ class Application implements Registry
      * @access private
      */
     private function __construct ()
+    {
+        
+    }
+    
+    private function __clone()
     {
         
     }
@@ -105,7 +110,7 @@ class Application implements Registry
      */
     public static function set ($name, $value)
     {
-        self::getInstance()->_data[$name] = $value;
+        self::$_data[$name] = $value;
     }
 
     /**
@@ -117,6 +122,6 @@ class Application implements Registry
      */
     public static function get ($name)
     {
-        return (isset(self::getInstance()->_data[$name])) ? self::getInstance()->_data[$name] : false;
+        return (isset(self::$_data[$name])) ? self::$_data[$name] : false;
     }
 }

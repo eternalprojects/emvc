@@ -65,5 +65,25 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('string2', Application::get('test2'));
     }
     
+    public function test__clone(){
+        $a = new \ReflectionClass('\Jpl\Core\Registry\Application');
+        $this->assertTrue($a->getMethod('__clone')->isPrivate());
+    }
+    
+    public function test__construct(){
+        $a = new \ReflectionClass('\Jpl\Core\Registry\Application');
+        $this->assertTrue($a->getMethod('__construct')->isPrivate());
+    }
+    
+    public function testGetInstance(){
+        $a = new \ReflectionClass('\Jpl\Core\Registry\Application');
+        $gi = $a->getMethod('getInstance');
+        $this->assertTrue($gi->isProtected());
+        $this->assertTrue($gi->isStatic());
+        $gi->setAccessible(true);
+        $app = $gi->invoke(null);
+        $this->assertInstanceOf('\Jpl\Core\Registry\Application', $app);
+    }
+    
 }
 

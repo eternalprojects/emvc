@@ -1,6 +1,5 @@
 <?php
 namespace Test\Jpl\Core;
-require_once (dirname(__FILE__) . '/../../../../TestHelper.php');
 require_once ('Jpl/Core/View.php');
 use Jpl\Core\View;
 

@@ -59,8 +59,7 @@ class Router
     /**
      * an array of all the registered routes
      *
-     * @var array a list of registered routes
-     * @static
+     * @staticvar array a list of registered routes
      *
      * @access private
      */

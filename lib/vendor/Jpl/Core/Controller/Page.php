@@ -84,10 +84,10 @@ abstract class Page
      * @param array $route            
      * @access public
      */
-    public function __construct (array $route)
+    public function __construct (array $route, \Jpl\Core\View $view = null)
     {
         $this->_route = $route;
-        $this->_view = new View();
+        $this->_view = (!is_null($view))? $view : new View();
     }
 
     /**
@@ -110,15 +110,6 @@ abstract class Page
         return $this->_route;
     }
 
-    /**
-     * Set the View class to use
-     *
-     * @param \JPL\Core\View $view            
-     */
-    public function setView (\JPL\Core\View $view)
-    {
-        $this->_view = $view;
-    }
 
     /**
      * Retrieve the View class
