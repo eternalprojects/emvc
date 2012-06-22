@@ -146,7 +146,7 @@ abstract class Page
         } catch (\Exception $e) {
             $error = new \Controller\Error(
                     array('error', 'error')
-                    );
+                );
             $error->errorAction($e->getMessage());
         }
     }

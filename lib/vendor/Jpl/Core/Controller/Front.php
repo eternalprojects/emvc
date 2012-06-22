@@ -71,12 +71,12 @@ class Front
         } catch (InvalidAction $e) {
             $error = new \Controller\Error(
                 array('Error', 'error')
-                );
+            );
             $error->errorAction($e);
         } catch (InvalidController $e) {
             $error = new \Controller\Error(
                 array('Error', 'error')
-                );
+            );
             $error->errorAction($e);
         }
     }

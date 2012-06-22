@@ -68,7 +68,7 @@ class View
      *
      * @todo Allow custom view locations v1.2.1
      * @todo Allow Partials v1.2
-     * @todo Change from thowing \Exception to \Jpl\Core\Exception\InvalidView 
+     * @todo Change from thowing \Exception to \Jpl\Core\Exception\InvalidView
      * @param array $view            
      * @throws \Exception
      */
@@ -78,7 +78,8 @@ class View
         $file = $view[1];
         if (! file_exists(APPLICATION_PATH . "/view/{$folder}/{$file}.phtml")) {
             throw new \Exception(
-                    "The view does not exist for the requested action: /view/{$folder}/{$file}.phtml");
+                "The view does not exist for the requested action: /view/{$folder}/{$file}.phtml"
+            );
         }
         include APPLICATION_PATH . "/view/$folder/$file.phtml";
     }
