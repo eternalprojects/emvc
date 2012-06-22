@@ -123,8 +123,8 @@ class Router
         $matchedRoute = self::_getMatchingRoute($route);
         if ($matchedRoute != false) {
             $controllerPart = ucwords(
-                strtolower($matchedRoute->getControllerName()
-            ));
+                strtolower($matchedRoute->getControllerName())
+            );
             
             $actionPart = strtolower($matchedRoute->getActionName());
         } else {
@@ -140,18 +140,17 @@ class Router
                     array(
                             $controllerPart,
                             $actionPart
-                    ));
+                    )
+            );
         } else {
-            throw new Exception\InvalidController(
-                    $controllerName . ": Does not exist.");
+            throw new Exception\InvalidController($controllerName . ": Does not exist.");
         }
         $actionName = strtolower($actionPart) . 'Action';
         
         if (method_exists($controllerName, $actionName)) {
             $controller->$actionName();
         } else {
-            throw new Exception\InvalidAction(
-                    $actionName . ": Does not exist in " . $controllerName);
+            throw new Exception\InvalidAction($actionName . ": Does not exist in " . $controllerName);
         }
     }
 }
