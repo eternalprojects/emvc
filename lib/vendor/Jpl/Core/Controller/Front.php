@@ -38,6 +38,7 @@ namespace Jpl\Core\Controller;
 use \Jpl\Core\Router;
 use \Jpl\Core\Exception\InvalidController;
 use \Jpl\Core\Exception\InvalidAction;
+
 /**
  * The Front Controller for dispatching requests
  *
@@ -58,7 +59,9 @@ class Front
      *
      * @access public
      * @static
+     *
      * @final
+     *
      * @since v1.0
      */
     public final static function run ()
@@ -66,16 +69,12 @@ class Front
         try {
             Router::callControllerAction();
         } catch (InvalidAction $e) {
-            $error = new \Controller\Error(array(
-                    'Error',
-                    'error'
-            ));
+            $error = new \Controller\Error(
+                    array('Error', 'error'));
             $error->errorAction($e);
         } catch (InvalidController $e) {
-            $error = new \Controller\Error(array(
-                    'Error',
-                    'error'
-            ));
+            $error = new \Controller\Error(
+                    array('Error', 'error'));
             $error->errorAction($e);
         }
     }

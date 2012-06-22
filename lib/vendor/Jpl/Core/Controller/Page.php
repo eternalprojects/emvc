@@ -52,6 +52,7 @@ require_once APPLICATION_PATH . '/Controller/Error.php';
  * @since v1.0
  * @abstract
  *
+ *
  */
 abstract class Page
 {
@@ -88,38 +89,47 @@ abstract class Page
         $this->_route = $route;
         $this->view = new View();
     }
+
     /**
      * Set the route
-     * 
-     * @param array $route
+     *
+     * @param array $route            
      */
-    public function setRoute(array $route){
+    public function setRoute (array $route)
+    {
         $this->_route = $route;
     }
+
     /**
      * Get the currently ser route
-     * 
+     *
      * @return array
      */
-    public function getRoute(){
+    public function getRoute ()
+    {
         return $this->_route;
     }
+
     /**
      * Set the View class to use
-     * 
-     * @param \JPL\Core\View $view
+     *
+     * @param \JPL\Core\View $view            
      */
-    public function setView(\JPL\Core\View $view){
+    public function setView (\JPL\Core\View $view)
+    {
         $this->view = $view;
     }
+
     /**
      * Retrieve the View class
-     * 
+     *
      * @return \Jpl\Core\View
      */
-    public function getView(){
+    public function getView ()
+    {
         return $this->view;
     }
+
     /**
      * The class dustructor
      *
@@ -134,10 +144,8 @@ abstract class Page
         try {
             $this->view->render($this->_route);
         } catch (\Exception $e) {
-            $error = new \Controller\Error(array(
-                    'error',
-                    'error'
-            ));
+            $error = new \Controller\Error(
+                    array('error', 'error'));
             $error->errorAction($e->getMessage());
         }
     }
