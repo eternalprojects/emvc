@@ -78,7 +78,7 @@
 		<exec executable="phpmd">
 			<arg path="${basedir}" />
 			<arg value="xml" />
-			<arg value="naming,design,codesize,unusedcode" />
+			<arg value="naming,design,codesize" />
 			<arg value="--suffixes" />
 			<arg value="php,phtml" />
 			<arg value="--exclude" />
