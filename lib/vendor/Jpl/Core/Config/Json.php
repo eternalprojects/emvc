@@ -44,12 +44,15 @@ namespace Jpl\Config;
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
  *          Public License
+
  * @since v1.2
+
  * @link http://www.eternalmvc.info
  *
  */
 class Json
 {
+
     /**
      * Class contructor
      * 
@@ -78,16 +81,21 @@ class Json
      * @return string|\stdClass|boolean
      */
     protected function _toObject(array $array) {
+
         if(!is_array($array)) {
             return $array;
         }
     
+
         $object = new \stdClass();
+
         if (is_array($array) && count($array) > 0) {
             foreach ($array as $name=>$value) {
                 $name = strtolower(trim($name));
                 if (!empty($name)) {
+
                     $object->$name = $this->_toObject($value);
+
                 }
             }
             return $object;
@@ -98,4 +106,3 @@ class Json
     }
 }
 
-?>
