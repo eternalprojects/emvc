@@ -34,6 +34,7 @@
  * @package Jpl\Config
  */
 namespace Jpl\Config;
+
 /**
  * The Exception class specific to the Config Classes
  *
@@ -45,26 +46,27 @@ namespace Jpl\Config;
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
  *          Public License
  * @since v1.2
- *
+ *       
  */
 class Exception extends \Exception
 {
+
     /**
      * The constructor
-     * 
+     *
      * The constructor passes the supplied params up to the \Exception class
-     * 
+     *
      * @access public
-     * @param string $message
-     * @param int $code
+     * @param string $message            
+     * @param int $code            
      * @return void
-     * 
-     * @see \Exception::_constructor()
+     *
+     * @see \Exception::__constructor()
      */
-    public function __construct ($message, $code = null){
+    public function __construct ($message, $code = null)
+    {
         parent::__construct($message, $code);
     }
-    
 }
 
 ?>

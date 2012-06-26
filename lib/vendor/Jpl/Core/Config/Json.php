@@ -34,13 +34,14 @@
  * @package Jpl\Core\Config
  */
 namespace Jpl\Core\Config;
+
 /**
  * A class to load and process Json config files
  *
- * The purpose of the class is to load the specified config file that is in Json 
- * format.  Convert it into an object and pass it back to the calling code.
+ * The purpose of the class is to load the specified config file that is in Json
+ * format. Convert it into an object and pass it back to the calling code.
  *
- * @access public 
+ * @access public
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
@@ -48,63 +49,62 @@ namespace Jpl\Core\Config;
  * @since 1.2
  * @version 1.0
  * @link http://www.eternalmvc.info
- *
+ *      
  */
 class Json
 {
 
     /**
      * Class contructor
-     * 
-     * The constructor will load the file given, if it exists.  Once loaded it 
-     * decodes it to an array which gets passed to the _toObject function and 
+     *
+     * The constructor will load the file given, if it exists. Once loaded it
+     * decodes it to an array which gets passed to the _toObject function and
      * then gets returned
-     * 
+     *
      * @todo Implement use of the $section param
      * @access public
-     * @param string $file
-     * @param string $section
+     * @param string $file            
+     * @param string $section            
      * @return \stdClass
      * @since 1.2
      */
     public function __construct ($file, $section = null)
     {
         $data = file_get_contents($file);
-       $data =json_decode($data);
-       $json = $this->_toObject($data);
-       return $json;
+        $data = json_decode($data);
+        $json = $this->_toObject($data);
+        return $json;
     }
-    
+
     /**
      * A method to convert arrays to objects
-     * 
+     *
      * @access protected
-     * @param string|array|boolean $array
-     * @return string|\stdClass|boolean
+     * @param string|array|boolean $array            
+     * @return string \stdClass boolean
      * @since 1.2
      */
-    protected function _toObject($array) {
-
-        if(!is_array($array)) {
+    protected function _toObject ($array)
+    {
+        if (! is_array($array)) {
             return $array;
         }
-    
+        
         $object = new \stdClass();
-
+        
         if (is_array($array) && count($array) > 0) {
-            foreach ($array as $name=>$value) {
+            foreach ($array as $name => $value) {
                 $name = strtolower(trim($name));
-                if (!empty($name)) {
-
+                if (! empty($name)) {
+                    
                     $object->$name = $this->_toObject($value);
-
                 }
             }
             return $object;
-        }
-        else {
+        } else {
             return FALSE;
         }
     }
+    
 }
 
