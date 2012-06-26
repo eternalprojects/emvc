@@ -21,32 +21,32 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package   \Jpl\Config
+ * @package   \Jpl\Core\Config
  * @author    Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since     v1.2
+ * @since     1.2
  * @link      http://www.eternalmvc.info
  *
  */
 /**
  *
- * @package Jpl\Config
+ * @package Jpl\Core\Config
  */
-namespace Jpl\Config;
+namespace Jpl\Core\Config;
 /**
  * A class to load and process Json config files
  *
  * The purpose of the class is to load the specified config file that is in Json 
  * format.  Convert it into an object and pass it back to the calling code.
  *
+ * @access public 
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
  *          Public License
-
- * @since v1.2
-
+ * @since 1.2
+ * @version 1.0
  * @link http://www.eternalmvc.info
  *
  */
@@ -60,10 +60,12 @@ class Json
      * decodes it to an array which gets passed to the _toObject function and 
      * then gets returned
      * 
+     * @todo Implement use of the $section param
      * @access public
      * @param string $file
      * @param string $section
      * @return \stdClass
+     * @since 1.2
      */
     public function __construct ($file, $section = null)
     {
@@ -77,16 +79,16 @@ class Json
      * A method to convert arrays to objects
      * 
      * @access protected
-     * @param array $array
+     * @param string|array|boolean $array
      * @return string|\stdClass|boolean
+     * @since 1.2
      */
-    protected function _toObject(array $array) {
+    protected function _toObject($array) {
 
         if(!is_array($array)) {
             return $array;
         }
     
-
         $object = new \stdClass();
 
         if (is_array($array) && count($array) > 0) {

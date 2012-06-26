@@ -7,9 +7,13 @@
 		<whitelist>
 			<directory suffix=".php">../</directory>
 			<exclude>
-				<directory suffix=".phtml">../build/</directory>
+				<directory suffix=".phtml">../</directory>
 				<directory>../static</directory>
 				<directory>../tests</directory>
+				<directory>../build</directory>
+				<directory>../Controller</directory>
+				<directory>../Model</directory>
+				<directory>../view</directory>
 			</exclude>
 		</whitelist>
 	</filter>
