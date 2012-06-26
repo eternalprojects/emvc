@@ -31,6 +31,8 @@ class JsonTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Cleans up the environment after running a test.
+     * 
+     * 
      */
     protected function tearDown ()
     {

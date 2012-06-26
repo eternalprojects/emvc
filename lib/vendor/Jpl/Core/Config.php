@@ -1,6 +1,6 @@
 <?php
 /**
- * Contains the Json Config class
+ * Contains the Config class
  *
  * License:
  *
@@ -21,7 +21,7 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package   \Jpl\Core\Config
+ * @package   \Jpl\Core
  * @author    Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
@@ -32,14 +32,11 @@
  */
 /**
  *
- * @package Jpl\Core\Config
+ * @package Jpl\Core
  */
-namespace Jpl\Core\Config;
-
-use Jpl\Core\Config;
-
+namespace Jpl\Core;
 /**
- * A class to load and process Json config files
+ * A class that contains a common function used by all Config Classes
  *
  * The purpose of the class is to load the specified config file that is in Json
  * format. Convert it into an object and pass it back to the calling code.
@@ -52,32 +49,39 @@ use Jpl\Core\Config;
  * @since EternalMVC 1.2
  * @version 1.0
  * @link http://www.eternalmvc.info
- *      
+ * @todo Convert to Trait
  */
-class Json extends Config
+abstract class Config
 {
-
     /**
-     * Class contructor
+     * A method to convert arrays to objects
      *
-     * The constructor will load the file given, if it exists. Once loaded it
-     * decodes it to an array which gets passed to the _toObject function and
-     * then gets returned
-     *
-     * @todo Implement use of the $section param
-     * @access public
-     * @param string $file            
-     * @param string $section            
-     * @return \stdClass
+     * @access protected
+     * @param mixed $array
+     * @return string \stdClass boolean
+     * 
      */
-    public function __construct ($file, $section = null)
+    protected function _toObject ($array)
     {
-        $data = file_get_contents($file);
-        $data = json_decode($data);
-        $json = $this->_toObject($data);
-        return $json;
-    }
-
+        if (! is_array($array)) {
+            return $array;
+        }
     
+        $object = new \stdClass();
+    
+        if (is_array($array) && count($array) > 0) {
+            foreach ($array as $name => $value) {
+                $name = strtolower(trim($name));
+                if (! empty($name)) {
+    
+                    $object->$name = $this->_toObject($value);
+                }
+            }
+            return $object;
+        } else {
+            return FALSE;
+        }
+    }
 }
 
+?>

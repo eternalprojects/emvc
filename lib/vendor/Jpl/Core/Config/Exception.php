@@ -21,19 +21,20 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Config
+ * @package    Jpl\Core\Config
  * @author     Jesse Lesperance <jesse@jplesperance.me>
  * @copyright  2010-2012 JPL Web Solutions
  * @link      http://www.eternalmvc.info
  * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since      v1.2
+ * @since      EternalMVC v1.2
  *
  */
 /**
  *
- * @package Jpl\Config
+ * @package Jpl\Core\Config
  */
-namespace Jpl\Config;
+namespace Jpl\Core\Config;
+
 /**
  * The Exception class specific to the Config Classes
  *
@@ -44,27 +45,29 @@ namespace Jpl\Config;
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
  *          Public License
- * @since v1.2
- *
+ * @since EternalMVC v1.2
+ * @version 1.0
+ *       
  */
 class Exception extends \Exception
 {
+
     /**
      * The constructor
-     * 
+     *
      * The constructor passes the supplied params up to the \Exception class
-     * 
+     *
      * @access public
-     * @param string $message
-     * @param int $code
+     * @param string $message            
+     * @param int $code            
      * @return void
-     * 
-     * @see \Exception::_constructor()
+     *
+     * @see \Exception::__constructor()
      */
-    public function __construct ($message, $code = null){
+    public function __construct ($message, $code = null)
+    {
         parent::__construct($message, $code);
     }
-    
 }
 
 ?>
