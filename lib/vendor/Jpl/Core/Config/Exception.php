@@ -33,7 +33,11 @@
  *
  * @package Jpl\Core\Config
  */
+<<<<<<< HEAD
 namespace Jpl\Core\Config;
+=======
+namespace Jpl\Config;
+>>>>>>> 508822c7c634793e91e78442008d3549670c2f8f
 
 /**
  * The Exception class specific to the Config Classes
