@@ -83,5 +83,3 @@ abstract class Config
         }
     }
 }
-
-?>

@@ -71,5 +71,3 @@ class Exception extends \Jpl\Core\Exception
         parent::__construct($message, $code);
     }
 }
-
-?>
