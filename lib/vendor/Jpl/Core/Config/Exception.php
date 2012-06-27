@@ -33,11 +33,9 @@
  *
  * @package Jpl\Core\Config
  */
-<<<<<<< HEAD
 namespace Jpl\Core\Config;
-=======
-namespace Jpl\Config;
->>>>>>> 508822c7c634793e91e78442008d3549670c2f8f
+
+use \Jpl\Core\Config\Exception;
 
 /**
  * The Exception class specific to the Config Classes
@@ -53,7 +51,7 @@ namespace Jpl\Config;
  * @version 1.0
  *       
  */
-class Exception extends \Exception
+class Exception extends \Jpl\Core\Exception
 {
 
     /**
@@ -66,9 +64,9 @@ class Exception extends \Exception
      * @param int $code            
      * @return void
      *
-     * @see \Exception::__constructor()
+     * @see \Jpl\Core\Exception::__constructor()
      */
-    public function __construct ($message, $code = null)
+    public function __construct ($message = "", $code = 0)
     {
         parent::__construct($message, $code);
     }

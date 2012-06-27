@@ -1,5 +1,5 @@
 <?php
-namespace Test\Jpl;
+namespace Test\Jpl\Core;
 require_once (dirname(__FILE__) . '/../../../../TestHelper.php');
 require_once ('Jpl/Core/Route.php');
 use Jpl\Core\Route;

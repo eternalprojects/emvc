@@ -1,6 +1,7 @@
 <?php
 namespace Test\Jpl\Core\Config;
-require_once(dirname(__FILE__).'/_files/Test.php');
+
+require_once (dirname(__FILE__) . '/_files/Test.php');
 use \Jpl\Core\Config\Json;
 use \Test\Jpl\Core\Config\Data\Test;
 
@@ -23,20 +24,14 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     {
         parent::setUp();
         
-        
-        
-        $this->Json = new Json(dirname(__FILE__).'/_files/test.json');
-        
+        $this->Json = new Json(dirname(__FILE__) . '/_files/test.json');
     }
 
     /**
      * Cleans up the environment after running a test.
-     * 
-     * 
      */
     protected function tearDown ()
     {
-       
         $this->Json = null;
         
         parent::tearDown();
@@ -47,7 +42,6 @@ class JsonTest extends \PHPUnit_Framework_TestCase
      */
     public function __construct ()
     {
-        
     }
 
     /**
@@ -55,51 +49,55 @@ class JsonTest extends \PHPUnit_Framework_TestCase
      */
     public function test__construct ()
     {
-        $s = $this->Json->__construct(dirname(__FILE__).'/_files/test.json');
+        $s = $this->Json->__construct(dirname(__FILE__) . '/_files/test.json');
         $this->assertInstanceOf('\stdClass', $s);
         $this->assertEquals('file', $s->menu->id);
         $this->AssertEquals('New', $s->menu->popup->menuitem[0]->value);
-        
     }
-    
-    public function testToObjectWithString()
+
+    public function testToObjectWithString ()
     {
         $ts = $this->getStub('\Jpl\Core\Config\Json', '_toObject');
-        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__).'/_files/test.json'), 'test');
+        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__) . '/_files/test.json'), 'test');
         $this->assertStringStartsWith('test', $res);
-        
     }
-    
-    public function testToObjectWithObject()
+
+    public function testToObjectWithObject ()
     {
         $obj = new Test();
         $ts = $this->getStub('\Jpl\Core\Config\Json', '_toObject');
-        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__).'/_files/test.json'), $obj);
+        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__) . '/_files/test.json'), $obj);
         $this->assertInstanceOf('\Test\Jpl\Core\Config\Data\Test', $res);
     }
-    
-    public function testToObjectWithArray()
+
+    public function testToObjectWithArray ()
     {
-        $arr = array('something'=>'else', 'what'=>'indeed');
+        $arr = array(
+                'something' => 'else',
+                'what' => 'indeed'
+        );
         $ts = $this->getStub('\Jpl\Core\Config\Json', '_toObject');
-        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__).'/_files/test.json'), $arr);
+        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__) . '/_files/test.json'), $arr);
         $this->assertInstanceOf('\stdClass', $res);
         $this->assertEquals('else', $res->something);
         $this->assertEquals('indeed', $res->what);
     }
-    
-    private function getStub($class, $method){
+
+    private function getStub ($class, $method)
+    {
         $json = new \ReflectionClass($class);
         $ts = $json->getMethod($method);
         $this->assertTrue($ts->isProtected());
         $ts->setAccessible(true);
         return $ts;
     }
-    
-    public function testToObjectWithEmptyArray(){
+
+    public function testToObjectWithEmptyArray ()
+    {
         $ts = $this->getStub('\Jpl\Core\Config\Json', '_toObject');
-        $this->assertFalse($ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__).'/_files/test.json'), array()));
+        $this->assertFalse(
+                $ts->invoke(
+                        new \Jpl\Core\Config\Json(dirname(__FILE__) . '/_files/test.json'), array()));
     }
-    
 }
 

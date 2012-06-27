@@ -1,7 +1,7 @@
 <phpunit bootstrap="./TestHelper.php" colors="true">
-	<testsuite name="EternaMVC Test Suite">
-		<directory>./</directory>
-	</testsuite>
+	<testsuite name="EternaMVC Core Library Test Suite">
+	<file>./lib/vendor/Jpl/Core/CoreSuite.php</file></testsuite>
+	
 
 	<filter>
 		<whitelist>
