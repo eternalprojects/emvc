@@ -108,8 +108,6 @@
 			<arg value="${basedir}/tests" />
 			<arg value="--exclude" />
 			<arg value="${basedir}/build" />
-			<arg value="--suffixes" />
-			<arg value="php" />
 			<arg path="${basedir}" />
 		</exec>
 	</target>
