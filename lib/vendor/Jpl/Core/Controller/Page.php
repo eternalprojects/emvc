@@ -120,7 +120,27 @@ abstract class Page
     {
         return $this->_view;
     }
+    protected function _redirect($controller, $action){
+        $controllerName = '\Controller\\'.$controller;
+        $actionName = $action.'Action';
+        if (\Jpl\Core\AutoLoader::AutoLoad($controllerName)) {
+            $controller = new $controllerName(
+                array(
+                    $controller,
+                    $action
+                )
+            );
+        } else {
+            throw new Exception\InvalidController($controllerName . ": Does not exist.");
+        }
+        $actionName = strtolower($action) . 'Action';
 
+        if (method_exists($controllerName, $actionName)) {
+            $controller->$actionName();
+        } else {
+            throw new Exception\InvalidAction($actionName . ": Does not exist in " . $controllerName);
+        }
+    }
     /**
      * The class dustructor
      *
