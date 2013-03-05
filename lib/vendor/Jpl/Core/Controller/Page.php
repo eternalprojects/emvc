@@ -120,7 +120,7 @@ abstract class Page
     {
         return $this->_view;
     }
-    protected function _redirect($controller, $action){
+    protected function _redirect($action, $controller = __CLASS__){
         $controllerName = '\Controller\\'.$controller;
         $actionName = $action.'Action';
         if (\Jpl\Core\AutoLoader::AutoLoad($controllerName)) {
