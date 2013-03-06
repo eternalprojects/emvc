@@ -75,6 +75,15 @@ abstract class Page
     protected $_route;
 
     /**
+     * Contains parameters extracted from the url
+     *
+     * @var $_params array
+     * @access private
+     * @since 1.2
+     */
+    private $_params = array();
+
+    /**
      * The default constructor
      *
      * The constructor assings the $route array to a class member. It also
@@ -84,10 +93,11 @@ abstract class Page
      * @param array $route            
      * @access public
      */
-    public function __construct (array $route, \Jpl\Core\View $view = null)
+    public function __construct (array $route, \Jpl\Core\View $view = null, $params = array())
     {
         $this->_route = $route;
         $this->_view = (!is_null($view))? $view : new View();
+        $this->_params = $params;
     }
 
     /**
@@ -120,6 +130,17 @@ abstract class Page
     {
         return $this->_view;
     }
+
+    /**
+     *
+     * This helper function allows you to redirect the request to a different action and/or controller
+     * @param string $action
+     * @param string $controller
+     * @throws Exception\InvalidController
+     * @throws Exception\InvalidAction
+     * @access protected
+     * @since 1.2
+     */
     protected function _redirect($action, $controller = __CLASS__){
         $controllerName = '\Controller\\'.$controller;
         $actionName = $action.'Action';
@@ -142,7 +163,7 @@ abstract class Page
         }
     }
     /**
-     * The class dustructor
+     * The class destructor
      *
      * The destructor calls the render method of the Jpl_View class which
      * renders the appropriate view
@@ -160,5 +181,26 @@ abstract class Page
             );
             $error->errorAction($e->getMessage());
         }
+    }
+
+    /**
+     * Returns an array containing parameters from the url
+     *
+     * @access public
+     * @return array
+     * @since 1.2
+     */
+    public function getParams(){
+        return $this->_params;
+    }
+
+    /**
+     * Return a specific parameter  
+     *
+     * @param $name string
+     * @return mixed|bool
+     */
+    public function getParam($name){
+        return (isset($this->_params[$name])) ? $this->_params[$name] : false;
     }
 }

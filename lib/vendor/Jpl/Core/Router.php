@@ -120,6 +120,7 @@ class Router
          * route
          */
         $matchedRoute = self::_getMatchingRoute($route);
+        $routeArray = explode('/', $route);
         if ($matchedRoute != false) {
             $controllerPart = ucwords(
                 strtolower($matchedRoute->getControllerName())
@@ -127,9 +128,16 @@ class Router
             
             $actionPart = strtolower($matchedRoute->getActionName());
         } else {
-            $routeArray = explode('/', $route);
+
             $controllerPart = ucwords(strtolower($routeArray[0]));
             $actionPart = (isset($routeArray[1]) && $routeArray[1] != '') ? $routeArray[1] : 'index';
+        }
+        //TODO: This will not work for defined routes
+        $routeArray = array_slice($routeArray, 2);
+        $params = array();
+        while(count($routeArray) > 0){
+            $params[$routeArray[0]] = $routeArray[1];
+            $routeArray = array_slice($routeArray, 2);
         }
         $controllerName = '\Controller\\' . $controllerPart;
         // Check to see if the controller class exists, if not throw an
@@ -139,7 +147,7 @@ class Router
                     array(
                             $controllerPart,
                             $actionPart
-                    )
+                    ), null, $params
             );
         } else {
             throw new Exception\InvalidController($controllerName . ": Does not exist.");
@@ -152,4 +160,6 @@ class Router
             throw new Exception\InvalidAction($actionName . ": Does not exist in " . $controllerName);
         }
     }
+
+
 }
