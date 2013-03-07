@@ -155,6 +155,7 @@ class Uri
             array_slice($params, 2);
         }
         self::$_param = $p;
+        var_dump($_GET);
     }
 
    /**
