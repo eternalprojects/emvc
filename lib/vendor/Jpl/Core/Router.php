@@ -135,7 +135,7 @@ class Router
         //TODO: This will not work for defined routes
         $routeArray = array_slice($routeArray, 2);
         $params = array();
-        while(count($routeArray) > 0){
+        while(count($routeArray) > 1){
             $params[$routeArray[0]] = $routeArray[1];
             $routeArray = array_slice($routeArray, 2);
         }
