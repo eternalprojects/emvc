@@ -41,14 +41,11 @@ class UriTest extends \PHPUnit_Framework_TestCase
 
     public function testGetInstance ()
     {
-        $_SERVER['QUERY_STRING'] = 'index/test/id/3';
+        $_GET['route'] = 'test/testing/id/3';
         $uri = Uri::getInstance();
         $this->assertInstanceOf('\Jpl\Core\Uri', $uri);
         $params = Uri::getParams();
-        $this->assertEquals('id', $params[2]);
-        $this->assertEquals('index', $params[0]);
-        $this->assertEquals('test', $params[1]);
-        $this->assertEquals(3, (int) $params[3]);
+        $this->assertEquals(3, (int) $params['id']);
     }
 
     /**
@@ -56,9 +53,8 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetController ()
     {
-        $_SERVER['QUERY_STRING'] = 'test/testing/tested';
-        $this->assertTrue(Uri::setController('testing'));
-        $this->assertEquals('testing', Uri::getController());
+        $_GET['route'] = 'test/testing/get/controller';
+        $this->assertEquals('test', Uri::getController());
     }
 
     /**
@@ -66,7 +62,8 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetController ()
     {
-        $_SERVER['QUERY_STRING'] = 'test/testing/tested';
+        $_GET['route'] = 'test/testing/set/controller';
+        $this->assertEquals('test', Uri::getController());
         $this->assertTrue(Uri::setController('something'));
         $this->assertEquals('something', Uri::getController());
     }
@@ -76,7 +73,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetAction ()
     {
-        $_SERVER['QUERY_STRING'] = 'test/testing/tested';
+        $_GET['route'] = 'test/testing/set/action';
         $this->assertTrue(Uri::setAction('guess'));
         $this->assertEquals('guess', Uri::getAction());
     }
@@ -86,7 +83,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAction ()
     {
-        $_SERVER['QUERY_STRING'] = 'test/testing/tested';
+        $_GET['route'] = 'test/testing/get/action';
         $this->assertTrue(Uri::setAction('everything'));
         $this->assertEquals('everything', Uri::getAction());
     }
@@ -96,7 +93,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetParam ()
     {
-        $_SERVER['QUERY_STRING'] = 'test/testing/tested';
+        $_GET['route'] = 'test/testing/get/param';
         $this->assertEquals('test', Uri::getParam(0));
         $this->assertEquals('testing', Uri::getParam(1));
         $this->assertEquals('tested', Uri::getParam(2));
@@ -107,7 +104,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetParams ()
     {
-        $_GET['route'] = 'test/testing/tested';
+        $_GET['route'] = 'test/testing/get/params';
         $params = Uri::getParams();
         $this->assertCount(1, $params);
         $this->assertEquals('test', $params[0]);
@@ -120,7 +117,7 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetParamNoKey ()
     {
-        $_SERVER['QUERY_STRING'] = 'test/testing/tested';
+        $_GET['route'] = 'test/testing/set/params/no/key';
         $this->assertTrue(Uri::setParam('some data'));
         $this->assertNotEmpty(Uri::getParam(3));
         $this->assertEquals('some data', Uri::getParam(3));
