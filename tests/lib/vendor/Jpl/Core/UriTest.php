@@ -107,9 +107,9 @@ class UriTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetParams ()
     {
-        $_SERVER['QUERY_STRING'] = 'test/testing/tested';
+        $_GET['route'] = 'test/testing/tested';
         $params = Uri::getParams();
-        $this->assertCount(3, $params);
+        $this->assertCount(1, $params);
         $this->assertEquals('test', $params[0]);
         $this->assertEquals('testing', $params[1]);
         $this->assertEquals('tested', $params[2]);
@@ -124,14 +124,6 @@ class UriTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(Uri::setParam('some data'));
         $this->assertNotEmpty(Uri::getParam(3));
         $this->assertEquals('some data', Uri::getParam(3));
-    }
-
-    public function testClonability ()
-    {
-        $_SERVER['QUERY_STRING'] = 'test/testing/tested';
-        $u = Uri::getInstance();
-        $u2 = new \ReflectionClass('\Jpl\Core\Uri');
-        $this->assertTrue($u2->getMethod('__clone')->isPrivate());
     }
     
 }

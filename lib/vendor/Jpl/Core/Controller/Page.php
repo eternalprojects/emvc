@@ -96,6 +96,7 @@ abstract class Page
     public function __construct (array $route, \Jpl\Core\View $view = null)
     {
         $this->_route = $route;
+        var_dump($route);exit;
         $this->_view = (!is_null($view))? $view : new View();
         $this->_params = \Jpl\Core\Uri::getParams();
     }
