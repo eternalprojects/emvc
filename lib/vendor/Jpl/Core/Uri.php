@@ -95,7 +95,7 @@ class Uri
     public static function getController ()
     {
         self::getInstance();
-        return Uri::$_controller;
+        return self::$_controller;
     }
 
     /**
