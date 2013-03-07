@@ -144,7 +144,7 @@ class Uri
         if(isset($_GET['route']) && !empty($_GET['route'])){
             $params = explode('/', $_GET['route']);
         }else{
-            $params = array('index', 'index')
+            $params = array('index', 'index');
         }
         self::$_controller = $params[0];
         self::$_action = $params[1];
