@@ -93,11 +93,11 @@ abstract class Page
      * @param array $route            
      * @access public
      */
-    public function __construct (array $route, \Jpl\Core\View $view = null, $params = array())
+    public function __construct (array $route, \Jpl\Core\View $view = null)
     {
         $this->_route = $route;
         $this->_view = (!is_null($view))? $view : new View();
-        $this->_params = $params;
+        $this->_params = \Jpl\Core\Uri::getParams();
     }
 
     /**
@@ -199,6 +199,7 @@ abstract class Page
      *
      * @param $name string
      * @return mixed|bool
+     * @since 1.2
      */
     public function getParam($name){
         return (isset($this->_params[$name])) ? $this->_params[$name] : false;

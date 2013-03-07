@@ -141,22 +141,19 @@ class Uri
      */
     private function __construct ()
     {
-        self::$_param = explode('/', $_SERVER['QUERY_STRING']);
+        $params = explode('/', $_GET['route']);
+        self::$_controller = $params[0];
+        self::$_action = $params[1];
+        $params = array_slice($params, 2);
+        $p = array();
+        while(count($params) > 1){
+            $p[$params[0]] = $params[1];
+            array_slice($params, 2);
+        }
+        self::$_param = $p;
     }
 
-    /**
-     * The clone method, no cloning allowed
-     *
-     * @access private
-     * 
-     * @return void
-     */
-    private function __clone ()
-    {
-        
-    }
-
-    /**
+   /**
      * set the action
      *
      * @access public

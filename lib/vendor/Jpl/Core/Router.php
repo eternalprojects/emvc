@@ -37,6 +37,7 @@
 namespace Jpl\Core;
 use \Jpl\Core\Route;
 use \Jpl\Core\Exception;
+use \Jpl\Core\Uri;
 
 /**
  * The Router class
@@ -123,14 +124,14 @@ class Router
         $routeArray = explode('/', $route);
         if ($matchedRoute != false) {
             $controllerPart = ucwords(
-                strtolower($matchedRoute->getControllerName())
+                strtolower(Uri::getController())
             );
             
-            $actionPart = strtolower($matchedRoute->getActionName());
+            $actionPart = strtolower(Uri::getAction());
         } else {
 
-            $controllerPart = ucwords(strtolower($routeArray[0]));
-            $actionPart = (isset($routeArray[1]) && $routeArray[1] != '') ? $routeArray[1] : 'index';
+            $controllerPart = ucwords(strtolower(Uri::getController()));
+            $actionPart = (Uri::getAction() == "") ? Uri::getAction() : 'index';
         }
         //TODO: This will not work for defined routes
         $routeArray = array_slice($routeArray, 2);
