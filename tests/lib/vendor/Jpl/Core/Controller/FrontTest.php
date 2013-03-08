@@ -60,7 +60,7 @@ class FrontTest extends \PHPUnit_Framework_TestCase
 
     public function testInvalidControllerRun ()
     {
-        $_GET['route'] = 'test/index';
+        $_SERVER['REQUEST_URI'] = 'test/index';
         ob_start();
         $this->Front->run();
         $view = ob_get_contents();
@@ -71,7 +71,7 @@ class FrontTest extends \PHPUnit_Framework_TestCase
 
     public function testInvalidActionRun ()
     {
-        $_GET['route'] = 'index/test';
+        $_SERVER['REQUEST_URI'] = 'index/test';
         ob_start();
         $this->Front->run();
         $view = ob_get_contents();

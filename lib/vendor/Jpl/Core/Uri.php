@@ -141,11 +141,13 @@ class Uri
      */
     private function __construct ()
     {
-        if(isset($_GET['route']) &&  !empty($_GET['route'])){
-            $params = explode('/', $_GET['route']);
-        }else{
+        //if(isset($_SERVER['REQUEST_URI'])){
+            //$params = explode('/', $_SERVER['REQUEST_URI']);
+
+        //}else{
             $params = array('index', 'index');
-        }
+        //}
+
         self::$_controller = $params[0];
         self::$_action = $params[1];
         $params = array_slice($params, 2);
@@ -184,8 +186,7 @@ class Uri
     public static function getAction ()
     {
         self::getInstance();
-        return self::$_action;
-        error_log(self::$_action);
+            return self::$_action;
     }
 
     /**

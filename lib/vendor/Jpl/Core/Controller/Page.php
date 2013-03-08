@@ -93,11 +93,11 @@ abstract class Page
      * @param array $route            
      * @access public
      */
-    public function __construct (array $route, \Jpl\Core\View $view = null)
+    public function __construct (array $route, \Jpl\Core\View $view = null, $params = array())
     {
         $this->_route = $route;
         $this->_view = (!is_null($view))? $view : new View();
-        $this->_params = \Jpl\Core\Uri::getParams();
+        $this->_params = $params;
     }
 
     /**

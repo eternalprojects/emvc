@@ -115,24 +115,26 @@ class Router
      */
     public static function callControllerAction ()
     {
-        $route = (isset($_GET['route'])) ? trim($_GET['route']) : 'index/index';
+        $route = (isset($_SERVER['REQUEST_URI'])) ? trim($_SERVER['REQUEST_URI']) : 'index/index';
         /**
          * Try to match a defined route, if unable, try and match an organic
          * route
          */
         $matchedRoute = self::_getMatchingRoute($route);
         $routeArray = explode('/', $route);
+
         if ($matchedRoute != false) {
             $controllerPart = ucwords(
-                strtolower(Uri::getController())
+                strtolower($matchedRoute->getControllerName())
             );
             
-            $actionPart = strtolower(Uri::getAction());
+            $actionPart = strtolower($matchedRoute->getActionName());
         } else {
 
-            $controllerPart = ucwords(strtolower(Uri::getController()));
-            $actionPart = (Uri::getAction() == "") ? Uri::getAction() : 'index';
+            $controllerPart = ucwords(strtolower($routeArray[0]));
+            $actionPart = ($routeArray[1] == "") ? 'index' : $routeArray[1];
         }
+
         //TODO: This will not work for defined routes
         $routeArray = array_slice($routeArray, 2);
         $params = array();
@@ -143,6 +145,7 @@ class Router
         $controllerName = '\Controller\\' . $controllerPart;
         // Check to see if the controller class exists, if not throw an
         // exception
+
         if (\Jpl\Core\AutoLoader::AutoLoad($controllerName)) {
             $controller = new $controllerName(
                     array(

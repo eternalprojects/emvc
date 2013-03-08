@@ -22,17 +22,16 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
     public function testCallControllerWithIndex ()
     {
-        $_GET['route'] = 'index/index';
+        $_SERVER['REQUEST_URI'] = 'index/index';
         ob_start();
         Router::callControllerAction();
         $view = ob_get_contents();
-       
         $this->assertStringStartsWith('Index View', $view);
     }
 
     public function testCallControllerWithAssert ()
     {
-        $_GET['route'] = 'index/assert';
+        $_SERVER['REQUEST_URI'] = 'index/assert';
         ob_start();
         Router::callControllerAction();
         $view = ob_get_contents();
@@ -42,7 +41,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
     public function testCallControllerWithInvalidAction ()
     {
-        $_GET['route'] = 'index/test';
+        $_SERVER['REQUEST_URI'] = 'index/test';
         try {
             Router::callControllerAction();
         } catch (\Jpl\Core\Exception\InvalidAction $e) {
@@ -54,7 +53,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
     public function testCallControllerWithInvalidController ()
     {
-        $_GET['route'] = 'test/assert';
+        $_SERVER['REQUEST_URI'] = 'test/assert';
         try {
             Router::callControllerAction();
         } catch (\Jpl\Core\Exception\InvalidController $e) {
@@ -67,7 +66,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     {
         $route = new \Jpl\Core\Route('/test/assert', 'test', 'test');
         Router::registerRoute($route);
-        $_GET['route'] = '/test/assert';
+        $_SERVER['REQUEST_URI'] = '/test/assert';
         try {
             Router::callControllerAction();
         } catch (\Jpl\Core\Exception\InvalidController $e) {
@@ -80,7 +79,7 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     {
         $route = new \Jpl\Core\Route('test/assert', 'test', 'test');
         Router::registerRoute($route);
-        $_GET['route'] = '/test/assert';
+        $_SERVER['REQUEST_URI'] = '/test/assert';
         try {
             Router::callControllerAction();
         } catch (\Jpl\Core\Exception\InvalidController $e) {
