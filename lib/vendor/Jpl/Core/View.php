@@ -57,6 +57,7 @@ class View
      * @access private
      */
     private $_vars = array();
+    private $_view = null;
 
     /**
      * The default constructor
@@ -69,22 +70,32 @@ class View
     /**
      * Render the view for the given controller and action
      *
-     * @todo Allow custom view locations v1.2.1
+     *
      * @todo Allow Partials v1.2.2
-     * @todo Allow for view helpers
+     * @todo Allow for view helpers v1.2.1
+     *
      * @param array $view            
      * @throws \Exception
      */
     public function render (array $view)
     {
-        $folder = strtolower($view[0]);
-        $file = $view[1];
+        if(is_null($this->_view)){
+            $folder = strtolower($view[0]);
+            $file = $view[1];
+        }else{
+            $folder = $this->_view[0];
+            $file = $this->_view[1];
+        }
         if (! file_exists(APPLICATION_PATH . "/view/scripts/{$folder}/{$file}.phtml")) {
             throw new Exception\InvalidView(
                 "The view does not exist for the requested action: /view/scripts/{$folder}/{$file}.phtml"
             );
         }
         include APPLICATION_PATH . "/view/$folder/$file.phtml";
+    }
+
+    public function setView(array $view){
+        $this->_view = $view;
     }
 
     /**
@@ -109,5 +120,9 @@ class View
     public function __get ($key)
     {
         return $this->_vars[$key];
+    }
+
+    public function __destruct(){
+        $this->_view = null;
     }
 }
