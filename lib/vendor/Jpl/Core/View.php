@@ -79,9 +79,9 @@ class View
     {
         $folder = strtolower($view[0]);
         $file = $view[1];
-        if (! file_exists(APPLICATION_PATH . "/view/{$folder}/{$file}.phtml")) {
+        if (! file_exists(APPLICATION_PATH . "/view/scripts/{$folder}/{$file}.phtml")) {
             throw new Exception\InvalidView(
-                "The view does not exist for the requested action: /view/{$folder}/{$file}.phtml"
+                "The view does not exist for the requested action: /view/scripts/{$folder}/{$file}.phtml"
             );
         }
         include APPLICATION_PATH . "/view/$folder/$file.phtml";

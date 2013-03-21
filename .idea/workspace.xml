@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="becdea39-3497-43a3-b106-a2d39b7bd89e" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Exception.php" afterPath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/Exception.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Json.php" afterPath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Json.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/view/error/error.phtml" afterPath="$PROJECT_DIR$/view/scripts/error/error.phtml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/view/index/assert.phtml" afterPath="$PROJECT_DIR$/view/scripts/index/assert.phtml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/view/index/index.phtml" afterPath="$PROJECT_DIR$/view/scripts/index/index.phtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php" afterPath="$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emvc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,10 +34,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="View.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="View.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="35" selection-start="1890" selection-end="1890" vertical-scroll-proportion="-7.9473686">
+            <state line="83" column="81" selection-start="2291" selection-end="2291" vertical-scroll-proportion="1.9120879">
               <folding />
             </state>
           </provider>
@@ -70,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Front.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Front.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Controller/Front.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="43" selection-start="2010" selection-end="2010" vertical-scroll-proportion="0.46886447">
+            <state line="80" column="9" selection-start="2289" selection-end="2289" vertical-scroll-proportion="-16.973684">
               <folding />
             </state>
           </provider>
@@ -147,9 +147,9 @@
         <option value="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Registry/ApplicationTest.php" />
         <option value="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/RouteTest.php" />
         <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/InvalidView.php" />
-        <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php" />
         <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/Exception.php" />
         <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Json.php" />
+        <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php" />
       </list>
     </option>
   </component>
@@ -210,6 +210,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="emvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -414,6 +446,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/view/scripts" />
       <recent name="$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception" />
     </key>
   </component>
@@ -626,13 +659,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="35" selection-start="1890" selection-end="1890" vertical-scroll-proportion="-7.9473686">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/Exception.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="0" selection-start="1209" selection-end="1209" vertical-scroll-proportion="-5.3421054">
@@ -663,7 +689,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Controller/Front.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="43" selection-start="2010" selection-end="2010" vertical-scroll-proportion="0.46886447">
+        <state line="80" column="9" selection-start="2289" selection-end="2289" vertical-scroll-proportion="-16.973684">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="81" selection-start="2291" selection-end="2291" vertical-scroll-proportion="1.9120879">
           <folding />
         </state>
       </provider>
