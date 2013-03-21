@@ -72,7 +72,6 @@ class View
      * @todo Allow custom view locations v1.2.1
      * @todo Allow Partials v1.2.2
      * @todo Allow for view helpers
-     * @todo Change from thowing \Exception to \Jpl\Core\Exception\InvalidView
      * @param array $view            
      * @throws \Exception
      */

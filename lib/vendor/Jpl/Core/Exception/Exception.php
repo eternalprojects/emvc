@@ -33,9 +33,7 @@
  *
  * @package Jpl\Core\Config
  */
-namespace Jpl\Core\Config;
-
-use \Jpl\Core\Config\Exception;
+namespace Jpl\Core\Exception;
 
 /**
  * The Exception class specific to the Config Classes
@@ -51,7 +49,7 @@ use \Jpl\Core\Config\Exception;
  * @version 1.0
  *       
  */
-class Exception extends \Jpl\Core\Exception
+class InvalidConfig extends \Jpl\Core\Exception
 {
 
     /**
