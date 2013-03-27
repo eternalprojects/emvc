@@ -34,7 +34,7 @@
  *
  * @package Jpl\Core
  */
-namespace Jpl\Core;
+namespace Jpl\Core\View;
 
 use \Jpl\Core\Exception;
 /**
@@ -57,10 +57,42 @@ class View
      * @access private
      */
     private $_vars = array();
+    /**
+     * Holds the info for a custom defined view to load
+     *
+     * @var array
+     * @access private
+     */
     private $_view = null;
+    /**
+     * Instances of helper objects
+     *
+     * @var array
+     * @access private
+     */
+    private $_helper = array();
+    /**
+     * Map of helper => class pairs to help in determining helper class from name
+     *
+     * @var array
+     * @access private
+     */
+    private $_helperLoader = array();
+    /**
+     * Map of helper => classfile pairs to aid in determining helper classfile
+     *
+     * @var array
+     * @access private
+     */
+    private $_helperLoaderDir = array();
+    private $_loaders = array();
+    private $_loaderTypes = array();
 
     /**
      * The default constructor
+     *
+     * @todo: add user-defined helper paths defined in config file 1.2.4
+     * @todo: add user-defined view script paths from config 1.2.4
      */
     public function __construct ()
     {
@@ -115,14 +147,59 @@ class View
      * The magic get function
      *
      * @param string $key            
-     * @return mixed
+     * @return null|mixed
      */
     public function __get ($key)
     {
-        return $this->_vars[$key];
+        if(isset($this->_vars[$key]))
+            return $this->_vars[$key];
+        else
+            return null;
     }
 
     public function __destruct(){
         $this->_view = null;
+    }
+
+    public function __call($name, $args){
+        # is helper class loaded
+        $helper = $this->getHelper($name);
+
+        # call the helper method
+        return call_user_func_array(array($helper, name), $args);
+
+    }
+
+    public function addHelperPath($path, $prefix = '\Jpl\Core\View\Helper'){
+        return $this->_addPluginPath('helper', $prefix, (array) $path));
+    }
+
+    private function _addPluginPath($type, $prefix, array $paths){
+        $loader = $this->getPluginLoader($type);
+        foreach($paths as $path){
+            $loader->addPrefixPath($prefix, $path);
+        }
+        return $this;
+    }
+
+    public function getPluginLoader($type){
+        $type = strtolower($type);
+        if(!in_array($type, $this->_loaderTypes)){
+            throw new Exception\InvalidView(sprintf('Invalid plugin loader type "%s"; cannot retrieve', $type));
+        }
+        if(!array_key_exists($type, $this->_loaders)){
+            $prefix = '\Jpl\Core\View\\';
+            $pathPrefix = 'Jpl/Core/Views/';
+            $pType = ucfirst($type);
+            switch($type){
+                case 'helper':
+                    $prefix .= $pType;
+                    $pathPrefix .= $pType;
+                    $loader = new \Jpl\Core\Loader\Plugin(array($prefix=>$pathPrefix));
+                    $this->_loaders[$type] = $loader;
+                    break;
+            }
+        }
+        return $this->_loaders[$type];
     }
 }
