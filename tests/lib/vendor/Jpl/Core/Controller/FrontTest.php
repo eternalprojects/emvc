@@ -1,6 +1,7 @@
 <?php
 namespace Test\Jpl\Core\Controller;
-require_once Application_PATH . '/Jpl/Core/Controller/Front.php';
+require_once (dirname(__FILE__) . '/../../../../TestHelper.php');
+require_once 'Jpl/Core/Controller/Front.php';
 use \Jpl\Core\Controller\Front;
 
 /**
