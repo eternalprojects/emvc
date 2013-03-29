@@ -36,7 +36,8 @@
  */
 namespace Jpl\Core\Config;
 use Jpl\Core\Config;
-use Jpl\Core\Exception\InvalidConfig;
+// Todo: Make the correct Exception class
+//use Jpl\Core\Exception\InvalidConfig;
 
 /**
  * A class to load and process Json config files
