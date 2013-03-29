@@ -74,7 +74,7 @@ class Json extends Config
     public function __construct ($file, $section = null)
     {
         if(!file_exists(APPLICATION_PATH . DIRECTORY_SEPARATOR . 'configs/' . $file))
-            throw new InvalidConfig("The configuration file specified: '{$file}' doesn not exist");
+            throw new Exception("The configuration file specified: '{$file}' doesn not exist");
         $data = file_get_contents($file);
         $data = json_decode($data);
         $json = $this->_toObject($data);
