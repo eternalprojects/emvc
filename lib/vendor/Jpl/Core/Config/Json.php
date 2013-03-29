@@ -34,8 +34,8 @@
  *
  * @package Jpl\Core\Config
  */
-namespace Jpl\Core\Config as Config;
-
+namespace Jpl\Core\Config;
+use Jpl\Core\Config;
 use Jpl\Core\Exception\InvalidConfig;
 
 /**
