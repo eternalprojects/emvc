@@ -35,6 +35,8 @@
  */
 namespace Jpl\Core\Loader;
 
+use Jpl\Core\Exception;
+
 /**
  * A generic plugin class loader
  *
@@ -49,7 +51,21 @@ namespace Jpl\Core\Loader;
  */
 class Plugin
 {
+    /**
+     * Class map cache file
+     *
+     * @var string
+     * @staticvar
+     * @access protected
+     */
     protected static $_includeFileCache;
+    /**
+     * Instance of loaded plugin oaths
+     *
+     * @var array
+     * @staticvar
+     * @access protected
+     */
     protected $_loadedPluginPaths = array();
     protected $_loadedPlugins = array();
     protected $_prefixToPaths = array();
@@ -127,6 +143,155 @@ class Plugin
                 }
                 return false;
             }
-            if(isset($this->_prefixToPaths))
+            if(isset($this->_prefixToPaths[$prefix])){
+                unset($this->_prefixToPaths[$prefix]);
+                return true;
+            }
+            return false;
+        }
+
+        if($this->_useStaticRegistry){
+            self::$_staticPrefixToPaths[$this->_useStaticRegistry] = array();
+        }else{
+            $this->_prefixToPaths = array();
+        }
+        return true;
     }
+    public function removePrefixPath($prefix, $path = null){
+        $prefix = $this->_formatPrefix($prefix);
+        if($this->_useStaticRegistry){
+            $registry =& self::$_staticPrefixToPaths[$this->_useStaticRegistry];
+        }else{
+            $registry =& $this->_prefixToPaths;
+        }
+
+        if(!isset($registry[$prefix])){
+            // todo: create a real Exception class
+            throw new Exception("Prefix ".$prefix." was not found in the Loader");
+        }
+
+        if($path != null){
+            $pso = array_search($path, $registry[$prefix]);
+            if(false === $pso){
+                throw new Exception("Prefix ".$prefix." /path ".$path." was not found in the Loader");
+
+            }
+            unset($registry[$prefix][$pso]);
+        }else{
+            unset($registry[$prefix]);
+        }
+        return $this;
+    }
+    protected function _formatName($name){
+        return ucfirst((string) $name);
+    }
+
+    public function isLoaded($name){
+        $name = $this->_formatName($name);
+        if($this->_useStaticRegistry){
+            return isset(self::$_staticLoadedPlugins[$this->_useStaticRegistry][$name]);
+        }
+        return isset($this->_loadedPlugins[$name]);
+    }
+
+    public function getClassName($name){
+        $name = $this->_formatName($name);
+        if($this->_useStaticRegistry && isset(self::$_staticLoadedPlugins[$this->_useStaticRegistry][$name])){
+            return self::$_staticLoadedPlugins[$this->_useStaticRegistry][$name];
+        }elseif(isset($this->_loadedPlugins)){
+            return $this->_loadedPlugins[$name];
+        }
+        return false;
+    }
+
+    public function getClassPath($name){
+        $name = $this->_formatName($name);
+        if($this->_useStaticRegistry && !empty(self::$_staticLoadedPluginPaths[$this->_useStaticRegistry][$name])){
+            return self::$_staticLoadedPluginPaths[$this->_useStaticRegistry][$name];
+        }elseif(isset($this->_loadedPluginPaths[$name])){
+            return $this->_loadedPluginPaths[$name];
+        }
+        if($this->isLoaded($name)){
+            $class = $this->getClassName($name);
+            $r = new \ReflectionClass($class);
+            $path = $r->getFileName();
+            if($this->_useStaticRegistry){
+                self::$_staticLoadedPluginPaths[$this->_useStaticRegistry][$name] = $path;
+            }else{
+                $this->_loadedPluginPaths[$name] = $path;
+            }
+
+            return $path;
+        }
+        return false;
+    }
+
+    public function load($name, $throwExceptions = true)
+    {
+        $name = $this->_formatName($name);
+        if ($this->isLoaded($name)) {
+            return $this->getClassName($name);
+        }
+
+        if ($this->_useStaticRegistry) {
+            $registry = self::$_staticPrefixToPaths[$this->_useStaticRegistry];
+        } else {
+            $registry = $this->_prefixToPaths;
+        }
+
+        $registry  = array_reverse($registry, true);
+        $found     = false;
+        if (false !== strpos($name, '\\')) {
+            $classFile = str_replace('\\', DIRECTORY_SEPARATOR, $name) . '.php';
+        } else {
+            $classFile = str_replace('_', DIRECTORY_SEPARATOR, $name) . '.php';
+        }
+        $incFile   = self::getIncludeFileCache();
+        foreach ($registry as $prefix => $paths) {
+            $className = $prefix . $name;
+
+            if (class_exists($className, false)) {
+                $found = true;
+                break;
+            }
+
+            $paths     = array_reverse($paths, true);
+
+            foreach ($paths as $path) {
+                $loadFile = $path . $classFile;
+                // @todo: something
+                if (Zend_Loader::isReadable($loadFile)) {
+                    include_once $loadFile;
+                    if (class_exists($className, false)) {
+                        if (null !== $incFile) {
+                            self::_appendIncFile($loadFile);
+                        }
+                        $found = true;
+                        break 2;
+                    }
+                }
+            }
+        }
+
+        if (!$found) {
+            if (!$throwExceptions) {
+                return false;
+            }
+
+            $message = "Plugin by name '$name' was not found in the registry; used paths:";
+            foreach ($registry as $prefix => $paths) {
+                $message .= "\n$prefix: " . implode(PATH_SEPARATOR, $paths);
+            }
+
+            throw new Exception($message);
+        }
+
+        if ($this->_useStaticRegistry) {
+            self::$_staticLoadedPlugins[$this->_useStaticRegistry][$name]     = $className;
+        } else {
+            $this->_loadedPlugins[$name]     = $className;
+        }
+        return $className;
+    }
+
 }

@@ -1,6 +1,6 @@
 <?php
 namespace Test\Jpl\Core\Controller;
-require_once 'Jpl/Core/Controller/Front.php';
+require_once APPLICATION_PATH .'/Jpl/Core/Controller/Front.php';
 use \Jpl\Core\Controller\Front;
 
 /**
