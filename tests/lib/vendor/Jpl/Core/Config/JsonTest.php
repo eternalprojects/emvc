@@ -49,6 +49,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
      */
     public function test__construct ()
     {
+        $this->Json->setConfigFolder('/tests/lib/vendor/Jpl/Core/config/_files/');
         $s = $this->Json->__construct(dirname(__FILE__) . '/_files/test.json');
         $this->assertInstanceOf('\stdClass', $s);
         $this->assertEquals('file', $s->menu->id);

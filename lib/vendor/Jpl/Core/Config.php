@@ -53,12 +53,13 @@ namespace Jpl\Core;
  */
 abstract class Config
 {
+    protected $_configFolder = '/configs/';
     /**
      * A method to convert arrays to objects
      *
      * @access protected
      * @param mixed $array
-     * @return string \stdClass boolean
+     * @return string stdClass|boolean
      * 
      */
     protected function _toObject ($array)
@@ -81,5 +82,12 @@ abstract class Config
         } else {
             return FALSE;
         }
+    }
+
+    public function setConfigFolder($folder){
+        if(is_dir(APPLICATION_PATH . $folder)){
+            $this->_configFolder = $folder;
+        }
+        throw new \Jpl\InvalidConfig("The config folder you specified does not exist");
     }
 }

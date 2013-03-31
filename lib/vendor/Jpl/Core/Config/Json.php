@@ -73,7 +73,7 @@ class Json extends Config
      */
     public function __construct ($file, $section = null)
     {
-        if(!file_exists(APPLICATION_PATH . DIRECTORY_SEPARATOR . 'configs/' . $file))
+        if(!file_exists(APPLICATION_PATH . DIRECTORY_SEPARATOR . $this->_configFolder . $file))
             throw new \Jpl\Core\Exception("The configuration file specified: '{$file}' doesn not exist");
         $data = file_get_contents($file);
         $data = json_decode($data);
