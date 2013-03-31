@@ -173,13 +173,16 @@ abstract class Page
      */
     public function __destruct ()
     {
-        try {
-            $this->_view->render($this->_route);
-        } catch (\Exception $e) {
-            $error = new \Controller\Error(
-                array('error', 'error')
-            );
-            $error->errorAction($e->getMessage());
+        if($this->_route != null){
+            try {
+                $this->_view->render($this->_route);
+                $this->_route = null;
+            } catch (\Exception $e) {
+                $error = new \Controller\Error(
+                    array('error', 'error')
+                );
+                $error->errorAction($e->getMessage());
+            }
         }
     }
 

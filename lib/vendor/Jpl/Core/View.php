@@ -91,7 +91,7 @@ class View
                 "The view does not exist for the requested action: /view/scripts/{$folder}/{$file}.phtml"
             );
         }
-        include APPLICATION_PATH . "/view/$folder/$file.phtml";
+        include APPLICATION_PATH . "/view/scripts/$folder/$file.phtml";
     }
 
     public function setView(array $view){
