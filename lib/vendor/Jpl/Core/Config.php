@@ -59,7 +59,7 @@ abstract class Config
      *
      * @access protected
      * @param mixed $array
-     * @return string stdClass|boolean
+     * @return array|\stdClass|boolean
      * 
      */
     protected function _toObject ($array)
@@ -88,6 +88,6 @@ abstract class Config
         if(is_dir(APPLICATION_PATH . $folder)){
             $this->_configFolder = $folder;
         }
-        throw new \Jpl\InvalidConfig("The config folder you specified does not exist");
+        throw new \Jpl\Core\Exception\InvalidConfig("The config folder you specified does not exist");
     }
 }

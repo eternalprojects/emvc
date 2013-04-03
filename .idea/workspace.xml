@@ -2,21 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="becdea39-3497-43a3-b106-a2d39b7bd89e" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/InvalidConfig.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config.php" afterPath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Json.php" afterPath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Json.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Config/JsonTest.php" afterPath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Config/JsonTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emvc.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1364765072491" ignored="false" />
+    <file path="/Dummy.txt" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1364966298352" ignored="false" />
     <file path="/InvalidView.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1363900948006" ignored="false" />
     <file path="/View.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1363903734134" ignored="false" />
     <file path="/Exception.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1363902090829" ignored="false" />
     <file path="/Json.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1364767232739" ignored="false" />
     <file path="/a.dummy" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1363902529356" ignored="false" />
     <file path="/Page.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1364766383158" ignored="false" />
-    <file path="/Config.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1364767306509" ignored="false" />
-    <file path="/JsonTest.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1364767394735" ignored="false" />
+    <file path="/Config.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1364967418418" ignored="false" />
+    <file path="/JsonTest.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1364787786917" ignored="false" />
+    <file path="/InvalidConfig.php" changelist="becdea39-3497-43a3-b106-a2d39b7bd89e" time="1364967504992" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,34 +41,25 @@
       <file leaf-file-name="FrontTest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/FrontTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="68" selection-start="110" selection-end="110" vertical-scroll-proportion="11.447369">
+            <state line="2" column="68" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PageTest.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/PageTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="73.8421">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Page.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Controller/Page.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="22" selection-start="3303" selection-end="3303" vertical-scroll-proportion="4.394737">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JsonTest.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="JsonTest.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Config/JsonTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="82" selection-start="980" selection-end="980" vertical-scroll-proportion="0.39123103">
+            <state line="51" column="9" selection-start="907" selection-end="907" vertical-scroll-proportion="-0.7631579">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AutoLoader.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/AutoLoader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="35.526318">
               <folding />
             </state>
           </provider>
@@ -75,7 +68,7 @@
       <file leaf-file-name="test.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Config/_files/test.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -84,7 +77,7 @@
       <file leaf-file-name="Json.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Json.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="77" selection-start="2534" selection-end="2534" vertical-scroll-proportion="-7.2105265">
+            <state line="76" column="77" selection-start="2534" selection-end="2534" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -93,35 +86,46 @@
       <file leaf-file-name="Config.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="87" selection-start="2776" selection-end="2776" vertical-scroll-proportion="-8.736842">
+            <state line="90" column="38" selection-start="2727" selection-end="2727" vertical-scroll-proportion="-9.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestHelper.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/TestHelper.php">
+      <file leaf-file-name="Exception.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="17.210526">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoreSuite.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/CoreSuite.php">
+      <file leaf-file-name="Mail.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Mail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="32" column="2" selection-start="1130" selection-end="1130" vertical-scroll-proportion="-3.4721754">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="View.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php">
+      <file leaf-file-name="InvalidView.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/InvalidView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="42" selection-start="2527" selection-end="2527" vertical-scroll-proportion="-48.842106">
+            <state line="41" column="19" selection-start="0" selection-end="1972" vertical-scroll-proportion="-9.157895">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InvalidConfig.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/InvalidConfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="81" selection-start="1383" selection-end="1383" vertical-scroll-proportion="-5.3421054">
+              <folding>
+                <element signature="e#7#1146#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,8 +157,9 @@
         <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php" />
         <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Controller/Page.php" />
         <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Json.php" />
-        <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config.php" />
         <option value="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Config/JsonTest.php" />
+        <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config.php" />
+        <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/InvalidConfig.php" />
       </list>
     </option>
   </component>
@@ -190,16 +195,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -568,6 +563,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -637,14 +642,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="813" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="813" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19727403" sideWeight="0.67045456" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19655667" sideWeight="0.67045456" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -743,41 +748,9 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/InvalidAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="20" selection-start="0" selection-end="1994" vertical-scroll-proportion="0.106929" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/InvalidView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="20" selection-start="1845" selection-end="1845" vertical-scroll-proportion="0.70230967" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/Exception.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.024807528" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Mail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="2" selection-start="1130" selection-end="1130" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Controller/Front.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1212" selection-end="1212" vertical-scroll-proportion="-5.3421054">
-          <folding>
-            <element signature="e#7#1137#0" expanded="true" />
-            <element signature="e#1212#1233#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="37" column="0" selection-start="1212" selection-end="1212" vertical-scroll-proportion="-5.3421054" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/TestHelper.php">
@@ -796,21 +769,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/View.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="42" selection-start="2527" selection-end="2527" vertical-scroll-proportion="-48.842106">
+        <state line="93" column="42" selection-start="2527" selection-end="2527" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/PageTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="73.8421">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Controller/Page.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="22" selection-start="3303" selection-end="3303" vertical-scroll-proportion="4.394737">
+        <state line="130" column="22" selection-start="3303" selection-end="3303" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -824,28 +797,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/FrontTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="68" selection-start="110" selection-end="110" vertical-scroll-proportion="11.447369">
+        <state line="2" column="68" selection-start="110" selection-end="110" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Json.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="77" selection-start="2534" selection-end="2534" vertical-scroll-proportion="-7.2105265">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="87" selection-start="2776" selection-end="2776" vertical-scroll-proportion="-8.736842">
+        <state line="76" column="77" selection-start="2534" selection-end="2534" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Config/JsonTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="82" selection-start="980" selection-end="980" vertical-scroll-proportion="0.39123103">
+        <state line="51" column="9" selection-start="907" selection-end="907" vertical-scroll-proportion="-0.7631579">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/AutoLoader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="35.526318">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/InvalidView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="19" selection-start="0" selection-end="1972" vertical-scroll-proportion="-9.157895">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception/InvalidConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="81" selection-start="1383" selection-end="1383" vertical-scroll-proportion="-5.3421054">
+          <folding>
+            <element signature="e#7#1146#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="38" selection-start="2727" selection-end="2727" vertical-scroll-proportion="-9.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Exception.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="17.210526">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="2" selection-start="1130" selection-end="1130" vertical-scroll-proportion="-3.4721754">
           <folding />
         </state>
       </provider>
