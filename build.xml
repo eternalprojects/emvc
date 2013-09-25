@@ -131,10 +131,17 @@
 
 	<target name="phpunit" description="Run unit tests with PHPUnit">
 		<exec dir="${basedir}/tests" executable="phpunit" failonerror="true">
-			<arg line="--log-junit ${basedir}/build/logs/junit.xml \
-                       --coverage-clover ${basedir}/build/logs/clover.xml \
-                       --coverage-html ${basedir}/build/coverage \
-                       --exclude ${basedir}/index.php" />
+			<arg value="--log-junit" />
+			<arg value="${basedir}/build/logs/junit.xml" />
+			<arg value="--coverage-clover" />
+			<arg value="${basedir}/build/logs/clover.xml" />
+			<arg value="--coverage-html" />
+			<arg value="${basedir}/build/coverage" />
+			<arg value="--exclude" />
+			<arg value="${basedir}/index.php" />
+			<arg line="--log-junit ${basedir}/build/logs/junit.xml 
+                       --coverage-clover ${basedir}/build/logs/clover.xml 
+                       --coverage-html ${basedir}/build/coverage --exclude ${basedir}/index.php" />
 		</exec>
 	</target>
 
