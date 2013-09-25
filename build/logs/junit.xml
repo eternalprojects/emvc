@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="./tests/" tests="42" assertions="51" failures="6" errors="6" time="0.017438">
+    <testsuite name="Test\Jpl\Core\AutoLoaderTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/AutoLoaderTest.php" namespace="Test\Jpl\Core" fullPackage="Test.Jpl.Core" tests="4" assertions="5" failures="0" errors="0" time="0.001837">
+      <testcase name="testFailedAutoLoad" class="Test\Jpl\Core\AutoLoaderTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/AutoLoaderTest.php" line="9" assertions="1" time="0.000740"/>
+      <testcase name="testModelSuccess" class="Test\Jpl\Core\AutoLoaderTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/AutoLoaderTest.php" line="14" assertions="1" time="0.000330"/>
+      <testcase name="testJplLibSuccess" class="Test\Jpl\Core\AutoLoaderTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/AutoLoaderTest.php" line="19" assertions="1" time="0.000114"/>
+      <testcase name="testControllerSuccess" class="Test\Jpl\Core\AutoLoaderTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/AutoLoaderTest.php" line="24" assertions="2" time="0.000653"/>
+    </testsuite>
+    <testsuite name="Test\Jpl\Core\Config\JsonTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php" namespace="Test\Jpl\Core\Config" fullPackage="Test.Jpl.Core.Config" tests="5" assertions="0" failures="0" errors="5" time="0.000967">
+      <testcase name="test__construct" class="Test\Jpl\Core\Config\JsonTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php" line="50" assertions="0" time="0.000556">
+        <error type="Jpl\Core\Exception">Test\Jpl\Core\Config\JsonTest::test__construct
+Jpl\Core\Exception: The configuration file specified: '/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/_files/test.json' doesn not exist
+
+/Users/jesse/eternalmvc/lib/vendor/Jpl/Core/Config/Json.php:77
+/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php:27
+</error>
+      </testcase>
+      <testcase name="testToObjectWithString" class="Test\Jpl\Core\Config\JsonTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php" line="59" assertions="0" time="0.000123">
+        <error type="Jpl\Core\Exception">Test\Jpl\Core\Config\JsonTest::testToObjectWithString
+Jpl\Core\Exception: The configuration file specified: '/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/_files/test.json' doesn not exist
+
+/Users/jesse/eternalmvc/lib/vendor/Jpl/Core/Config/Json.php:77
+/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php:27
+</error>
+      </testcase>
+      <testcase name="testToObjectWithObject" class="Test\Jpl\Core\Config\JsonTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php" line="66" assertions="0" time="0.000096">
+        <error type="Jpl\Core\Exception">Test\Jpl\Core\Config\JsonTest::testToObjectWithObject
+Jpl\Core\Exception: The configuration file specified: '/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/_files/test.json' doesn not exist
+
+/Users/jesse/eternalmvc/lib/vendor/Jpl/Core/Config/Json.php:77
+/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php:27
+</error>
+      </testcase>
+      <testcase name="testToObjectWithArray" class="Test\Jpl\Core\Config\JsonTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php" line="74" assertions="0" time="0.000095">
+        <error type="Jpl\Core\Exception">Test\Jpl\Core\Config\JsonTest::testToObjectWithArray
+Jpl\Core\Exception: The configuration file specified: '/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/_files/test.json' doesn not exist
+
+/Users/jesse/eternalmvc/lib/vendor/Jpl/Core/Config/Json.php:77
+/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php:27
+</error>
+      </testcase>
+      <testcase name="testToObjectWithEmptyArray" class="Test\Jpl\Core\Config\JsonTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php" line="96" assertions="0" time="0.000097">
+        <error type="Jpl\Core\Exception">Test\Jpl\Core\Config\JsonTest::testToObjectWithEmptyArray
+Jpl\Core\Exception: The configuration file specified: '/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/_files/test.json' doesn not exist
+
+/Users/jesse/eternalmvc/lib/vendor/Jpl/Core/Config/Json.php:77
+/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Config/JsonTest.php:27
+</error>
+      </testcase>
+    </testsuite>
+    <testsuite name="Test\Jpl\Core\Controller\FrontTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Controller/FrontTest.php" namespace="Test\Jpl\Core\Controller" fullPackage="Test.Jpl.Core.Controller" tests="3" assertions="3" failures="0" errors="0" time="0.001790">
+      <testcase name="testSuccessfulRun" class="Test\Jpl\Core\Controller\FrontTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Controller/FrontTest.php" line="52" assertions="1" time="0.000619"/>
+      <testcase name="testInvalidControllerRun" class="Test\Jpl\Core\Controller\FrontTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Controller/FrontTest.php" line="61" assertions="1" time="0.000560"/>
+      <testcase name="testInvalidActionRun" class="Test\Jpl\Core\Controller\FrontTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Controller/FrontTest.php" line="72" assertions="1" time="0.000611"/>
+    </testsuite>
+    <testsuite name="Test\Jpl\Core\Controller\PageTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Controller/PageTest.php" namespace="Test\Jpl\Core\Controller" fullPackage="Test.Jpl.Core.Controller" tests="4" assertions="11" failures="4" errors="0" time="0.008296">
+      <testcase name="test__construct" class="Test\Jpl\Core\Controller\PageTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Controller/PageTest.php" line="51" assertions="4" time="0.006779">
+        <failure type="PHPUnit_Framework_OutputError">Test\Jpl\Core\Controller\PageTest::test__construct
+This test printed output: &lt;div align="center"&gt;&#13;
+	&lt;h1&gt;404 - Document Not Found&lt;/h1&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div align="center"&gt;&#13;
+	&lt;span style="color: red"&gt;The view does not exist for the requested action: /view/scripts/test/test.phtml&lt;/span&gt;&#13;
+&lt;/div&gt;
+
+</failure>
+      </testcase>
+      <testcase name="testSetRoute" class="Test\Jpl\Core\Controller\PageTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Controller/PageTest.php" line="70" assertions="3" time="0.000386">
+        <failure type="PHPUnit_Framework_OutputError">Test\Jpl\Core\Controller\PageTest::testSetRoute
+This test printed output: &lt;div align="center"&gt;&#13;
+	&lt;h1&gt;404 - Document Not Found&lt;/h1&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div align="center"&gt;&#13;
+	&lt;span style="color: red"&gt;The view does not exist for the requested action: /view/scripts/something/crazy.phtml&lt;/span&gt;&#13;
+&lt;/div&gt;
+
+</failure>
+      </testcase>
+      <testcase name="testGetRoute" class="Test\Jpl\Core\Controller\PageTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Controller/PageTest.php" line="84" assertions="3" time="0.000537">
+        <failure type="PHPUnit_Framework_OutputError">Test\Jpl\Core\Controller\PageTest::testGetRoute
+This test printed output: &lt;div align="center"&gt;&#13;
+	&lt;h1&gt;404 - Document Not Found&lt;/h1&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div align="center"&gt;&#13;
+	&lt;span style="color: red"&gt;Undefined index: title&lt;/span&gt;&#13;
+&lt;/div&gt;
+
+</failure>
+      </testcase>
+      <testcase name="testGetView" class="Test\Jpl\Core\Controller\PageTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Controller/PageTest.php" line="95" assertions="1" time="0.000594">
+        <failure type="PHPUnit_Framework_OutputError">Test\Jpl\Core\Controller\PageTest::testGetView
+This test printed output: &lt;div align="center"&gt;&#13;
+	&lt;h1&gt;404 - Document Not Found&lt;/h1&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div align="center"&gt;&#13;
+	&lt;span style="color: red"&gt;Undefined index: title&lt;/span&gt;&#13;
+&lt;/div&gt;
+
+</failure>
+      </testcase>
+    </testsuite>
+    <testsuite name="Test\Jpl\Core\Registry\ApplicationTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Registry/ApplicationTest.php" namespace="Test\Jpl\Core\Registry" fullPackage="Test.Jpl.Core.Registry" tests="5" assertions="7" failures="0" errors="0" time="0.000552">
+      <testcase name="testSet" class="Test\Jpl\Core\Registry\ApplicationTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Registry/ApplicationTest.php" line="53" assertions="1" time="0.000136"/>
+      <testcase name="testGet" class="Test\Jpl\Core\Registry\ApplicationTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Registry/ApplicationTest.php" line="62" assertions="1" time="0.000113"/>
+      <testcase name="test__clone" class="Test\Jpl\Core\Registry\ApplicationTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Registry/ApplicationTest.php" line="68" assertions="1" time="0.000094"/>
+      <testcase name="test__construct" class="Test\Jpl\Core\Registry\ApplicationTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Registry/ApplicationTest.php" line="74" assertions="1" time="0.000089"/>
+      <testcase name="testGetInstance" class="Test\Jpl\Core\Registry\ApplicationTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/Registry/ApplicationTest.php" line="80" assertions="3" time="0.000119"/>
+    </testsuite>
+    <testsuite name="Test\Jpl\Core\RouteTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouteTest.php" namespace="Test\Jpl\Core" fullPackage="Test.Jpl.Core" tests="5" assertions="5" failures="0" errors="0" time="0.000523">
+      <testcase name="testGetMappedUrl" class="Test\Jpl\Core\RouteTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouteTest.php" line="17" assertions="1" time="0.000128"/>
+      <testcase name="testGetControllerName" class="Test\Jpl\Core\RouteTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouteTest.php" line="22" assertions="1" time="0.000108"/>
+      <testcase name="testGetActionName" class="Test\Jpl\Core\RouteTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouteTest.php" line="27" assertions="1" time="0.000107"/>
+      <testcase name="testIsMatch" class="Test\Jpl\Core\RouteTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouteTest.php" line="32" assertions="1" time="0.000090"/>
+      <testcase name="testIsNotMatch" class="Test\Jpl\Core\RouteTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouteTest.php" line="37" assertions="1" time="0.000090"/>
+    </testsuite>
+    <testsuite name="Test\Jpl\Core\RouterTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouterTest.php" namespace="Test\Jpl\Core" fullPackage="Test.Jpl.Core" tests="7" assertions="6" failures="2" errors="1" time="0.001689">
+      <testcase name="testCallControllerNoURL" class="Test\Jpl\Core\RouterTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouterTest.php" line="14" assertions="0" time="0.000373">
+        <error type="Jpl\Core\Exception\InvalidAction">Test\Jpl\Core\RouterTest::testCallControllerNoURL
+Jpl\Core\Exception\InvalidAction: testAction: Does not exist in \Controller\Index
+
+/Users/jesse/eternalmvc/lib/vendor/Jpl/Core/Router.php:164
+/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouterTest.php:17
+</error>
+      </testcase>
+      <testcase name="testCallControllerWithIndex" class="Test\Jpl\Core\RouterTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouterTest.php" line="23" assertions="1" time="0.000209">
+        <failure type="PHPUnit_Framework_OutputError">Test\Jpl\Core\RouterTest::testCallControllerWithIndex
+This test printed output: Index View
+
+</failure>
+      </testcase>
+      <testcase name="testCallControllerWithAssert" class="Test\Jpl\Core\RouterTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouterTest.php" line="32" assertions="1" time="0.000216"/>
+      <testcase name="testCallControllerWithInvalidAction" class="Test\Jpl\Core\RouterTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouterTest.php" line="42" assertions="1" time="0.000376">
+        <failure type="PHPUnit_Framework_OutputError">Test\Jpl\Core\RouterTest::testCallControllerWithInvalidAction
+This test printed output: &lt;div align="center"&gt;&#13;
+	&lt;h1&gt;404 - Document Not Found&lt;/h1&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div align="center"&gt;&#13;
+	&lt;span style="color: red"&gt;The view does not exist for the requested action: /view/scripts/index/test.phtml&lt;/span&gt;&#13;
+&lt;/div&gt;
+
+</failure>
+      </testcase>
+      <testcase name="testCallControllerWithInvalidController" class="Test\Jpl\Core\RouterTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouterTest.php" line="54" assertions="1" time="0.000168"/>
+      <testcase name="testRegisterRoute" class="Test\Jpl\Core\RouterTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouterTest.php" line="65" assertions="1" time="0.000176"/>
+      <testcase name="testRegisterRouteFail" class="Test\Jpl\Core\RouterTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/RouterTest.php" line="78" assertions="1" time="0.000171"/>
+    </testsuite>
+    <testsuite name="Test\Jpl\Core\UriTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/UriTest.php" namespace="Test\Jpl\Core" fullPackage="Test.Jpl.Core" tests="5" assertions="10" failures="0" errors="0" time="0.001074">
+      <testcase name="testGetInstance" class="Test\Jpl\Core\UriTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/UriTest.php" line="42" assertions="2" time="0.000556"/>
+      <testcase name="testGetController" class="Test\Jpl\Core\UriTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/UriTest.php" line="55" assertions="1" time="0.000118"/>
+      <testcase name="testSetController" class="Test\Jpl\Core\UriTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/UriTest.php" line="64" assertions="3" time="0.000153"/>
+      <testcase name="testSetAction" class="Test\Jpl\Core\UriTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/UriTest.php" line="75" assertions="2" time="0.000125"/>
+      <testcase name="testGetAction" class="Test\Jpl\Core\UriTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/UriTest.php" line="85" assertions="2" time="0.000122"/>
+    </testsuite>
+    <testsuite name="Test\Jpl\Core\View\Helper\UrlTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/View/Helper/UrlTest.php" namespace="Test\Jpl\Core\View\Helper" fullPackage="Test.Jpl.Core.View.Helper" tests="2" assertions="2" failures="0" errors="0" time="0.000411">
+      <testcase name="testCreateLinkUrl" class="Test\Jpl\Core\View\Helper\UrlTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/View/Helper/UrlTest.php" line="52" assertions="1" time="0.000297"/>
+      <testcase name="testCreateStaticUrl" class="Test\Jpl\Core\View\Helper\UrlTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/View/Helper/UrlTest.php" line="61" assertions="1" time="0.000114"/>
+    </testsuite>
+    <testsuite name="Test\Jpl\Core\ViewTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/ViewTest.php" namespace="Test\Jpl\Core" fullPackage="Test.Jpl.Core" tests="2" assertions="2" failures="0" errors="0" time="0.000300">
+      <testcase name="testRenderAction" class="Test\Jpl\Core\ViewTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/ViewTest.php" line="19" assertions="1" time="0.000179"/>
+      <testcase name="testSetterGetter" class="Test\Jpl\Core\ViewTest" file="/Users/jesse/eternalmvc/tests/lib/vendor/Jpl/Core/ViewTest.php" line="33" assertions="1" time="0.000121"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
