@@ -121,7 +121,11 @@
 			<arg value="-e" />
 			<arg value="php" />
 			<arg value="-d" />
-			<arg value="${basedir}/" />
+			<arg value="${basedir}/lib/" />
+			<arg value="-d" />
+			<arg value="${basedir}/Controller/" />
+			<arg value="-d" />
+			<arg value="${basedir}/Model/ " />
 			<arg value="-t" />
 			<arg value="${basedir}/build/api" />
 		</exec>
