@@ -139,9 +139,6 @@
 			<arg value="${basedir}/build/coverage" />
 			<arg value="--exclude" />
 			<arg value="${basedir}/index.php" />
-			<arg line="--log-junit ${basedir}/build/logs/junit.xml 
-                       --coverage-clover ${basedir}/build/logs/clover.xml 
-                       --coverage-html ${basedir}/build/coverage --exclude ${basedir}/index.php" />
 		</exec>
 	</target>
 
