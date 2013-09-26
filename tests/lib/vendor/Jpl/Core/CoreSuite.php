@@ -30,7 +30,6 @@ class CoreSuite extends \PHPUnit_Framework_TestSuite
         $this->addTestSuite('\Test\Jpl\Core\RouteTest');
         $this->addTestSuite('\Test\Jpl\Core\UriTest');
         $this->addTestSuite('\Test\Jpl\Core\ViewTest');
-        $this->addTestSuite('\Test\Jpl\Core\Config\ExceptionTest');
         $this->addTestSuite('\Test\Jpl\Core\Config\JsonTest');
         $this->addTestSuite('\Test\Jpl\Core\Controller\PageTest');
         $this->addTestSuite('\Test\Jpl\Core\Controller\FrontTest');
