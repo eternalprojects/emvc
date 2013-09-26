@@ -85,7 +85,7 @@ abstract class Config
     }
 
     public function setConfigFolder($folder){
-        if(is_dir(APPLICATION_PATH . $folder)){
+        if(is_dir($folder)){
             $this->_configFolder = $folder;
         }
         throw new \Jpl\Core\Exception\InvalidConfig("The config folder you specified does not exist");
