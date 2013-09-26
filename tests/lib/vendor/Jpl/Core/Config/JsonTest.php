@@ -1,7 +1,7 @@
 <?php
 namespace Test\Jpl\Core\Config;
 
-require_once (dirname(__FILE__) . '/_files/Test.php');
+require_once (dirname(__FILE__) . '/files/Test.php');
 use \Jpl\Core\Config\Json;
 use \Test\Jpl\Core\Config\Data\Test;
 
@@ -24,7 +24,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     {
         parent::setUp();
         
-        $this->Json = new Json(dirname(__FILE__) . '/_files/test.json');
+        $this->Json = new Json(dirname(__FILE__) . '/files/test.json');
     }
 
     /**
@@ -49,8 +49,8 @@ class JsonTest extends \PHPUnit_Framework_TestCase
      */
     public function test__construct ()
     {
-        $this->Json->setConfigFolder('/tests/lib/vendor/Jpl/Core/config/_files/');
-        $s = $this->Json->__construct(dirname(__FILE__) . '/_files/test.json');
+        $this->Json->setConfigFolder('/tests/lib/vendor/Jpl/Core/Config/files/');
+        $s = $this->Json->__construct(dirname(__FILE__) . '/files/test.json');
         $this->assertInstanceOf('\stdClass', $s);
         $this->assertEquals('file', $s->menu->id);
         $this->AssertEquals('New', $s->menu->popup->menuitem[0]->value);
@@ -59,7 +59,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     public function testToObjectWithString ()
     {
         $ts = $this->getStub('\Jpl\Core\Config\Json', '_toObject');
-        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__) . '/_files/test.json'), 'test');
+        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__) . '/files/test.json'), 'test');
         $this->assertStringStartsWith('test', $res);
     }
 
@@ -67,7 +67,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     {
         $obj = new Test();
         $ts = $this->getStub('\Jpl\Core\Config\Json', '_toObject');
-        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__) . '/_files/test.json'), $obj);
+        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__) . '/files/test.json'), $obj);
         $this->assertInstanceOf('\Test\Jpl\Core\Config\Data\Test', $res);
     }
 
@@ -78,7 +78,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
                 'what' => 'indeed'
         );
         $ts = $this->getStub('\Jpl\Core\Config\Json', '_toObject');
-        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__) . '/_files/test.json'), $arr);
+        $res = $ts->invoke(new \Jpl\Core\Config\Json(dirname(__FILE__) . '/files/test.json'), $arr);
         $this->assertInstanceOf('\stdClass', $res);
         $this->assertEquals('else', $res->something);
         $this->assertEquals('indeed', $res->what);
@@ -98,7 +98,7 @@ class JsonTest extends \PHPUnit_Framework_TestCase
         $ts = $this->getStub('\Jpl\Core\Config\Json', '_toObject');
         $this->assertFalse(
                 $ts->invoke(
-                        new \Jpl\Core\Config\Json(dirname(__FILE__) . '/_files/test.json'), array()));
+                        new \Jpl\Core\Config\Json(dirname(__FILE__) . '/files/test.json'), array()));
     }
 }
 
