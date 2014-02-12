@@ -5,7 +5,7 @@
  *
  * License:
  *
- * Copyright (c) 2010-2012, JPL Web Solutions,
+ * Copyright (c) 2010-2014, JPL Web Solutions,
  * Jesse P Lesperance <jesse@jplesperance.me>
  *
  * This file is part of EternalMVC.
@@ -22,17 +22,19 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Core
- * @author     Jesse Lesperance <jesse@jplesperance.me>
- * @copyright  2010-2012 JPL Web Solutions
+ * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2014 JPL Web Solutions
+ * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since     v1.0
  * @link      http://www.eternalmvc.info
- * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since      v1.0
+ *            http://www.eternalprojects.com
+ *            http://www.jplesperance.me
+ * @package   Jpl\Core\Router
  *
  */
 /**
  *
- * @package Jpl\Core
+ * @package Jpl\Core\Router
  */
 namespace Jpl\Core;
 use \Jpl\Core\Route;
@@ -47,10 +49,7 @@ use \Jpl\Core\Uri;
  * routing custom defined routes.
  *
  * @author Jesse P Lesperance <jesse@jplesperance.me>
- * @copyright 2010-2012 JPL Web Solutions
- * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
- *          Public License
- * @link http://www.eternalmvc.info
+ * @copyright 2010-2014 JPL Web Solutions
  * @since v1.0
  *       
  */
@@ -60,9 +59,7 @@ class Router
     /**
      * an array of all the registered routes
      *
-     * @staticvar array a list of registered routes
-     *
-     * @access private
+     * @var array a list of registered routes
      */
     private static $_routes = array();
 
@@ -73,8 +70,7 @@ class Router
      * created when defining a custom route
      *
      * @access public
-     * @param \Jpl\Core\Route $route            
-     * @static
+     * @param \Jpl\Core\Route $route
      *
      * @see \Jpl\Core\Route
      */
@@ -87,10 +83,8 @@ class Router
      * gets the corresponding defined route
      *
      * @param string $santitizedUrl            
-     *
+     * @internal
      * @return \Jpl\Core\Route|false
-     * @access private
-     * @static
      *
      */
     private static function _getMatchingRoute ($santitizedUrl)
@@ -105,9 +99,6 @@ class Router
 
     /**
      * calls the action and Controller matching the route
-     *
-     * @access public
-     * @static
      *
      * @throws Jpl\Core\Exception\InvalidController
      * @throws Jpl\Core\Exception\InvalidAction

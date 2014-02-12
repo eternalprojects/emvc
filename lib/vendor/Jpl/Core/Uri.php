@@ -4,7 +4,7 @@
  *
  * License:
  *
- * Copyright (c) 2010-2012, JPL Web Solutions,
+ * Copyright (c) 2010-2014, JPL Web Solutions,
  * Jesse P Lesperance <jesse@jplesperance.me>
  *
  * This file is part of EternalMVC.
@@ -21,17 +21,19 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Core
- * @author     Jesse Lesperance <jesse@jplesperance.me>
- * @copyright  2010-2012 JPL Web Solutions
+ * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2014 JPL Web Solutions
+ * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since     v1.2
  * @link      http://www.eternalmvc.info
- * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since      v1.2
+ *            http://www.eternalprojects.com
+ *            http://www.jplesperance.me
+ * @package   Jpl\Core\Uri
  *
  */
 /**
  *
- * @package Jpl\Core
+ * @package Jpl\Core\Uri
  */
 namespace Jpl\Core;
 
@@ -42,10 +44,7 @@ namespace Jpl\Core;
  * names and make an array of the parameters.
  *
  * @author Jesse P Lesperance <jesse@jplesperance.me>
- * @copyright 2010-2012 JPL Web Solutions
- * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
- *          Public License
- * @link http://www.eternalmvc.info
+ * @copyright 2010-2014 JPL Web Solutions
  * @since v1.2
  *       
  */
@@ -55,41 +54,35 @@ class Uri
     /**
      * Holds parameters from the Url
      *
-     * @access protected
-     * @staticvar array
+     * @var array
      */
     protected static $_param = array();
 
     /**
      * Holds the controller name from the url
      *
-     * @staticvar string
-     * @access protected
+     * @var string
      */
     protected static $_controller;
 
     /**
      * Holds the action name from the url
      *
-     * @access protected
-     * @staticvar string
+     * @var string
      */
     protected static $_action;
 
     /**
      * Holds an instance of this class
      *
-     * @access private
-     * @staticvar \Jpl\Core\Uri
+     * @var \Jpl\Core\Uri
      */
     private static $_instance = null;
 
     /**
      * Method to retrieve the controller property
      *
-     * @access public
-     * @static
-     *
+     * @property-read
      * @return string the name of the controller
      */
     public static function getController ()
@@ -101,9 +94,7 @@ class Uri
     /**
      * get the controller name
      *
-     * @access public
-     * @static
-     *
+     * @property-write
      * @param string $_controller            
      * @return boolean
      */
@@ -116,9 +107,6 @@ class Uri
 
     /**
      * retrieve an instance of the class
-     *
-     * @access public
-     * @static
      *
      * @return \Jpl\Core\Uri
      */
@@ -135,9 +123,9 @@ class Uri
      *
      * When the class is instantiated, the url is parsed and made into an array
      *
-     * @access private
-     * 
+     * @internal
      * @return void
+     * @todo: Figure out what the hell I was thinking
      */
     private function __construct ()
     {
@@ -162,9 +150,7 @@ class Uri
    /**
      * set the action
      *
-     * @access public
-     * @static
-     *
+     * @property-write
      * @param string $action            
      * @return boolean
      */
@@ -178,25 +164,21 @@ class Uri
     /**
      * get the requested action
      *
-     * @access public
-     * @static
-     *
      * @return string
+     * @property-read
      */
     public static function getAction ()
     {
         self::getInstance();
-            return self::$_action;
+        return self::$_action;
     }
 
     /**
      * get a specific parameter
      *
-     * @access public
-     * @static
-     *
+     * @property-read
      * @param int $key            
-     * @return Ambigous <boolean, string>
+     * @return boolean|string
      */
     public static function getParam ($key)
     {
@@ -207,10 +189,8 @@ class Uri
     /**
      * get all the parameters
      *
-     * @access public
-     * @static
      *
-     * @return Ambigous <boolean, array>
+     * @return array|boolean
      */
     public static function getParams ()
     {
@@ -221,8 +201,6 @@ class Uri
     /**
      * set a paremeter
      *
-     * @access public
-     * @static
      *
      * @param string $key            
      * @param mixed $val            
@@ -235,7 +213,13 @@ class Uri
         self::$_param[$key] = $val;
         return (! empty(self::$_param[$key])) ? true : false;
     }
-    
+
+    /**
+     * Reset the instance
+     *
+     * @return void
+     * @api
+     */
     public static function resetInstance()
     {
         if (!is_null(self::$_instance)) {

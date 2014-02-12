@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Contains the AutoLoader class
+ * Contains the base Exception class
  *
  * License:
  *
- * Copyright (c) 2010-2012, JPL Web Solutions,
+ * Copyright (c) 2010-2014, JPL Web Solutions,
  * Jesse P Lesperance <jesse@jplesperance.me>
  *
  * This file is part of EternalMVC.
@@ -22,17 +22,18 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Core
- * @author     Jesse Lesperance <jesse@jplesperance.me>
- * @copyright  2010-2012 JPL Web Solutions
+ * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2014 JPL Web Solutions
+ * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since     v1.0
  * @link      http://www.eternalmvc.info
- * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since      v1.0
+ *            http://www.eternalprojects.com
+ *            http://www.jplesperance.me
  *
  */
 /**
  *
- * @package Jpl\Core
+ * @package Jpl\Core\Exception
  */
 namespace Jpl\Core;
 
@@ -43,13 +44,11 @@ namespace Jpl\Core;
  * framework. This class has
  * some additional functionality for handling and logging exceptions thrown.
  *
- * @see \Exception::__construct
+ *
  * @author Jesse P Lesperance <jesse@jplesperance.me>
- * @copyright 2010-2012 JPL Web Solutions
- * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
- *          Public License
+ * @copyright 2010-2014 JPL Web Solutions
  * @since v1.0
- *       
+ * @see \Exception
  */
 class Exception extends \Exception
 {
@@ -57,8 +56,10 @@ class Exception extends \Exception
     /**
      * class constructor which calls parent constructor
      *
-     * @param string $message            
-     * @param int $code            
+     * @param string $message
+     * @param int    $code
+     * @return void
+     * @see \Exception::__construct
      */
     public function __construct ($message = "", $code = 0)
     {

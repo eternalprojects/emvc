@@ -5,7 +5,7 @@
  *
  * License:
  *
- * Copyright (c) 2010-2012, JPL Web Solutions,
+ * Copyright (c) 2010-2014, JPL Web Solutions,
  * Jesse P Lesperance <jesse@jplesperance.me>
  *
  * This file is part of EternalMVC.
@@ -22,17 +22,19 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Core
- * @author     Jesse Lesperance <jesse@jplesperance.me>
- * @copyright  2010-2012 JPL Web Solutions
+ * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2014 JPL Web Solutions
+ * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since     v1.0
  * @link      http://www.eternalmvc.info
- * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since      v1.0
+ *            http://www.eternalprojects.com
+ *            http://www.jplesperance.me
+ * @package   Jpl\Core\View
  *
  */
 /**
  *
- * @package Jpl\Core
+ * @package Jpl\Core\View
  */
 namespace Jpl\Core;
 
@@ -41,9 +43,7 @@ use \Jpl\Core\Exception;
  * The View/Template class
  *
  * @author Jesse P Lesperance <jesse@jplesperance.me>
- * @copyright 2010-2012 JPL Web Solutions
- * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
- *          Public License
+ * @copyright 2010-2014 JPL Web Solutions
  * @since v1.0
  *       
  */
@@ -54,10 +54,15 @@ class View
      * a list of view members
      *
      * @var array
-     * @access private
+     *
      */
     private $_vars = array();
-    private $_view = null;
+    /**
+     * The folder and view script
+     *
+     * @var array
+     */
+    private $_view = array();
 
     /**
      * The default constructor
@@ -75,11 +80,11 @@ class View
      * @todo Allow for view helpers v1.2.1
      *
      * @param array $view            
-     * @throws \Exception
+     * @throws Exception\InvalidView
      */
     public function render (array $view)
     {
-        if(is_null($this->_view)){
+        if(count($this->_view) < 2){
             $folder = strtolower($view[0]);
             $file = $view[1];
         }else{
@@ -94,6 +99,13 @@ class View
         include APPLICATION_PATH . "/view/scripts/$folder/$file.phtml";
     }
 
+    /**
+     * Set the view values
+     *
+     * @property-write
+     * @param array $view
+     * @return void
+     */
     public function setView(array $view){
         $this->_view = $view;
     }
@@ -101,8 +113,11 @@ class View
     /**
      * The magic set function
      *
-     * @param string $key            
-     * @param mixed $val            
+     * @property-write
+     *
+     * @param string $key
+     * @param mixed $val
+     * @return void
      */
     public function __set ($key, $val)
     {
@@ -114,7 +129,8 @@ class View
     /**
      * The magic get function
      *
-     * @param string $key            
+     * @param string $key
+     * @property-read
      * @return mixed
      */
     public function __get ($key)
@@ -122,6 +138,12 @@ class View
         return $this->_vars[$key];
     }
 
+    /**
+     * The class destructor method
+     *
+     * @return void
+     * @api
+     */
     public function __destruct(){
         $this->_view = null;
     }

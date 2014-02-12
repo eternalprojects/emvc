@@ -4,7 +4,7 @@
  *
  * License:
  *
- * Copyright (c) 2010-2012, JPL Web Solutions,
+ * Copyright (c) 2010-2014, JPL Web Solutions,
  * Jesse P Lesperance <jesse@jplesperance.me>
  *
  * This file is part of EternalMVC.
@@ -21,114 +21,119 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Core
- * @author     Jesse Lesperance <jesse@jplesperance.me>
- * @copyright  2010-2013 JPL Web Solutions
+ * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2014 JPL Web Solutions
+ * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since     v1.2.1
  * @link      http://www.eternalmvc.info
- * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since      v1.2.1
- *
+ *            http://www.eternalprojects.com
+ *            http://www.jplesperance.me
+ * @package   Jpl\Core\Mail
  */
 /**
  *
- * @package Jpl\Core
+ * @package Jpl\Core\Mail
  */
 namespace Jpl\Core;
 use Jpl\Core\Exception;
 
 /**
- * The Mail class specific to the MVC framewprk
+ * The Mail class specific to the EternalMVC framewprk
  *
  * This class is used for constructing and sending email.  It handles both
  * plain text and HTML formatted emails.  Allows email address verification,
  * read receipt and attachments.
  *
  * @author Jesse P Lesperance <jesse@jplesperance.me>
- * @copyright 2010-2013 JPL Web Solutions
- * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
- *          Public License
+ * @copyright 2010-2014 JPL Web Solutions
  * @since v1.2.1
  * @todo: Create a unit test class - #20
  * @todo: Create an exception class for Mail - #19
  */
 class Mail
 {
-    protected $_mailvers = "EternalMail PHP";
+
+    /**
+     * The Name and version of the app
+     *
+     * @var string
+     */
+    protected $_mailvers = "EternalMail PHP V1.2.2";
     /**
      * Email to use when validating mail server
      *
      * @var string
-     * @access protected
+     *
      */
     protected $_knownMail = "local@localhost.com";
     /**
      * Whether to validate address or not
      *
      * @var bool
-     * @access protected
+     *
      */
     protected $_checkAddr = false;
     /**
      * Whether to validate mail server or not
      *
      * @var bool
-     * @access protected
+     *
      */
     protected $_checkServ = false;
     /**
      * The type of email to be created
      *
      * @var string
-     * @access protected
+     *
      */
     protected $_type = "plain";
     /**
      * The character set to be used in the email
      *
      * @var string
-     * @access protected
+     *
      */
     protected $_charset = "iso-8859-1";
     /**
      * The encoding to be used in the email
      *
      * @var string
-     * @access protected
+     *
      */
     protected $_encoding = "quoted-printable";
     /**
      * A list of addresses to send email to
      *
      * @var array
-     * @access protected
+     *
      */
     protected $_mailTo = array();
     /**
      * The email address of the sender
      *
      * @var string
-     * @access protected
+     *
      */
     protected $_mailFrom;
     /**
      * The name of the person sending the mail
      *
      * @var string
-     * @access protected
+     *
      */
     protected $_mailFromName;
     /**
      * The reply to address
      *
      * @var string
-     * @access protected
+     *
      */
     protected $_mailReply;
     /**
      * A list of addresses to be copied on the mail
      *
      * @var array
-     * @access protected
+     *
      */
     protected $_mailCc = array();
     /**
@@ -142,49 +147,49 @@ class Mail
      * Request a read receipt
      *
      * @var bool
-     * @access protected
+     *
      */
     protected $_mailReceipt = false;
     /**
      * The priority of the email
      *
      * @var bool
-     * @access protected
+     *
      */
     protected $_mailPriority = false;
     /**
      * The subject of the email
      *
      * @var string
-     * @access protected
+     *
      */
     protected $_mailSubj = "";
     /**
      * The content of the message body
      *
      * @var string
-     * @access protected
+     *
      */
     protected $_mailBody = "";
     /**
      * Additional mail headers
      *
      * @var bool
-     * @access protected
+     *
      */
     protected $_mailHeaders = false;
     /**
      * Attached files
      *
      * @var mixed
-     * @access protected
+     *
      */
     protected $_attFile = false;
     /**
      * Tracks which addresses successfully had the email sent to them
      *
      * @var array
-     * @access protected
+     *
      */
     protected $_mailSent = array();
 
@@ -195,6 +200,7 @@ class Mail
      *
      * @param string $type The type of email to create
      * @throws \Jpl\Core\Exception
+     * @return \Jpl\Core\Mail
      */
     public function __constructor($type = "plain")
     {
@@ -202,10 +208,13 @@ class Mail
             throw new Exception("Invalid mail type provided: '".$type."'.  Only 'plain' and 'html' are supported");
         }
         $this->_type = $type;
+        return $this;
     }
 
     /**
      * A method to enable the validation of email addresses
+     *
+     * @return void
      */
     public function enableAddressValidation()
     {
@@ -214,6 +223,8 @@ class Mail
 
     /**
      * A method to enable validation of the mail server
+     *
+     * @return void
      */
     public function enableServerValidation()
     {
@@ -224,6 +235,7 @@ class Mail
      * set the recipient(s) of the email
      *
      * @param mixed $to
+     * @return void
      */
     public function setTo($to)
     {
@@ -246,6 +258,7 @@ class Mail
      * Set who should receive a copy of the email
      *
      * @param mixed $cc
+     * @return void
      */
     public function setCc($cc)
     {
@@ -268,6 +281,7 @@ class Mail
      * Set who should receive a blind copy of the emil
      *
      * @param mixed $bcc
+     * @return void
      */
     public function setBcc($bcc)
     {
@@ -291,7 +305,7 @@ class Mail
      *
      * @param $var
      * @return bool
-     * @access protected
+     *
      */
     protected function _validateAddress($email)
     {
@@ -314,6 +328,7 @@ class Mail
      * @param string $from Email address of sender
      * @param mixed $name Name of the sender
      * @throws \Jpl\Core\Exception
+     * @return void
      */
     public function setFrom($from, $name = false)
     {
@@ -338,6 +353,7 @@ class Mail
      * Set the reply to email address
      *
      * @param string $to
+     * @return void
      */
     public function setReply($to)
     {
@@ -354,6 +370,7 @@ class Mail
      *
      * @param string $var
      * @throws \Jpl\Core\Exception
+     * @return void
      */
     public function setSubject($var)
     {
@@ -370,6 +387,7 @@ class Mail
      * @param string $charset
      * @param string $encoding
      * @throws \Jpl\Core\Exception
+     * @return void
      */
     public function setMessage($var = "", $charset = "iso-8859-1", $encoding = "quoted-printable")
     {
@@ -391,6 +409,7 @@ class Mail
      * @param string $disp
      * @param string $type
      * @throws \Jpl\Core\Exception
+     * @return void
      */
     public function addAttachment($file, $filename = false, $maxsize = false, $disp = "attachment", $type = false)
     {
@@ -426,6 +445,7 @@ class Mail
      * Turn on read receipt on the message
      * @param string $to
      * @throws \Jpl\Core\Exception
+     * @return void
      */
     public function setReceipt($to = false)
     {
@@ -445,6 +465,7 @@ class Mail
      *
      * @param int $num
      * @throws Exception
+     * @return void
      */
     public function setPriority($num)
     {
@@ -460,6 +481,8 @@ class Mail
 
     /**
      * Send the email
+     *
+     * @return void
      */
     public function send()
     {
@@ -604,7 +627,7 @@ class Mail
     /**
      * Create the general headers for the email message
      *
-     * @access protected
+     * @return void
      */
     protected function _createHeaders()
     {
@@ -682,7 +705,7 @@ class Mail
     /**
      * Generate the correct headers and encoding for attachments
      *
-     * @access protected
+     * @return void
      */
     protected function _createAttachment()
     {

@@ -1,16 +1,15 @@
 <?php
-
 /**
  * Contains the AutoLoader class
  *
  * License:
  *
- * Copyright (c) 2010, JPL Web Solutions,
+ * Copyright (c) 2010-2014, JPL Web Solutions,
  * Jesse P Lesperance <jesse@jplesperance.me>
  *
- * This file is part of JPL-MVC.
+ * This file is part of EternalMVC.
  *
- * JPL-MVC is free software: you can redistribute it and/or modify
+ * EternalMVC is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published
  * by the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.  JPL-MVC is distributed in the hope
@@ -18,20 +17,22 @@
  * implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
  * See the GNU General Public License for more details. You should have
- * received a copy of the GNU General Public License along with JPL-MVC.
+ * received a copy of the GNU General Public License along with EternalMVC.
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
  * @author    Jesse P Lesperance <jesse@jplesperance.me>
- * @copyright 2010-2012 JPL Web Solutions
+ * @copyright 2010-2014 JPL Web Solutions
  * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
  * @since     v1.0
  * @link      http://www.eternalmvc.info
- *
+ *            http://www.eternalprojects.com
+ *            http://www.jplesperance.me
+ * @package   Jpl\Core\AutoLoader
  */
 /**
  *
- * @package Jpl\Core
+ * @package Jpl\Core\AutoLoader
  */
 namespace Jpl\Core;
 
@@ -44,11 +45,8 @@ namespace Jpl\Core;
  * directory
  *
  * @author Jesse P Lesperance <jesse@jplesperance.me>
- * @copyright 2010-2012 JPL Web Solutions
- * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
- *          Public License
+ * @copyright 2010-2014 JPL Web Solutions
  * @since v1.0
- * @link http://www.eternalmvc.info
  *      
  */
 class AutoLoader
@@ -69,12 +67,9 @@ class AutoLoader
      * spl_register_autoloader(array('Jpl\Core\AutoLoader','AutoLoad'));
      * </code>
      *
-     * @param string $class
-     *            the name of the class
-     *            
+     * @param string $class the name of the class
      * @return boolean true if the file was able to be included
-     * @access Public
-     * @static
+     * @api
      *
      */
     public static function AutoLoad ($class)

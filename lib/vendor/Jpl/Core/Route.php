@@ -5,7 +5,7 @@
  *
  * License:
  *
- * Copyright (c) 2009, JPL Web Solutions,
+ * Copyright (c) 2010-2014, JPL Web Solutions,
  * Jesse Lesperance <jesse@jlesperance.com>
  *
  * This file is part of EternalMVC.
@@ -22,16 +22,19 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * @package    Jpl\Core
- * @author     Jesse Lesperance <jesse@jplesperance.me>
- * @copyright  2010-2012 JPL Web Solutions
- * @license    http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
- * @since      v1.0
+ * @author    Jesse P Lesperance <jesse@jplesperance.me>
+ * @copyright 2010-2014 JPL Web Solutions
+ * @license   http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @since     v1.0
+ * @link      http://www.eternalmvc.info
+ *            http://www.eternalprojects.com
+ *            http://www.jplesperance.me
+ * @package   Jpl\Core\Route
  *
  */
 /**
  *
- * @package Jpl\Core
+ * @package Jpl\Core\Route
  */
 namespace Jpl\Core;
 
@@ -42,9 +45,7 @@ namespace Jpl\Core;
  * to the appropriate Controller and actions
  *
  * @author Jesse P Lesperance <jesse@jplesperance.me>
- * @copyright  2010-2012 JPL Web Solutions
- * @link http://www.eternalmvc.info
- * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General Public License
+ * @copyright  2010-2014 JPL Web Solutions
  * @since v1.0
  */
 class Route
@@ -54,7 +55,7 @@ class Route
      * the url to be mapped
      *
      * @var string
-     * @access private
+     *
      */
     private $_url;
 
@@ -62,7 +63,7 @@ class Route
      * the Controller that the url maps to
      *
      * @var string
-     * @access private
+     *
      */
     private $_controllerName;
 
@@ -70,7 +71,7 @@ class Route
      * the action the url maps to
      *
      * @var string
-     * @access private
+     *
      */
     private $_actionName;
 
@@ -87,7 +88,7 @@ class Route
      * @param string $actionName
      *            the action name for the mapping
      *            
-     * @access public
+     * @return void
      */
     public function __construct ($url, $controllerName, $actionName)
     {
@@ -99,7 +100,7 @@ class Route
     /**
      * retrieve the mapped url
      *
-     * @access public
+     *
      * @return string the mapped url
      */
     public function getUrl ()
@@ -110,7 +111,7 @@ class Route
     /**
      * get the mapped Controller name
      *
-     * @access public
+     *
      * @return string the mapped Controller name
      */
     public function getControllerName ()
@@ -121,7 +122,7 @@ class Route
     /**
      * retrieve the mapped action name
      *
-     * @access public
+     *
      * @return string the mapped action name
      */
     public function getActionName ()
@@ -137,7 +138,7 @@ class Route
      * this will return as a match if beginning of the url provided matches a
      * defined route.
      *
-     * @access public
+     *
      * @todo make this match a defined route exactly v1.3ish
      *      
      * @param string $url
