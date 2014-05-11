@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="becdea39-3497-43a3-b106-a2d39b7bd89e" name="Default" comment="">
       <change type="MOVED" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/PageTest.php" afterPath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/PageTest.php" />
     </list>
     <ignored path="emvc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,7 +113,7 @@
       <file leaf-file-name="PageTest.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/PageTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="110" column="10" selection-start="2471" selection-end="2471" vertical-scroll-proportion="0.09350238" vertical-offset="2361" max-vertical-offset="2992">
+            <state line="113" column="30" selection-start="2799" selection-end="2799" vertical-scroll-proportion="3.347068" vertical-offset="374" max-vertical-offset="2992">
               <folding />
             </state>
           </provider>
@@ -760,7 +759,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/PageTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="10" selection-start="2471" selection-end="2471" vertical-scroll-proportion="0.09350238" vertical-offset="2361" max-vertical-offset="2992">
+        <state line="113" column="30" selection-start="2799" selection-end="2799" vertical-scroll-proportion="3.347068" vertical-offset="374" max-vertical-offset="2992">
           <folding />
         </state>
       </provider>
