@@ -114,7 +114,7 @@
       <file leaf-file-name="PageTest.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/PageTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="77" selection-start="3315" selection-end="3315" vertical-scroll-proportion="0.5118859" vertical-offset="2361" max-vertical-offset="2992">
+            <state line="110" column="33" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.09350238" vertical-offset="2361" max-vertical-offset="2992">
               <folding />
             </state>
           </provider>
@@ -760,7 +760,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/Controller/PageTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="77" selection-start="3315" selection-end="3315" vertical-scroll-proportion="0.5118859" vertical-offset="2361" max-vertical-offset="2992">
+        <state line="110" column="33" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.09350238" vertical-offset="2361" max-vertical-offset="2992">
           <folding />
         </state>
       </provider>
