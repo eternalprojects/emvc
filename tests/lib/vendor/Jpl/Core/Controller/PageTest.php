@@ -20,8 +20,8 @@ class PageTest extends \PHPUnit_Framework_TestCase
     protected function setUp ()
     {
         parent::setUp();
-        $mo = new \PHPUnit_Framework_MockObject_MockObject();
-        $this->stub = $mo->getMockForAbstractClass('\Jpl\Core\Controller\Page', array(array('index','index'),new \Jpl\Core\View));
+
+        $this->stub = $this->getMockForAbstractClass('\Jpl\Core\Controller\Page', array(array('index','index'),new \Jpl\Core\View));
         
    
     }
@@ -107,6 +107,24 @@ class PageTest extends \PHPUnit_Framework_TestCase
         $this->stub->__destruct(array('index','index'));
         $data = ob_get_contents();
         var_dump($data);
+    }
+    protected function getMockOfAbstractClass($originalClassName, $methods = array(), array $arguments = array(), $mockClassName = '', $callOriginalConstructor = TRUE, $callOriginalClone = TRUE, $callAutoload = TRUE) {
+        if ($methods !== null) {
+            $methods = array_unique(array_merge($methods,
+                $this->getMethods($originalClassName, $callAutoload)));
+        }
+        return parent::getMock($originalClassName, $methods, $arguments, $mockClassName, $callOriginalConstructor, $callOriginalClone, $callAutoload);
+    }
+
+    private function getMethods($class, $autoload=true) {
+        $methods = array();
+        if (class_exists($class, $autoload) || interface_exists($class, $autoload)) {
+            $reflector = new \ReflectionClass($class);
+            foreach ($reflector->getMethods( \ReflectionMethod::IS_PUBLIC | \ReflectionMethod::IS_ABSTRACT ) as $method) {
+                $methods[] = $method->getName();
+            }
+        }
+        return $methods;
     }
 }
 
