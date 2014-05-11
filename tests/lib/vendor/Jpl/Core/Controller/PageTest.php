@@ -20,8 +20,8 @@ class PageTest extends \PHPUnit_Framework_TestCase
     protected function setUp ()
     {
         parent::setUp();
-        
-        $this->stub = $this->getMockForAbstractClass('\Jpl\Core\Controller\Page', array(array('index','index'),new \Jpl\Core\View));
+        $mo = new \PHPUnit_Framework_MockObject_MockObject();
+        $this->stub = $mo->getMockForAbstractClass('\Jpl\Core\Controller\Page', array(array('index','index'),new \Jpl\Core\View));
         
    
     }
