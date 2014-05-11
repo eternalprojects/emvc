@@ -51,7 +51,7 @@
       <file leaf-file-name="CoreSuite.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/CoreSuite.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="10" selection-start="972" selection-end="972" vertical-scroll-proportion="0.27436283" vertical-offset="543" max-vertical-offset="1210">
+            <state line="10" column="2" selection-start="264" selection-end="264" vertical-scroll-proportion="0.3298351" vertical-offset="0" max-vertical-offset="1210">
               <folding />
             </state>
           </provider>
@@ -745,7 +745,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/CoreSuite.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="10" selection-start="972" selection-end="972" vertical-scroll-proportion="0.27436283" vertical-offset="543" max-vertical-offset="1210">
+        <state line="10" column="2" selection-start="264" selection-end="264" vertical-scroll-proportion="0.3298351" vertical-offset="0" max-vertical-offset="1210">
           <folding />
         </state>
       </provider>

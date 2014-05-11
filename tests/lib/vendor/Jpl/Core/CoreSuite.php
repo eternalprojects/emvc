@@ -8,7 +8,7 @@ require_once 'UriTest.php';
 require_once 'ViewTest.php';
 require_once 'Config/JsonTest.php';
 require_once 'Controller/FrontTest.php';
-require_once 'Controller/PageTest.php';
+//require_once 'Controller/PageTest.php';
 require_once 'Registry/ApplicationTest.php';
 require_once 'View/Helper/UrlTest.php';
 
