@@ -108,7 +108,7 @@ class PageTest extends \PHPUnit_Framework_TestCase
         $data = ob_get_contents();
         var_dump($data);
     }
-    protected function getMockForAbstractClass($originalClassName, $methods = array(), array $arguments = array(), $mockClassName = '', $callOriginalConstructor = TRUE, $callOriginalClone = TRUE, $callAutoload = TRUE) {
+    public function getMockForAbstractClass($originalClassName, $methods = array(), array $arguments = array(), $mockClassName = '', $callOriginalConstructor = TRUE, $callOriginalClone = TRUE, $callAutoload = TRUE) {
         if ($methods !== null) {
             $methods = array_unique(array_merge($methods,
                 $this->getMethods($originalClassName, $callAutoload)));
