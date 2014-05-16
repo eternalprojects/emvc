@@ -69,7 +69,7 @@ class AutoLoader
      *
      * @param string $class the name of the class
      * @return boolean true if the file was able to be included
-     * @api
+     * @since v1.3
      *
      */
     public static function AutoLoad ($class)
@@ -87,5 +87,16 @@ class AutoLoader
             }
         }
         return false;
+    }
+
+    /**
+     * function called to load a particular class file
+     *
+     * @param string $class
+     * @return bool
+     * @since v1.3
+     */
+    public static function loadClass($class){
+        return static::AutoLoad($class);
     }
 }

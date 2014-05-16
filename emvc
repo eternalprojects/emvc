@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+
+if (substr(php_sapi_name(), 0, 3) == 'cgi'){
+    die("The use of emvc is not supported when running php-cgi.  emvc needs php-cli to function!\n\n");
+
+}
+
+error_reporting(-1);
+ini_set('display_errors', 1);
+
+define('DOCROOT', realpath(__DIR__.'/public/').DIRECTORY_SEPARATOR);
+define('APPPATH', realpath(__DIR__.'/app/').DIRECTORY_SEPARATOR);
+define('PKGPATH', realpath(__DIR__.'/lib/packages/').DIRECTORY_SEPARATOR);
+define('COREPATH', realpath(__dir__'/lib/vendor/emvc/').DIRECTORY_SEPARATOR);
+
