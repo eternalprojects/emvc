@@ -1,6 +1,6 @@
 <?php
 namespace Test\Jpl\Core;
-require_once (dirname(__FILE__) . '/../../../TestHelper.php');
+
 use \Jpl\Core\Mail;
 
 class MailTest extends \PHPUnit_Framework_TestCase {
