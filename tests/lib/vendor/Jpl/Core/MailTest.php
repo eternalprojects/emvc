@@ -13,7 +13,7 @@ class MailTest extends \PHPUnit_Framework_TestCase {
     public function testWrongType(){
         try{
             $mail = new Mail(123);
-        }catch(\Jpl\Exception $e){
+        }catch(\Jpl\Core\Exception $e){
             $this->assertEquals("Invalid mail type provided: '123'.  Only 'plain' and 'html' are supported", $e->getMessage());
         }
 
