@@ -36,8 +36,6 @@
  */
 namespace Jpl\Core\Config;
 use Jpl\Core\Config;
-// Todo: Make the correct Exception class
-//use Jpl\Core\Exception\InvalidConfig;
 
 /**
  * A class to load and process Json config files
@@ -50,9 +48,10 @@ use Jpl\Core\Config;
  * @copyright 2010-2012 JPL Web Solutions
  * @license http://www.gnu.org/licenses/gpl-3.0-standalone.html GNU General
  *          Public License
- * @since EternalMVC 1.2
- * @version 1.0
- * @link http://www.eternalmvc.info
+ * @since v1.2
+ * @link http://emvc.eternalprojects.com
+ * @todo Make the correct Exception class - v1.4 - EMVC-16
+ * @link http://jira.eternalprojects.com
  *      
  */
 class Json extends Config

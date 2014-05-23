@@ -742,4 +742,8 @@ class Mail
             $this->_mailBody = $mailbody;
         }
     }
+
+    public function getType(){
+        return $this->_type;
+    }
 }
