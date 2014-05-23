@@ -76,8 +76,8 @@ class View
      * Render the view for the given controller and action
      *
      *
-     * @todo Allow Partials v1.2.2
-     * @todo Allow for view helpers v1.2.1
+     * @todo Allow Partials - v1.4 - EMVC-14
+     * @link http://jira.eternalprojects.com
      *
      * @param array $view            
      * @throws Exception\InvalidView

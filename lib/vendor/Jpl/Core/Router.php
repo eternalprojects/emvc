@@ -126,7 +126,7 @@ class Router
             $actionPart = ($routeArray[1] == "") ? 'index' : $routeArray[1];
         }
 
-        //TODO: This will not work for defined routes
+        //TODO: This will not work for defined routes - v1.3.1 - EMVC-12
         $routeArray = array_slice($routeArray, 2);
         $params = array();
         while(count($routeArray) > 1){

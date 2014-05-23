@@ -57,6 +57,14 @@ class JsonTest extends \PHPUnit_Framework_TestCase
         $this->AssertEquals('New', $s->menu->popup->menuitem[0]->value);
     }
 
+    public function testWrongConfigFolder(){
+        try{
+            $this->Json->setConfigFolder('/some/unknown/folder');
+        }catch(\Jpl\Core\Exception\InvalidConfig $e){
+            $this->assertEquals('The config folder you specified does not exist', $e->getMessage());
+        }
+    }
+
     public function testToObjectWithString ()
     {
         $ts = $this->getStub('\Jpl\Core\Config\Json', '_toObject');

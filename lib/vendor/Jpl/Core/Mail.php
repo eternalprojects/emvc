@@ -47,8 +47,9 @@ use Jpl\Core\Exception;
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2014 JPL Web Solutions
  * @since v1.2.1
- * @todo: Create a unit test class - #20
- * @todo: Create an exception class for Mail - #19
+ * @todo: Create a unit test class - v1.3 - EMVC-9
+ * @todo: Create an exception class for Mail - v1.3 - EMVC-8
+ * @link http://jira.eternalprojects.com
  */
 class Mail
 {
@@ -58,7 +59,7 @@ class Mail
      *
      * @var string
      */
-    protected $_mailvers = "EternalMail PHP V1.2.2";
+    protected $_mailvers = "EternalMVC PHP v1.2.1";
     /**
      * Email to use when validating mail server
      *
@@ -204,11 +205,16 @@ class Mail
      */
     public function __constructor($type = "plain")
     {
+        $this->setType($type);
+        return $this;
+    }
+
+    public function setType($type){
         if(($type != "plain" && $type != "html") || !is_string($type)){
             throw new Exception("Invalid mail type provided: '".$type."'.  Only 'plain' and 'html' are supported");
         }
         $this->_type = $type;
-        return $this;
+
     }
 
     /**

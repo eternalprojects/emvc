@@ -125,7 +125,8 @@ class Uri
      *
      * @internal
      * @return void
-     * @todo: Figure out what the hell I was thinking
+     * @todo: Figure out what the hell I was thinking - v1.3.1 - EMVC-13
+     * @link http://jira.eternalprojects.com
      */
     private function __construct ()
     {

@@ -139,8 +139,8 @@ class Route
      * defined route.
      *
      *
-     * @todo make this match a defined route exactly v1.3ish
-     *      
+     * @todo make this match a defined route exactly - v1.3.1 - EMVC-11
+     * @link http://jira.eternalprojects.com
      * @param string $url
      *            the url to be matched
      *            

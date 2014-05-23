@@ -45,7 +45,8 @@ namespace Jpl\Core;
  * @author Jesse P Lesperance <jesse@jplesperance.me>
  * @copyright 2010-2014 JPL Web Solutions
  * @since v1.2
- * @todo Convert to Trait
+ * @todo Convert to Trait - v1.3.1 - EMVC-10
+ * @link http://jira.eternalprojects.com
  *
  */
 abstract class Config

@@ -65,7 +65,7 @@ class Json extends Config
      * decodes it to an array which gets passed to the _toObject function and
      * then gets returned
      *
-     * @todo Implement use of the $section param
+     * @todo Implement use of the $section param - v1.4 - EMVC-15
      * @access public
      * @param string $file            
      * @param string $section            
