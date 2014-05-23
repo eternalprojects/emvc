@@ -1,6 +1,7 @@
 <?php
 
 namespace Test\Jpl\Core\View\Helper;
+require_once (dirname(__FILE__) . '/../../../../TestHelper.php');
 use \Jpl\Core\View\Helper\Url;
 
 
