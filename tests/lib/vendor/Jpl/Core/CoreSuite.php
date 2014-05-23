@@ -35,7 +35,7 @@ class CoreSuite extends \PHPUnit_Framework_TestSuite
         $this->addTestSuite('\Test\Jpl\Core\Controller\FrontTest');
         $this->addTestSuite('\Test\Jpl\Core\Registry\ApplicationTest');
         $this->addTestSuite('\Test\Jpl\Core\View\Helper\UrlTest');
-        $this->addTestSuite('\Test\Jpl\Core\Mail');
+        $this->addTestSuite('\Test\Jpl\Core\MailTest');
         
     }
 
