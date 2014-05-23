@@ -31,7 +31,7 @@ class MailTest extends \PHPUnit_Framework_TestCase {
     }
     public function testHtmlType(){
         $mail = new Mail('html');
-        $this->assertEqauls("html", $mail->getType());
+        $this->assertEquals("html", $mail->getType());
     }
 
     public function testSetType(){

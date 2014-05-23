@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="becdea39-3497-43a3-b106-a2d39b7bd89e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php" afterPath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/View/Helper/UrlTest.php" afterPath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/View/Helper/UrlTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emvc.iws" />
@@ -32,7 +31,7 @@
       <file leaf-file-name="MailTest.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.057068743" vertical-offset="0" max-vertical-offset="1100">
+            <state line="33" column="25" selection-start="847" selection-end="847" vertical-scroll-proportion="0.5149157" vertical-offset="329" max-vertical-offset="1100">
               <folding />
             </state>
           </provider>
@@ -495,7 +494,11 @@
       <created>1400869598000</created>
       <updated>1400869598000</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="EMVC-7&#10;&#10;Added the MailTest class to the Core Suite&#10;Added tests for the Mail::setType method&#10;&#10;Conflicts:&#10;&#9;tests/lib/vendor/Jpl/Core/CoreSuite.php&#10;">
+      <created>1400870301932</created>
+      <updated>1400870301932</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -896,7 +899,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.057068743" vertical-offset="0" max-vertical-offset="1100">
+        <state line="33" column="25" selection-start="847" selection-end="847" vertical-scroll-proportion="0.5149157" vertical-offset="329" max-vertical-offset="1100">
           <folding />
         </state>
       </provider>
