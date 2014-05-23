@@ -203,8 +203,9 @@ class Mail
      * @throws \Jpl\Core\Exception
      * @return \Jpl\Core\Mail
      */
-    public function __constructor($type = "plain")
+    public function __constructor($type = null)
     {
+        echo $type;
         $this->setType($type);
         return $this;
     }
