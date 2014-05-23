@@ -11,6 +11,7 @@ require_once 'Controller/FrontTest.php';
 //require_once 'Controller/PageTest.php';
 require_once 'Registry/ApplicationTest.php';
 require_once 'View/Helper/UrlTest.php';
+require_once 'MailTest.php';
 
 
 /**

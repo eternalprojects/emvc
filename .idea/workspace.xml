@@ -49,7 +49,7 @@
       <file leaf-file-name="CoreSuite.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/CoreSuite.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="52" selection-start="1292" selection-end="1292" vertical-scroll-proportion="0.6904156" vertical-offset="0" max-vertical-offset="1232">
+            <state line="13" column="28" selection-start="417" selection-end="417" vertical-scroll-proportion="0.24257846" vertical-offset="0" max-vertical-offset="1254">
               <folding />
             </state>
           </provider>
@@ -386,7 +386,11 @@
       <created>1400866134315</created>
       <updated>1400866134315</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="EMVC-7&#10;&#10;Fixed the name of the exception class called in MailTest::testWrongType">
+      <created>1400866540889</created>
+      <updated>1400866540889</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -827,7 +831,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/CoreSuite.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="52" selection-start="1292" selection-end="1292" vertical-scroll-proportion="0.6904156" vertical-offset="0" max-vertical-offset="1232">
+        <state line="13" column="28" selection-start="417" selection-end="417" vertical-scroll-proportion="0.24257846" vertical-offset="0" max-vertical-offset="1254">
           <folding />
         </state>
       </provider>
