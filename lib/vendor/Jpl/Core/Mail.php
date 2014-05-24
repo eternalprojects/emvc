@@ -203,15 +203,15 @@ class Mail
      * @throws \Jpl\Core\Exception
      * @return \Jpl\Core\Mail
      */
-    public function __constructor($type = null)
+    public function __constructor($data = null)
     {
-        error_log($type);
-        $this->setType($type);
+        error_log($data);
+        $this->setType($data);
         return $this;
     }
 
     public function setType($type){
-        if(($type != "plain" || $type != "html") || !is_string($type)){
+        if(($type != "plain" && $type != "html") || !is_string($type)){
             throw new Exception("Invalid mail type provided: '".$type."'.  Only 'plain' and 'html' are supported");
         }
         $this->_type = $type;
