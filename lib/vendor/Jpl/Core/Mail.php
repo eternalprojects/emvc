@@ -205,13 +205,13 @@ class Mail
      */
     public function __constructor($type = null)
     {
-        echo $type;
+        error_log($type);
         $this->setType($type);
         return $this;
     }
 
     public function setType($type){
-        if(($type != "plain" && $type != "html") || !is_string($type)){
+        if(($type != "plain" || $type != "html") || !is_string($type)){
             throw new Exception("Invalid mail type provided: '".$type."'.  Only 'plain' and 'html' are supported");
         }
         $this->_type = $type;
