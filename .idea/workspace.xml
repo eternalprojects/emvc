@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="becdea39-3497-43a3-b106-a2d39b7bd89e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Mail.php" afterPath="$PROJECT_DIR$/lib/vendor/Jpl/Core/Mail.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php" afterPath="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emvc.iws" />
@@ -28,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MailTest.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MailTest.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="29" selection-start="915" selection-end="915" vertical-scroll-proportion="-8.645162" vertical-offset="480" max-vertical-offset="1166">
+            <state line="33" column="31" selection-start="927" selection-end="927" vertical-scroll-proportion="0.5405405" vertical-offset="506" max-vertical-offset="1166">
               <folding />
             </state>
           </provider>
@@ -46,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mail.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Mail.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Mail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="214" column="10" selection-start="4854" selection-end="4854" vertical-scroll-proportion="0.7027027" vertical-offset="3762" max-vertical-offset="15972">
+            <state line="214" column="10" selection-start="4854" selection-end="4854" vertical-scroll-proportion="-8.5161295" vertical-offset="3784" max-vertical-offset="15972">
               <folding />
             </state>
           </provider>
@@ -139,8 +139,8 @@
         <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Config/Json.php" />
         <option value="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/CoreSuite.php" />
         <option value="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/View/Helper/UrlTest.php" />
-        <option value="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php" />
         <option value="$PROJECT_DIR$/lib/vendor/Jpl/Core/Mail.php" />
+        <option value="$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php" />
       </list>
     </option>
   </component>
@@ -518,7 +518,15 @@
       <created>1400961789071</created>
       <updated>1400961789071</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="EMVC-7&#10;&#10;Set the mail object to null in each test">
+      <created>1400962088440</created>
+      <updated>1400962088440</updated>
+    </task>
+    <task id="LOCAL-00018" summary="EMVC-7&#10;&#10;Set the mail object to null in each test">
+      <created>1400994688514</created>
+      <updated>1400994688514</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -910,13 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="29" selection-start="915" selection-end="915" vertical-scroll-proportion="-8.645162" vertical-offset="480" max-vertical-offset="1166">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/TestHelper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1210">
@@ -926,7 +927,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/vendor/Jpl/Core/Mail.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="10" selection-start="4854" selection-end="4854" vertical-scroll-proportion="0.7027027" vertical-offset="3762" max-vertical-offset="15972">
+        <state line="214" column="10" selection-start="4854" selection-end="4854" vertical-scroll-proportion="-8.5161295" vertical-offset="3784" max-vertical-offset="15972">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/lib/vendor/Jpl/Core/MailTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="31" selection-start="927" selection-end="927" vertical-scroll-proportion="0.5405405" vertical-offset="506" max-vertical-offset="1166">
           <folding />
         </state>
       </provider>

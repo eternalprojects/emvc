@@ -31,6 +31,7 @@ class MailTest extends \PHPUnit_Framework_TestCase {
     }
     public function testHtmlType(){
         $mail = new \Jpl\Core\Mail('html');
+        $mail->setType('html');
         $this->assertEquals("html", $mail->getType());
         $mail = null;
     }
