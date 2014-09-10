@@ -261,6 +261,10 @@ class Mail
         }
     }
 
+    public function getTo(){
+        return $this->_mailTo;
+    }
+
     /**
      * Set who should receive a copy of the email
      *
